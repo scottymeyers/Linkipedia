@@ -1,0 +1,10 @@
+extends ./layout.jade
+
+block content
+  .row
+    .large-12.columns
+      if searches
+        for search in searches
+          p #{search.created_at} - #{search.body} 
+      else
+        p get on it!

@@ -1,0 +1,33 @@
+extends layout.jade
+
+block content
+  .row
+    .large-12.columns
+      p We'll begin looking for your End term on the Wikipedia page for your Start term. If it's not found we'll continue looking on all the internal Wikipedia links in the content body of that page and further the search on all of the child page internal content links.
+      p We'll look for the string, so if it's part of a bigger word, that counts as a result. if you want an exact result. Select the Exact option.
+      p Hold tight, this could take a while.
+      form#search(action='scrape', data-abide='ajax')
+        fieldset
+          .row
+            .large-6.columns
+              label Start
+                input(name='start', type='text', required='', pattern='[a-zA-Z]+')
+              small.error 'Start' is required and must be a string.
+            .large-6.columns
+              label End
+                input(name='end', type='text', required='', pattern='[a-zA-Z]+')
+              small.error 'End' is required and must be a string.
+          .row
+            .large-12.columns.text-right
+              label Exact Word
+                input(name='exact', type='checkbox', value='true')
+          .row
+            .large-12.columns.text-right
+              .loader
+              button.reset.medium.secondary.button(type='reset')
+                i
+              button.submit.medium.primary.button(type='submit')
+                i
+  .row
+    .large-12.columns
+      #results

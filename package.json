@@ -1,0 +1,21 @@
+{
+  "name": "node-wiki-scrape",
+  "version": "0.0.1",
+  "description": "Find connections in wikipedia",
+  "main": "server.js",
+  "author": "romeo",
+  "dependencies": {
+    "express": "latest",
+    "request": "latest",
+    "cheerio": "latest"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "connect-timeout": "^1.7.0",
+    "hbs": "^4.0.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.2.6",
+    "socket.io": "^1.3.7",
+    "underscore-node": "^0.1.2"
+  }
+}
