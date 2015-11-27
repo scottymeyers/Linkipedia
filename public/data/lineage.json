@@ -2,28 +2,12 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/cloud",
+        "href": "/wiki/cell",
         "searched": true,
         "children": [
             {
-                "id": 2,
-                "parent": 1,
-                "href": "/wiki/Meteorology",
-                "searched": true,
-                "children": [
-                    {
-                        "id": 180,
-                        "parent": 2,
-                        "href": "/wiki/St._Albert_the_Great",
-                        "searched": true,
-                        "children": [
-                            {
-                                "href": "skeleton",
-                                "parent": 180
-                            }
-                        ]
-                    }
-                ]
+                "href": "phone",
+                "parent": 1
             }
         ]
     }

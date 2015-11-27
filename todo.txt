@@ -1,8 +1,6 @@
-~ email result optional..
-~ limit active connections to 1, create a user queue
 ~ consider live updates, like every 10 or so results, using socket IO?
-~ use Wikipedia API, if faster?
 ~ make app config object, cleanup /scrape vars
-~ seperation of concerns
+~ naming conventions
 ~ six degrees of seperation
 ~ error when not enough links or no links on first page or resulting pages
+~ limit active connections to 1, create a user queue

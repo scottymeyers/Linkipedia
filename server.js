@@ -1,26 +1,26 @@
 // set up ===============================================
 var bodyParser = require('body-parser');
 var database   = require('./config/database');
+var mongoose   = require('mongoose');
+var timeout    = require('connect-timeout');
 
 var express    = require('express');
 var app        = express();
-
-var mongoose   = require('mongoose');
-var path       = require('path');
-var timeout    = require('connect-timeout');
+// var path       = require('path');
 
 // configuration ========================================
 mongoose.connect(database.url);
 
 /*
-  1. set the static files location
+  1. set /public for assets
   2. parse application/x-www-form-urlencoded
   3. parse application/json
-  4. no timeout x for /scrap specifically, investigate further
-  5. use jade as templating lang
-  6. set /views as default views directory
-  7. listen (start app with node server.js)
+  4. 1 hour timeout
+  5. use jade
+  6. set /views for views
+  7. listen
 */
+
 app
   .use(express.static('public'))
   .use(bodyParser.urlencoded({ extended: true }))
@@ -33,6 +33,6 @@ app
 // routes ===============================================
 require('./app/routes')(app);
 
-console.log('http://localhost:8081/');
-
 exports = module.exports = app;
+
+console.log('http://localhost:8081/');
