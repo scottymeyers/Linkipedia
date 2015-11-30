@@ -3,15 +3,18 @@ var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
 
-// load the saved searches model
+// load Search model
 var Search = require('../models/search');
 
-// get a list of all performed searches
-module.exports.get_searches = function(res) {
+// list of all performed searches
+module.exports.get_searches = function(req, res) {
   Search.find({}, function(err, searches) {
     if (err) throw err;
 
-    res.render('history', {searches: searches});
+    res.render('history', {
+      path: req.path,
+      searches: searches
+    });
   });
 };
 
@@ -45,7 +48,7 @@ module.exports.create_search = function(req, res) {
               var $ = cheerio.load(html);
 
               // store all interal content links in json if they aren't already added and aren't media files, etc :
-              $('#mw-content-text p a[href^="/wiki/"]').each(function(){
+              $('#bodyContent a[href^="/wiki/"]').each(function(){
                   if (_.where(json, { href: $(this).attr('href') }).length <= 0 && $(this).attr('href').indexOf(':') === -1) {
                     json.push({'id': id++, 'parent': parentId, 'href': $(this).attr('href'), 'searched': false });
                   }
@@ -82,7 +85,7 @@ module.exports.create_search = function(req, res) {
 
       // no URLs unsearched URLs exist (sometimes a page will have zero content and this catches it)
       if (json.length <= 1 || !nextUrl) {
-        res.send({error: 'Not enough URLs' });
+        res.send({ error: 'Not enough URLs on the start page.' });
       } else {
         nextUrl.searched = true;
         makeRequest('https://en.wikipedia.org' + nextUrl.href, nextUrl.id);
@@ -91,13 +94,11 @@ module.exports.create_search = function(req, res) {
   }
 
   function sendResponse(data, count){
-    var parent;
-    var time = Date.now();
     var i = data.length;
 
     while (i--) {
       if (data[i].parent !== 0) {
-        parent = _.findWhere(data, { id: data[i].parent });
+        var parent = _.findWhere(data, { id: data[i].parent });
         _.extend(parent, { children: [data[i]] });
         data.splice(i, 1);
       }
@@ -124,14 +125,14 @@ module.exports.create_search = function(req, res) {
       lineage.unshift(parent);
     }
 
-    // place end term at end of array
+    // include end term
     lineage.push({href: term, parent: lineage[lineage.length-1].id });
 
     for (var i = 0; i < lineage.length; i++){
       searchStrings.push(lineage[i].href);
     }
 
-    // create a new user called chris
+    // create search to save
     var search = new Search({
       body: searchStrings
     });
@@ -142,6 +143,7 @@ module.exports.create_search = function(req, res) {
       console.log('Search saved successfully!');
     });
 
+    // return the lineage and total URLs searched
     sendResponse(lineage, count);
   }
 };

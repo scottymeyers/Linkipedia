@@ -3,10 +3,12 @@ $(function(){
   // foundation (forms)
 	$(document).foundation();
 
-  $('#reset').on('click', function(){
-    window.location = window.location;
+  // reset button
+  $('.reset').on('click', function(){
+    location.reload();
   });
 
+  // form submit
 	$('#search').on('valid.fndtn.abide', function() {
 		var formData = {
 		  'start' : $('input[name="start"]').val(),
@@ -29,7 +31,8 @@ $(function(){
       $('body').removeClass('loading');
 
       if (data.error) {
-        $('#results').append('<span class="error">There was an error, check your terms and try again.</span>');
+        console.log(data.error);
+        $('#results').append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
       } else {
         visualize(data);
       }

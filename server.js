@@ -2,14 +2,14 @@
 var bodyParser = require('body-parser');
 var database   = require('./config/database');
 var mongoose   = require('mongoose');
+var sass       = require('node-sass');
 var timeout    = require('connect-timeout');
 
 var express    = require('express');
 var app        = express();
 
-app.locals.moment = require('moment');
-
 // configuration ========================================
+app.locals.moment = require('moment');
 mongoose.connect(database.url);
 
 /*
@@ -22,18 +22,17 @@ mongoose.connect(database.url);
   7. listen
 */
 
-app
-  .use(express.static('public'))
-  .use(bodyParser.urlencoded({ extended: true }))
-  .use(bodyParser.json())
-  .use(timeout('3600s'))
-  .set('view engine', 'jade')
-  .set('views', __dirname + '/views')
-  .listen('8081');
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(timeout('3600s'));
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+app.listen('8081');
 
 // routes ===============================================
 require('./app/routes')(app);
 
 exports = module.exports = app;
 
-console.log('http://localhost:8081/');
+console.log('App is running.');

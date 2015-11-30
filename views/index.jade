@@ -3,9 +3,10 @@ extends layout.jade
 block content
     .row
         .large-12.columns
-          p We'll begin looking for your End term on the Wikipedia page for your Start term. If it's not found we'll continue looking on all the internal Wikipedia links in the content body of that page and further the search on all of the child page internal content links.
+          p We'll start searching for your end term on the start term Article page. If not found, we'll continue looking on all the linked Wikipedia Article links in the content of the current page and continue the search on all of the child page internal content links.
           p We'll look for the string, so if it's part of a bigger word, that counts as a result. if you want an exact result. Select the Exact option.
           p Hold tight, this could take a while.
+
           form#search(action='scrape', data-abide='ajax')
             fieldset
               .row

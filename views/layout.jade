@@ -2,23 +2,25 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title Wikipedia Lineage
+    title Six Degrees of Wikipedia
     link(href='/css/foundation.min.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
   body
 
     .content
         .row
-            .large-12.columns
-                h1 Wikipedia Lineage
+            .large-1.small-3.columns
+                img(class='logo', src='/img/logo.png', alt='Wikipedia Lineage')
+            .large-11.small-9.columns
+                h1.h1 Six Degrees of Wikipedia
                 ul.menu
-                  li
+                  li(class = path =='/' ? 'active':undefined)
                     a(href='/') Home
-                  li
-                    &nbsp;|&nbsp;
-                  li
+                  li(class = path =='/history' ? 'active':undefined)
                     a(href='/history') History
-                hr
+        .row
+          .large-12.columns
+            hr
         block content
 
     script(src='/js/jquery-2.1.4.min.js')

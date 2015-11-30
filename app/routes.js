@@ -4,12 +4,12 @@ var searchController = require('./controllers/search');
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
-    res.render('index');
+    res.render('index', { path: req.path });
   });
 
   // history of searches
   app.get('/history', function(req, res) {
-    searchController.get_searches(res);
+    searchController.get_searches(req, res);
   });
 
   // move this to an outside service? use ruby/python?

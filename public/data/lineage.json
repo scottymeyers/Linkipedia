@@ -2,12 +2,20 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/cell",
+        "href": "/wiki/cheese",
         "searched": true,
         "children": [
             {
-                "href": "phone",
-                "parent": 1
+                "id": 7,
+                "parent": 1,
+                "href": "/wiki/Milk",
+                "searched": true,
+                "children": [
+                    {
+                        "href": "burger",
+                        "parent": 7
+                    }
+                ]
             }
         ]
     }

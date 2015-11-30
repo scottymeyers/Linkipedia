@@ -5,9 +5,9 @@ block content
         .large-12.columns.history
             if searches
                 ul
-                    for search in searches
+                    for search in searches.reverse()
                         li
-                            small #{moment(search.created_at).format('MM/DD/YYYY')}
-                            em #{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ')}
+                            span #{moment(search.created_at).format('MMMM Do, YYYY')}
+                            em &nbsp;-&nbsp;#{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ')}
                     else
                         p get on it!
