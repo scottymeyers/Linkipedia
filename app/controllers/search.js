@@ -1,11 +1,12 @@
-var cheerio          = require('cheerio');
-var fs               = require('fs');
-var request          = require('request');
-var _                = require('underscore-node');
+var cheerio = require('cheerio');
+var fs      = require('fs');
+var request = require('request');
+var _       = require('underscore-node');
 
 // load the saved searches model
 var Search = require('../models/search');
 
+// get a list of all performed searches
 module.exports.get_searches = function(res) {
   Search.find({}, function(err, searches) {
     if (err) throw err;
@@ -14,6 +15,7 @@ module.exports.get_searches = function(res) {
   });
 };
 
+// initialize a search
 module.exports.create_search = function(req, res) {
   var start = req.body.start;
   var term = req.body.end;
@@ -24,18 +26,18 @@ module.exports.create_search = function(req, res) {
   var json = [{ id: 1, parent: 0, href: '/wiki/'+ start, searched: true }];
   var connectionClosed = false;
 
+  // if the connection is closed, stop this search
   req.connection.on('close', function(){
     connectionClosed = true;
   });
 
-  // initial request
+  // initialize
   makeRequest(baseUrl);
 
-  // accepts URL, calls two further functions to store current URL's internal liks 
+  // accepts a URL, calls two further functions to store current URL's internal liks
   function makeRequest(url){
     console.log('> ' + url);
 
-    // stop making requests when the client leaves
     if (connectionClosed !== true) {
       request(url, function(error, response, html) {
 
@@ -65,6 +67,7 @@ module.exports.create_search = function(req, res) {
   function searchForTerm(url, $){
     var nextUrl, searchTerm;
 
+    // if exact, use Regex
     if (exact) {
       searchTerm = new RegExp('\\b'+ term +'\\b', 'gi');
     } else {
@@ -74,10 +77,10 @@ module.exports.create_search = function(req, res) {
     if ($('#bodyContent').text().match(searchTerm)) {
       createLineageArray(url);
     } else {
-      // if not found, look for first object in json that hasn't been searched
+      // otherwise, find first saved unsearched URL
       nextUrl = _.findWhere(json, {searched: false});
 
-      // fallback if no URLs unsearched URLs exist, sometimes a page will have zero content and this catches it
+      // no URLs unsearched URLs exist (sometimes a page will have zero content and this catches it)
       if (json.length <= 1 || !nextUrl) {
         res.send({error: 'Not enough URLs' });
       } else {
@@ -100,12 +103,10 @@ module.exports.create_search = function(req, res) {
       }
     }
 
-    //fs.writeFile('public/data/lineage-'+ time +'.json', JSON.stringify(data, null, 4), function() {
     fs.writeFile('public/data/lineage.json', JSON.stringify(data, null, 4), function() {
         console.log('File successfully written! - Check your project directory for the lineage.json file');
     });
 
-    // res.send({status: 'OK', url: '/data/lineage-'+ time +'.json', count: count});
     res.send({status: 'OK', url: '/data/lineage.json', count: count });
   }
 

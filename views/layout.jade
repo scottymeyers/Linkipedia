@@ -6,15 +6,19 @@ html
     link(href='/css/foundation.min.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
   body
+
     .content
         .row
             .large-12.columns
                 h1 Wikipedia Lineage
-                ul
+                ul.menu
                   li
                     a(href='/') Home
                   li
+                    &nbsp;|&nbsp;
+                  li
                     a(href='/history') History
+                hr
         block content
 
     script(src='/js/jquery-2.1.4.min.js')

@@ -1,6 +1,5 @@
 ~ consider live updates, like every 10 or so results, using socket IO?
 ~ make app config object, cleanup /scrape vars
-~ naming conventions
 ~ six degrees of seperation
 ~ error when not enough links or no links on first page or resulting pages
 ~ limit active connections to 1, create a user queue

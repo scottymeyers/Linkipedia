@@ -3,7 +3,7 @@ body { background: #f6f6f6; }
 .content {
 	height: 80%;
 	margin: 0;
-	padding: 10% 0;
+	padding: 40px 0 0;
 }
 
 fieldset, svg { border-color: #a7d7f9; }
@@ -39,16 +39,21 @@ input[type="checkbox"] { margin-left: 10px; }
 	background-size: 100%;
 }
 
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 3px;
+.menu {
+  list-style-type: none;
+  margin: 0 0 10px;
 }
 
-.node text { font: 12px sans-serif; }
+.menu li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
 
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 2px;
+.history ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.history small {
+  margin-right: 10px;
 }

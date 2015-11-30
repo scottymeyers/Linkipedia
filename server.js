@@ -6,7 +6,8 @@ var timeout    = require('connect-timeout');
 
 var express    = require('express');
 var app        = express();
-// var path       = require('path');
+
+app.locals.moment = require('moment');
 
 // configuration ========================================
 mongoose.connect(database.url);

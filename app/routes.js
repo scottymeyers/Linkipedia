@@ -1,4 +1,4 @@
-var searchController = require('./controllers/searches');
+var searchController = require('./controllers/search');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {

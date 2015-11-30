@@ -1,10 +1,13 @@
 extends ./layout.jade
 
 block content
-  .row
-    .large-12.columns
-      if searches
-        for search in searches
-          p #{search.created_at} - #{search.body} 
-      else
-        p get on it!
+    .row
+        .large-12.columns.history
+            if searches
+                ul
+                    for search in searches
+                        li
+                            small #{moment(search.created_at).format('MM/DD/YYYY')}
+                            em #{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ')}
+                    else
+                        p get on it!
