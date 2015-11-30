@@ -23,10 +23,9 @@ module.exports.create_search = function(req, res) {
   var start = req.body.start;
   var term = req.body.end;
   var exact = req.body.exact;
-  var baseUrl  = 'https://en.wikipedia.org/wiki/' + req.body.start;
+  var json;
   var id = 2;
   var parentId = 1;
-  var json = [{ id: 1, parent: 0, href: '/wiki/'+ start, searched: true }];
   var connectionClosed = false;
 
   // if the connection is closed, stop this search
@@ -34,15 +33,24 @@ module.exports.create_search = function(req, res) {
     connectionClosed = true;
   });
 
-  // initialize
-  makeRequest(baseUrl);
+  // initialize ~ figure out how to clean this approach up
+  request('https://en.wikipedia.org/wiki/' + start, function(error, response, html) {
+    if (!error) {
+      json = [{ id: 1, parent: 0, href: response.request.uri.path, searched: true }];
+      makeRequest(response.request.uri.href);
+    } else {
+      console.log('ERROR: ' + error);
+      res.send({error: error });
+    }
+  });
 
   // accepts a URL, calls two further functions to store current URL's internal liks
   function makeRequest(url){
-    console.log('> ' + url);
-
     if (connectionClosed !== true) {
+      console.log('> ' + url);
+
       request(url, function(error, response, html) {
+
 
           if (!error) {
               var $ = cheerio.load(html);
@@ -56,7 +64,7 @@ module.exports.create_search = function(req, res) {
 
               parentId++;
 
-              // then search for our end term
+              // then Fearch for our end term
               searchForTerm(url, $);
           } else {
             console.log('ERROR: ' + error);
@@ -74,7 +82,7 @@ module.exports.create_search = function(req, res) {
     if (exact) {
       searchTerm = new RegExp('\\b'+ term +'\\b', 'gi');
     } else {
-      searchTerm = term;
+      searchTerm = new RegExp(term, 'gi');
     }
 
     if ($('#bodyContent').text().match(searchTerm)) {
@@ -85,7 +93,7 @@ module.exports.create_search = function(req, res) {
 
       // no URLs unsearched URLs exist (sometimes a page will have zero content and this catches it)
       if (json.length <= 1 || !nextUrl) {
-        res.send({ error: 'Not enough URLs on the start page.' });
+        res.send({ error: 'No remaining URLs.' });
       } else {
         nextUrl.searched = true;
         makeRequest('https://en.wikipedia.org' + nextUrl.href, nextUrl.id);
@@ -146,4 +154,5 @@ module.exports.create_search = function(req, res) {
     // return the lineage and total URLs searched
     sendResponse(lineage, count);
   }
+
 };

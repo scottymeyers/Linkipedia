@@ -1,4 +1,2 @@
 ~ consider live updates, like every 10 or so results, using socket IO?
-~ six degrees of seperation
-
 ~ history > soph, should return first page if loose, not if exact.
