@@ -1,0 +1,3998 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/History",
+        "searched": true,
+        "children": [
+            {
+                "href": "soph",
+                "parent": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "parent": 1,
+        "href": "/wiki/History_of_the_world",
+        "searched": false
+    },
+    {
+        "id": 3,
+        "parent": 1,
+        "href": "/wiki/History_(disambiguation)",
+        "searched": false
+    },
+    {
+        "id": 4,
+        "parent": 1,
+        "href": "/wiki/Nikolaos_Gysis",
+        "searched": false
+    },
+    {
+        "id": 5,
+        "parent": 1,
+        "href": "/wiki/George_Santayana",
+        "searched": false
+    },
+    {
+        "id": 6,
+        "parent": 1,
+        "href": "/wiki/Ancient_Greek",
+        "searched": false
+    },
+    {
+        "id": 7,
+        "parent": 1,
+        "href": "/wiki/Umbrella_term",
+        "searched": false
+    },
+    {
+        "id": 8,
+        "parent": 1,
+        "href": "/wiki/Historian",
+        "searched": false
+    },
+    {
+        "id": 9,
+        "parent": 1,
+        "href": "/wiki/Prehistory",
+        "searched": false
+    },
+    {
+        "id": 10,
+        "parent": 1,
+        "href": "/wiki/Narrative",
+        "searched": false
+    },
+    {
+        "id": 11,
+        "parent": 1,
+        "href": "/wiki/Historiography",
+        "searched": false
+    },
+    {
+        "id": 12,
+        "parent": 1,
+        "href": "/wiki/King_Arthur",
+        "searched": false
+    },
+    {
+        "id": 13,
+        "parent": 1,
+        "href": "/wiki/Cultural_heritage",
+        "searched": false
+    },
+    {
+        "id": 14,
+        "parent": 1,
+        "href": "/wiki/Legend",
+        "searched": false
+    },
+    {
+        "id": 15,
+        "parent": 1,
+        "href": "/wiki/Herodotus",
+        "searched": false
+    },
+    {
+        "id": 16,
+        "parent": 1,
+        "href": "/wiki/Greek_historiography",
+        "searched": false
+    },
+    {
+        "id": 17,
+        "parent": 1,
+        "href": "/wiki/Thucydides",
+        "searched": false
+    },
+    {
+        "id": 18,
+        "parent": 1,
+        "href": "/wiki/Spring_and_Autumn_Annals",
+        "searched": false
+    },
+    {
+        "id": 19,
+        "parent": 1,
+        "href": "/wiki/List_of_academic_disciplines#History",
+        "searched": false
+    },
+    {
+        "id": 20,
+        "parent": 1,
+        "href": "/wiki/Frederick_Dielman",
+        "searched": false
+    },
+    {
+        "id": 21,
+        "parent": 1,
+        "href": "/wiki/Polytonic",
+        "searched": false
+    },
+    {
+        "id": 22,
+        "parent": 1,
+        "href": "/wiki/Aristotle",
+        "searched": false
+    },
+    {
+        "id": 23,
+        "parent": 1,
+        "href": "/wiki/History_of_Animals",
+        "searched": false
+    },
+    {
+        "id": 24,
+        "parent": 1,
+        "href": "/wiki/Homeric_Hymns",
+        "searched": false
+    },
+    {
+        "id": 25,
+        "parent": 1,
+        "href": "/wiki/Heraclitus",
+        "searched": false
+    },
+    {
+        "id": 26,
+        "parent": 1,
+        "href": "/wiki/Athens",
+        "searched": false
+    },
+    {
+        "id": 27,
+        "parent": 1,
+        "href": "/wiki/Ephebos",
+        "searched": false
+    },
+    {
+        "id": 28,
+        "parent": 1,
+        "href": "/wiki/Boeotia",
+        "searched": false
+    },
+    {
+        "id": 29,
+        "parent": 1,
+        "href": "/wiki/Old_Irish",
+        "searched": false
+    },
+    {
+        "id": 30,
+        "parent": 1,
+        "href": "/wiki/Old_Welsh",
+        "searched": false
+    },
+    {
+        "id": 31,
+        "parent": 1,
+        "href": "/wiki/Old_English",
+        "searched": false
+    },
+    {
+        "id": 32,
+        "parent": 1,
+        "href": "/wiki/Old_French",
+        "searched": false
+    },
+    {
+        "id": 33,
+        "parent": 1,
+        "href": "/wiki/Anglo-Norman",
+        "searched": false
+    },
+    {
+        "id": 34,
+        "parent": 1,
+        "href": "/wiki/Middle_English",
+        "searched": false
+    },
+    {
+        "id": 35,
+        "parent": 1,
+        "href": "/wiki/Ancrene_Riwle",
+        "searched": false
+    },
+    {
+        "id": 36,
+        "parent": 1,
+        "href": "/wiki/John_Gower",
+        "searched": false
+    },
+    {
+        "id": 37,
+        "parent": 1,
+        "href": "/wiki/Confessio_Amantis",
+        "searched": false
+    },
+    {
+        "id": 38,
+        "parent": 1,
+        "href": "/wiki/Renaissance",
+        "searched": false
+    },
+    {
+        "id": 39,
+        "parent": 1,
+        "href": "/wiki/Francis_Bacon",
+        "searched": false
+    },
+    {
+        "id": 40,
+        "parent": 1,
+        "href": "/wiki/Natural_history",
+        "searched": false
+    },
+    {
+        "id": 41,
+        "parent": 1,
+        "href": "/wiki/Memory",
+        "searched": false
+    },
+    {
+        "id": 42,
+        "parent": 1,
+        "href": "/wiki/Science",
+        "searched": false
+    },
+    {
+        "id": 43,
+        "parent": 1,
+        "href": "/wiki/Reason",
+        "searched": false
+    },
+    {
+        "id": 44,
+        "parent": 1,
+        "href": "/wiki/Poetry",
+        "searched": false
+    },
+    {
+        "id": 45,
+        "parent": 1,
+        "href": "/wiki/Fantasy",
+        "searched": false
+    },
+    {
+        "id": 46,
+        "parent": 1,
+        "href": "/wiki/Synthetic_language",
+        "searched": false
+    },
+    {
+        "id": 47,
+        "parent": 1,
+        "href": "/wiki/Storytelling",
+        "searched": false
+    },
+    {
+        "id": 48,
+        "parent": 1,
+        "href": "/wiki/European_languages",
+        "searched": false
+    },
+    {
+        "id": 49,
+        "parent": 1,
+        "href": "/wiki/The_Historians%27_History_of_the_World",
+        "searched": false
+    },
+    {
+        "id": 50,
+        "parent": 1,
+        "href": "/wiki/Benedetto_Croce",
+        "searched": false
+    },
+    {
+        "id": 51,
+        "parent": 1,
+        "href": "/wiki/Humanities",
+        "searched": false
+    },
+    {
+        "id": 52,
+        "parent": 1,
+        "href": "/wiki/Social_sciences",
+        "searched": false
+    },
+    {
+        "id": 53,
+        "parent": 1,
+        "href": "/wiki/Fernand_Braudel",
+        "searched": false
+    },
+    {
+        "id": 54,
+        "parent": 1,
+        "href": "/wiki/Economics",
+        "searched": false
+    },
+    {
+        "id": 55,
+        "parent": 1,
+        "href": "/wiki/Anthropology",
+        "searched": false
+    },
+    {
+        "id": 56,
+        "parent": 1,
+        "href": "/wiki/Geography",
+        "searched": false
+    },
+    {
+        "id": 57,
+        "parent": 1,
+        "href": "/wiki/Oral_tradition",
+        "searched": false
+    },
+    {
+        "id": 58,
+        "parent": 1,
+        "href": "/wiki/Archaeology",
+        "searched": false
+    },
+    {
+        "id": 59,
+        "parent": 1,
+        "href": "/wiki/Annapolis,_Maryland",
+        "searched": false
+    },
+    {
+        "id": 60,
+        "parent": 1,
+        "href": "/wiki/Culture",
+        "searched": false
+    },
+    {
+        "id": 61,
+        "parent": 1,
+        "href": "/wiki/Big_History",
+        "searched": false
+    },
+    {
+        "id": 62,
+        "parent": 1,
+        "href": "/wiki/Theory",
+        "searched": false
+    },
+    {
+        "id": 63,
+        "parent": 1,
+        "href": "/wiki/Hominina",
+        "searched": false
+    },
+    {
+        "id": 64,
+        "parent": 1,
+        "href": "/wiki/Pliocene",
+        "searched": false
+    },
+    {
+        "id": 65,
+        "parent": 1,
+        "href": "/wiki/Three-age_system",
+        "searched": false
+    },
+    {
+        "id": 66,
+        "parent": 1,
+        "href": "/wiki/Stone_Age",
+        "searched": false
+    },
+    {
+        "id": 67,
+        "parent": 1,
+        "href": "/wiki/Lower_Paleolithic",
+        "searched": false
+    },
+    {
+        "id": 68,
+        "parent": 1,
+        "href": "/wiki/Homo",
+        "searched": false
+    },
+    {
+        "id": 69,
+        "parent": 1,
+        "href": "/wiki/Homo_erectus",
+        "searched": false
+    },
+    {
+        "id": 70,
+        "parent": 1,
+        "href": "/wiki/Middle_Paleolithic",
+        "searched": false
+    },
+    {
+        "id": 71,
+        "parent": 1,
+        "href": "/wiki/Archaic_Homo_sapiens",
+        "searched": false
+    },
+    {
+        "id": 72,
+        "parent": 1,
+        "href": "/wiki/Upper_Paleolithic",
+        "searched": false
+    },
+    {
+        "id": 73,
+        "parent": 1,
+        "href": "/wiki/Behavioral_modernity",
+        "searched": false
+    },
+    {
+        "id": 74,
+        "parent": 1,
+        "href": "/wiki/Neolithic",
+        "searched": false
+    },
+    {
+        "id": 75,
+        "parent": 1,
+        "href": "/wiki/Cradle_of_civilization",
+        "searched": false
+    },
+    {
+        "id": 76,
+        "parent": 1,
+        "href": "/wiki/Bronze_Age",
+        "searched": false
+    },
+    {
+        "id": 77,
+        "parent": 1,
+        "href": "/wiki/Bronze_Age_China",
+        "searched": false
+    },
+    {
+        "id": 78,
+        "parent": 1,
+        "href": "/wiki/Bronze_Age_Europe",
+        "searched": false
+    },
+    {
+        "id": 79,
+        "parent": 1,
+        "href": "/wiki/Bronze_Age_India",
+        "searched": false
+    },
+    {
+        "id": 80,
+        "parent": 1,
+        "href": "/wiki/Ancient_Near_East#Bronze_Age",
+        "searched": false
+    },
+    {
+        "id": 81,
+        "parent": 1,
+        "href": "/wiki/Iron_Age",
+        "searched": false
+    },
+    {
+        "id": 82,
+        "parent": 1,
+        "href": "/wiki/Bronze_Age_collapse",
+        "searched": false
+    },
+    {
+        "id": 83,
+        "parent": 1,
+        "href": "/wiki/Iron_Age_China",
+        "searched": false
+    },
+    {
+        "id": 84,
+        "parent": 1,
+        "href": "/wiki/Iron_Age_Europe",
+        "searched": false
+    },
+    {
+        "id": 85,
+        "parent": 1,
+        "href": "/wiki/Iron_Age_India",
+        "searched": false
+    },
+    {
+        "id": 86,
+        "parent": 1,
+        "href": "/wiki/Iron_Age_Japan",
+        "searched": false
+    },
+    {
+        "id": 87,
+        "parent": 1,
+        "href": "/wiki/Proto-Three_Kingdoms_of_Korea",
+        "searched": false
+    },
+    {
+        "id": 88,
+        "parent": 1,
+        "href": "/wiki/Ancient_Near_East#Iron_Age",
+        "searched": false
+    },
+    {
+        "id": 89,
+        "parent": 1,
+        "href": "/wiki/Nok_culture",
+        "searched": false
+    },
+    {
+        "id": 90,
+        "parent": 1,
+        "href": "/wiki/Ancient_history",
+        "searched": false
+    },
+    {
+        "id": 91,
+        "parent": 1,
+        "href": "/wiki/History_of_writing",
+        "searched": false
+    },
+    {
+        "id": 92,
+        "parent": 1,
+        "href": "/wiki/Postclassical_Era",
+        "searched": false
+    },
+    {
+        "id": 93,
+        "parent": 1,
+        "href": "/wiki/Modern_history",
+        "searched": false
+    },
+    {
+        "id": 94,
+        "parent": 1,
+        "href": "/wiki/Early_modern_period",
+        "searched": false
+    },
+    {
+        "id": 95,
+        "parent": 1,
+        "href": "/wiki/Contemporary_history",
+        "searched": false
+    },
+    {
+        "id": 96,
+        "parent": 1,
+        "href": "/wiki/Future",
+        "searched": false
+    },
+    {
+        "id": 97,
+        "parent": 1,
+        "href": "/wiki/Protohistory",
+        "searched": false
+    },
+    {
+        "id": 98,
+        "parent": 1,
+        "href": "/wiki/Experience",
+        "searched": false
+    },
+    {
+        "id": 99,
+        "parent": 1,
+        "href": "/wiki/Homo_sapiens_sapiens",
+        "searched": false
+    },
+    {
+        "id": 100,
+        "parent": 1,
+        "href": "/wiki/Sub-Saharan_Africa",
+        "searched": false
+    },
+    {
+        "id": 101,
+        "parent": 1,
+        "href": "/wiki/Pre-Columbian",
+        "searched": false
+    },
+    {
+        "id": 102,
+        "parent": 1,
+        "href": "/wiki/Western_world",
+        "searched": false
+    },
+    {
+        "id": 103,
+        "parent": 1,
+        "href": "/wiki/E._H._Carr",
+        "searched": false
+    },
+    {
+        "id": 104,
+        "parent": 1,
+        "href": "/wiki/Australian_Aboriginals",
+        "searched": false
+    },
+    {
+        "id": 105,
+        "parent": 1,
+        "href": "/wiki/M%C4%81ori_people",
+        "searched": false
+    },
+    {
+        "id": 106,
+        "parent": 1,
+        "href": "/wiki/Historical_method",
+        "searched": false
+    },
+    {
+        "id": 107,
+        "parent": 1,
+        "href": "/wiki/Philosophy_of_history",
+        "searched": false
+    },
+    {
+        "id": 108,
+        "parent": 1,
+        "href": "/wiki/Meta-level",
+        "searched": false
+    },
+    {
+        "id": 109,
+        "parent": 1,
+        "href": "/wiki/Worldview",
+        "searched": false
+    },
+    {
+        "id": 110,
+        "parent": 1,
+        "href": "/wiki/History_of_philosophy",
+        "searched": false
+    },
+    {
+        "id": 111,
+        "parent": 1,
+        "href": "/wiki/Library_of_Alexandria",
+        "searched": false
+    },
+    {
+        "id": 112,
+        "parent": 1,
+        "href": "/wiki/Calendar_date",
+        "searched": false
+    },
+    {
+        "id": 113,
+        "parent": 1,
+        "href": "/wiki/Internationalization_and_localization",
+        "searched": false
+    },
+    {
+        "id": 114,
+        "parent": 1,
+        "href": "/wiki/Authorship",
+        "searched": false
+    },
+    {
+        "id": 115,
+        "parent": 1,
+        "href": "/wiki/Integrity",
+        "searched": false
+    },
+    {
+        "id": 116,
+        "parent": 1,
+        "href": "/wiki/Credibility",
+        "searched": false
+    },
+    {
+        "id": 117,
+        "parent": 1,
+        "href": "/wiki/Higher_criticism",
+        "searched": false
+    },
+    {
+        "id": 118,
+        "parent": 1,
+        "href": "/wiki/Lower_criticism",
+        "searched": false
+    },
+    {
+        "id": 119,
+        "parent": 1,
+        "href": "/wiki/Primary_source",
+        "searched": false
+    },
+    {
+        "id": 120,
+        "parent": 1,
+        "href": "/wiki/Halicarnassus",
+        "searched": false
+    },
+    {
+        "id": 121,
+        "parent": 1,
+        "href": "/wiki/History_of_the_Peloponnesian_War",
+        "searched": false
+    },
+    {
+        "id": 122,
+        "parent": 1,
+        "href": "/wiki/Historic_recurrence",
+        "searched": false
+    },
+    {
+        "id": 123,
+        "parent": 1,
+        "href": "/wiki/China",
+        "searched": false
+    },
+    {
+        "id": 124,
+        "parent": 1,
+        "href": "/wiki/East_Asia",
+        "searched": false
+    },
+    {
+        "id": 125,
+        "parent": 1,
+        "href": "/wiki/Han_Dynasty",
+        "searched": false
+    },
+    {
+        "id": 126,
+        "parent": 1,
+        "href": "/wiki/Sima_Qian",
+        "searched": false
+    },
+    {
+        "id": 127,
+        "parent": 1,
+        "href": "/wiki/Shiji",
+        "searched": false
+    },
+    {
+        "id": 128,
+        "parent": 1,
+        "href": "/wiki/Records_of_the_Grand_Historian",
+        "searched": false
+    },
+    {
+        "id": 129,
+        "parent": 1,
+        "href": "/wiki/Chinese_Historiography",
+        "searched": false
+    },
+    {
+        "id": 130,
+        "parent": 1,
+        "href": "/wiki/Twenty-Four_Histories",
+        "searched": false
+    },
+    {
+        "id": 131,
+        "parent": 1,
+        "href": "/wiki/Augustine_of_Hippo",
+        "searched": false
+    },
+    {
+        "id": 132,
+        "parent": 1,
+        "href": "/wiki/Western_Christianity",
+        "searched": false
+    },
+    {
+        "id": 133,
+        "parent": 1,
+        "href": "/wiki/Western_thought",
+        "searched": false
+    },
+    {
+        "id": 134,
+        "parent": 1,
+        "href": "/wiki/Sacred_history",
+        "searched": false
+    },
+    {
+        "id": 135,
+        "parent": 1,
+        "href": "/wiki/Georg_Wilhelm_Friedrich_Hegel",
+        "searched": false
+    },
+    {
+        "id": 136,
+        "parent": 1,
+        "href": "/wiki/Philosophy",
+        "searched": false
+    },
+    {
+        "id": 137,
+        "parent": 1,
+        "href": "/wiki/Secular",
+        "searched": false
+    },
+    {
+        "id": 138,
+        "parent": 1,
+        "href": "/wiki/Muqaddimah",
+        "searched": false
+    },
+    {
+        "id": 139,
+        "parent": 1,
+        "href": "/wiki/Historiography_of_early_Islam",
+        "searched": false
+    },
+    {
+        "id": 140,
+        "parent": 1,
+        "href": "/wiki/Sociology_in_medieval_Islam",
+        "searched": false
+    },
+    {
+        "id": 141,
+        "parent": 1,
+        "href": "/wiki/Ibn_Khaldun",
+        "searched": false
+    },
+    {
+        "id": 142,
+        "parent": 1,
+        "href": "/wiki/Superstition",
+        "searched": false
+    },
+    {
+        "id": 143,
+        "parent": 1,
+        "href": "/wiki/Scientific_method",
+        "searched": false
+    },
+    {
+        "id": 144,
+        "parent": 1,
+        "href": "/wiki/State_(polity)",
+        "searched": false
+    },
+    {
+        "id": 145,
+        "parent": 1,
+        "href": "/wiki/Communication",
+        "searched": false
+    },
+    {
+        "id": 146,
+        "parent": 1,
+        "href": "/wiki/Propaganda",
+        "searched": false
+    },
+    {
+        "id": 147,
+        "parent": 1,
+        "href": "/wiki/Systemic_bias",
+        "searched": false
+    },
+    {
+        "id": 148,
+        "parent": 1,
+        "href": "/wiki/Leopold_von_Ranke",
+        "searched": false
+    },
+    {
+        "id": 149,
+        "parent": 1,
+        "href": "/wiki/Great_men_theory",
+        "searched": false
+    },
+    {
+        "id": 150,
+        "parent": 1,
+        "href": "/wiki/Social_science",
+        "searched": false
+    },
+    {
+        "id": 151,
+        "parent": 1,
+        "href": "/wiki/Art",
+        "searched": false
+    },
+    {
+        "id": 152,
+        "parent": 1,
+        "href": "/wiki/Fritz_Fischer",
+        "searched": false
+    },
+    {
+        "id": 153,
+        "parent": 1,
+        "href": "/wiki/Emmanuel_Le_Roy_Ladurie",
+        "searched": false
+    },
+    {
+        "id": 154,
+        "parent": 1,
+        "href": "/wiki/Hans-Ulrich_Wehler",
+        "searched": false
+    },
+    {
+        "id": 155,
+        "parent": 1,
+        "href": "/wiki/Bruce_Trigger",
+        "searched": false
+    },
+    {
+        "id": 156,
+        "parent": 1,
+        "href": "/wiki/Marc_Bloch",
+        "searched": false
+    },
+    {
+        "id": 157,
+        "parent": 1,
+        "href": "/wiki/Karl_Dietrich_Bracher",
+        "searched": false
+    },
+    {
+        "id": 158,
+        "parent": 1,
+        "href": "/wiki/Peter_Gay",
+        "searched": false
+    },
+    {
+        "id": 159,
+        "parent": 1,
+        "href": "/wiki/Robert_Fogel",
+        "searched": false
+    },
+    {
+        "id": 160,
+        "parent": 1,
+        "href": "/wiki/Lucien_Febvre",
+        "searched": false
+    },
+    {
+        "id": 161,
+        "parent": 1,
+        "href": "/wiki/Lawrence_Stone",
+        "searched": false
+    },
+    {
+        "id": 162,
+        "parent": 1,
+        "href": "/wiki/Digital_history",
+        "searched": false
+    },
+    {
+        "id": 163,
+        "parent": 1,
+        "href": "/wiki/Hugh_Trevor-Roper",
+        "searched": false
+    },
+    {
+        "id": 164,
+        "parent": 1,
+        "href": "/wiki/John_Lukacs",
+        "searched": false
+    },
+    {
+        "id": 165,
+        "parent": 1,
+        "href": "/wiki/Donald_Creighton",
+        "searched": false
+    },
+    {
+        "id": 166,
+        "parent": 1,
+        "href": "/wiki/Gertrude_Himmelfarb",
+        "searched": false
+    },
+    {
+        "id": 167,
+        "parent": 1,
+        "href": "/wiki/Gerhard_Ritter",
+        "searched": false
+    },
+    {
+        "id": 168,
+        "parent": 1,
+        "href": "/wiki/Imagination",
+        "searched": false
+    },
+    {
+        "id": 169,
+        "parent": 1,
+        "href": "/wiki/Annales_School",
+        "searched": false
+    },
+    {
+        "id": 170,
+        "parent": 1,
+        "href": "/wiki/Cultural_history",
+        "searched": false
+    },
+    {
+        "id": 171,
+        "parent": 1,
+        "href": "/wiki/Histoire_des_mentalit%C3%A9s",
+        "searched": false
+    },
+    {
+        "id": 172,
+        "parent": 1,
+        "href": "/wiki/Herbert_Butterfield",
+        "searched": false
+    },
+    {
+        "id": 173,
+        "parent": 1,
+        "href": "/wiki/Ernst_Nolte",
+        "searched": false
+    },
+    {
+        "id": 174,
+        "parent": 1,
+        "href": "/wiki/George_Mosse",
+        "searched": false
+    },
+    {
+        "id": 175,
+        "parent": 1,
+        "href": "/wiki/Social_history",
+        "searched": false
+    },
+    {
+        "id": 176,
+        "parent": 1,
+        "href": "/wiki/Alltagsgeschichte",
+        "searched": false
+    },
+    {
+        "id": 177,
+        "parent": 1,
+        "href": "/wiki/Martin_Broszat",
+        "searched": false
+    },
+    {
+        "id": 178,
+        "parent": 1,
+        "href": "/wiki/Ian_Kershaw",
+        "searched": false
+    },
+    {
+        "id": 179,
+        "parent": 1,
+        "href": "/wiki/Detlev_Peukert",
+        "searched": false
+    },
+    {
+        "id": 180,
+        "parent": 1,
+        "href": "/wiki/Nazi",
+        "searched": false
+    },
+    {
+        "id": 181,
+        "parent": 1,
+        "href": "/wiki/Marxist_historiography",
+        "searched": false
+    },
+    {
+        "id": 182,
+        "parent": 1,
+        "href": "/wiki/Eric_Hobsbawm",
+        "searched": false
+    },
+    {
+        "id": 183,
+        "parent": 1,
+        "href": "/wiki/E._P._Thompson",
+        "searched": false
+    },
+    {
+        "id": 184,
+        "parent": 1,
+        "href": "/wiki/Rodney_Hilton",
+        "searched": false
+    },
+    {
+        "id": 185,
+        "parent": 1,
+        "href": "/wiki/Georges_Lefebvre",
+        "searched": false
+    },
+    {
+        "id": 186,
+        "parent": 1,
+        "href": "/wiki/Eugene_D._Genovese",
+        "searched": false
+    },
+    {
+        "id": 187,
+        "parent": 1,
+        "href": "/wiki/Isaac_Deutscher",
+        "searched": false
+    },
+    {
+        "id": 188,
+        "parent": 1,
+        "href": "/wiki/C._L._R._James",
+        "searched": false
+    },
+    {
+        "id": 189,
+        "parent": 1,
+        "href": "/wiki/Timothy_Mason",
+        "searched": false
+    },
+    {
+        "id": 190,
+        "parent": 1,
+        "href": "/wiki/Herbert_Aptheker",
+        "searched": false
+    },
+    {
+        "id": 191,
+        "parent": 1,
+        "href": "/wiki/Arno_J._Mayer",
+        "searched": false
+    },
+    {
+        "id": 192,
+        "parent": 1,
+        "href": "/wiki/Christopher_Hill_(historian)",
+        "searched": false
+    },
+    {
+        "id": 193,
+        "parent": 1,
+        "href": "/wiki/Karl_Marx",
+        "searched": false
+    },
+    {
+        "id": 194,
+        "parent": 1,
+        "href": "/wiki/Fran%C3%A7ois_Furet",
+        "searched": false
+    },
+    {
+        "id": 195,
+        "parent": 1,
+        "href": "/wiki/Richard_Pipes",
+        "searched": false
+    },
+    {
+        "id": 196,
+        "parent": 1,
+        "href": "/wiki/J._C._D._Clark",
+        "searched": false
+    },
+    {
+        "id": 197,
+        "parent": 1,
+        "href": "/wiki/Roland_Mousnier",
+        "searched": false
+    },
+    {
+        "id": 198,
+        "parent": 1,
+        "href": "/wiki/Henry_Ashby_Turner",
+        "searched": false
+    },
+    {
+        "id": 199,
+        "parent": 1,
+        "href": "/wiki/Robert_Conquest",
+        "searched": false
+    },
+    {
+        "id": 200,
+        "parent": 1,
+        "href": "/wiki/Feminism",
+        "searched": false
+    },
+    {
+        "id": 201,
+        "parent": 1,
+        "href": "/wiki/Joan_Wallach_Scott",
+        "searched": false
+    },
+    {
+        "id": 202,
+        "parent": 1,
+        "href": "/wiki/Claudia_Koonz",
+        "searched": false
+    },
+    {
+        "id": 203,
+        "parent": 1,
+        "href": "/wiki/Natalie_Zemon_Davis",
+        "searched": false
+    },
+    {
+        "id": 204,
+        "parent": 1,
+        "href": "/wiki/Sheila_Rowbotham",
+        "searched": false
+    },
+    {
+        "id": 205,
+        "parent": 1,
+        "href": "/wiki/Gisela_Bock",
+        "searched": false
+    },
+    {
+        "id": 206,
+        "parent": 1,
+        "href": "/wiki/Gerda_Lerner",
+        "searched": false
+    },
+    {
+        "id": 207,
+        "parent": 1,
+        "href": "/wiki/Elizabeth_Fox-Genovese",
+        "searched": false
+    },
+    {
+        "id": 208,
+        "parent": 1,
+        "href": "/wiki/Lynn_Hunt",
+        "searched": false
+    },
+    {
+        "id": 209,
+        "parent": 1,
+        "href": "/wiki/Postmodernism",
+        "searched": false
+    },
+    {
+        "id": 210,
+        "parent": 1,
+        "href": "/wiki/Richard_J._Evans",
+        "searched": false
+    },
+    {
+        "id": 211,
+        "parent": 1,
+        "href": "/wiki/University_of_Cambridge",
+        "searched": false
+    },
+    {
+        "id": 212,
+        "parent": 1,
+        "href": "/wiki/Keith_Windschuttle",
+        "searched": false
+    },
+    {
+        "id": 213,
+        "parent": 1,
+        "href": "/wiki/Marx%27s_theory_of_history",
+        "searched": false
+    },
+    {
+        "id": 214,
+        "parent": 1,
+        "href": "/wiki/Marxist_theory",
+        "searched": false
+    },
+    {
+        "id": 215,
+        "parent": 1,
+        "href": "/wiki/Historical_materialism",
+        "searched": false
+    },
+    {
+        "id": 216,
+        "parent": 1,
+        "href": "/wiki/Friedrich_Engels",
+        "searched": false
+    },
+    {
+        "id": 217,
+        "parent": 1,
+        "href": "/wiki/Western_Europe",
+        "searched": false
+    },
+    {
+        "id": 218,
+        "parent": 1,
+        "href": "/wiki/History_of_science",
+        "searched": false
+    },
+    {
+        "id": 219,
+        "parent": 1,
+        "href": "/wiki/History_of_mathematics",
+        "searched": false
+    },
+    {
+        "id": 220,
+        "parent": 1,
+        "href": "/wiki/Atlantic_history",
+        "searched": false
+    },
+    {
+        "id": 221,
+        "parent": 1,
+        "href": "/wiki/Art_History",
+        "searched": false
+    },
+    {
+        "id": 222,
+        "parent": 1,
+        "href": "/wiki/Comparative_history",
+        "searched": false
+    },
+    {
+        "id": 223,
+        "parent": 1,
+        "href": "/wiki/Counterfactual_history",
+        "searched": false
+    },
+    {
+        "id": 224,
+        "parent": 1,
+        "href": "/wiki/Digital_History",
+        "searched": false
+    },
+    {
+        "id": 225,
+        "parent": 1,
+        "href": "/wiki/Economic_History",
+        "searched": false
+    },
+    {
+        "id": 226,
+        "parent": 1,
+        "href": "/wiki/Intellectual_history",
+        "searched": false
+    },
+    {
+        "id": 227,
+        "parent": 1,
+        "href": "/wiki/Maritime_history",
+        "searched": false
+    },
+    {
+        "id": 228,
+        "parent": 1,
+        "href": "/wiki/Military_History",
+        "searched": false
+    },
+    {
+        "id": 229,
+        "parent": 1,
+        "href": "/wiki/Naval_History",
+        "searched": false
+    },
+    {
+        "id": 230,
+        "parent": 1,
+        "href": "/wiki/Paleography",
+        "searched": false
+    },
+    {
+        "id": 231,
+        "parent": 1,
+        "href": "/wiki/People%27s_history",
+        "searched": false
+    },
+    {
+        "id": 232,
+        "parent": 1,
+        "href": "/wiki/Political_history",
+        "searched": false
+    },
+    {
+        "id": 233,
+        "parent": 1,
+        "href": "/wiki/Psychohistory",
+        "searched": false
+    },
+    {
+        "id": 234,
+        "parent": 1,
+        "href": "/wiki/Pseudohistory",
+        "searched": false
+    },
+    {
+        "id": 235,
+        "parent": 1,
+        "href": "/wiki/Pseudoscience",
+        "searched": false
+    },
+    {
+        "id": 236,
+        "parent": 1,
+        "href": "/wiki/Social_History",
+        "searched": false
+    },
+    {
+        "id": 237,
+        "parent": 1,
+        "href": "/wiki/Women%27s_history",
+        "searched": false
+    },
+    {
+        "id": 238,
+        "parent": 1,
+        "href": "/wiki/Gender_history",
+        "searched": false
+    },
+    {
+        "id": 239,
+        "parent": 1,
+        "href": "/wiki/World_History",
+        "searched": false
+    },
+    {
+        "id": 240,
+        "parent": 1,
+        "href": "/wiki/Periodization",
+        "searched": false
+    },
+    {
+        "id": 241,
+        "parent": 1,
+        "href": "/wiki/Centuries",
+        "searched": false
+    },
+    {
+        "id": 242,
+        "parent": 1,
+        "href": "/wiki/Decade",
+        "searched": false
+    },
+    {
+        "id": 243,
+        "parent": 1,
+        "href": "/wiki/Calendar_era",
+        "searched": false
+    },
+    {
+        "id": 244,
+        "parent": 1,
+        "href": "/wiki/Prehistoric",
+        "searched": false
+    },
+    {
+        "id": 245,
+        "parent": 1,
+        "href": "/wiki/Archeology",
+        "searched": false
+    },
+    {
+        "id": 246,
+        "parent": 1,
+        "href": "/wiki/Radiocarbon_dating",
+        "searched": false
+    },
+    {
+        "id": 247,
+        "parent": 1,
+        "href": "/wiki/Marx%27s_theory_of_history#The_stages_of_history",
+        "searched": false
+    },
+    {
+        "id": 248,
+        "parent": 1,
+        "href": "/wiki/Marxism",
+        "searched": false
+    },
+    {
+        "id": 249,
+        "parent": 1,
+        "href": "/wiki/Primitive_communism",
+        "searched": false
+    },
+    {
+        "id": 250,
+        "parent": 1,
+        "href": "/wiki/Hunter-gatherer",
+        "searched": false
+    },
+    {
+        "id": 251,
+        "parent": 1,
+        "href": "/wiki/Slavery",
+        "searched": false
+    },
+    {
+        "id": 252,
+        "parent": 1,
+        "href": "/wiki/Social_class",
+        "searched": false
+    },
+    {
+        "id": 253,
+        "parent": 1,
+        "href": "/wiki/Ruling_class",
+        "searched": false
+    },
+    {
+        "id": 254,
+        "parent": 1,
+        "href": "/wiki/Statism",
+        "searched": false
+    },
+    {
+        "id": 255,
+        "parent": 1,
+        "href": "/wiki/Agriculture",
+        "searched": false
+    },
+    {
+        "id": 256,
+        "parent": 1,
+        "href": "/wiki/Democracy",
+        "searched": false
+    },
+    {
+        "id": 257,
+        "parent": 1,
+        "href": "/wiki/Authoritarianism",
+        "searched": false
+    },
+    {
+        "id": 258,
+        "parent": 1,
+        "href": "/wiki/Property",
+        "searched": false
+    },
+    {
+        "id": 259,
+        "parent": 1,
+        "href": "/wiki/Feudalism",
+        "searched": false
+    },
+    {
+        "id": 260,
+        "parent": 1,
+        "href": "/wiki/Middle_Ages",
+        "searched": false
+    },
+    {
+        "id": 261,
+        "parent": 1,
+        "href": "/wiki/Aristocracy",
+        "searched": false
+    },
+    {
+        "id": 262,
+        "parent": 1,
+        "href": "/wiki/Theocracy",
+        "searched": false
+    },
+    {
+        "id": 263,
+        "parent": 1,
+        "href": "/wiki/Hereditary_title",
+        "searched": false
+    },
+    {
+        "id": 264,
+        "parent": 1,
+        "href": "/wiki/Caste",
+        "searched": false
+    },
+    {
+        "id": 265,
+        "parent": 1,
+        "href": "/wiki/India",
+        "searched": false
+    },
+    {
+        "id": 266,
+        "parent": 1,
+        "href": "/wiki/Nation-state",
+        "searched": false
+    },
+    {
+        "id": 267,
+        "parent": 1,
+        "href": "/wiki/Roman_province",
+        "searched": false
+    },
+    {
+        "id": 268,
+        "parent": 1,
+        "href": "/wiki/British_Empire",
+        "searched": false
+    },
+    {
+        "id": 269,
+        "parent": 1,
+        "href": "/wiki/Capitalism",
+        "searched": false
+    },
+    {
+        "id": 270,
+        "parent": 1,
+        "href": "/wiki/Market_economy",
+        "searched": false
+    },
+    {
+        "id": 271,
+        "parent": 1,
+        "href": "/wiki/Laissez_faire",
+        "searched": false
+    },
+    {
+        "id": 272,
+        "parent": 1,
+        "href": "/wiki/Private_property",
+        "searched": false
+    },
+    {
+        "id": 273,
+        "parent": 1,
+        "href": "/wiki/Means_of_production",
+        "searched": false
+    },
+    {
+        "id": 274,
+        "parent": 1,
+        "href": "/wiki/Corporations",
+        "searched": false
+    },
+    {
+        "id": 275,
+        "parent": 1,
+        "href": "/wiki/Parliamentary_democracy",
+        "searched": false
+    },
+    {
+        "id": 276,
+        "parent": 1,
+        "href": "/wiki/Universal_suffrage",
+        "searched": false
+    },
+    {
+        "id": 277,
+        "parent": 1,
+        "href": "/wiki/Wages",
+        "searched": false
+    },
+    {
+        "id": 278,
+        "parent": 1,
+        "href": "/wiki/Imperialism",
+        "searched": false
+    },
+    {
+        "id": 279,
+        "parent": 1,
+        "href": "/wiki/Financial_institutions",
+        "searched": false
+    },
+    {
+        "id": 280,
+        "parent": 1,
+        "href": "/wiki/Bank",
+        "searched": false
+    },
+    {
+        "id": 281,
+        "parent": 1,
+        "href": "/wiki/Stock_exchanges",
+        "searched": false
+    },
+    {
+        "id": 282,
+        "parent": 1,
+        "href": "/wiki/Monopoly",
+        "searched": false
+    },
+    {
+        "id": 283,
+        "parent": 1,
+        "href": "/wiki/Socialism_(Marxism)",
+        "searched": false
+    },
+    {
+        "id": 284,
+        "parent": 1,
+        "href": "/wiki/Commons",
+        "searched": false
+    },
+    {
+        "id": 285,
+        "parent": 1,
+        "href": "/wiki/Council_democracy",
+        "searched": false
+    },
+    {
+        "id": 286,
+        "parent": 1,
+        "href": "/wiki/The_Civil_War_in_France",
+        "searched": false
+    },
+    {
+        "id": 287,
+        "parent": 1,
+        "href": "/wiki/Dictatorship_of_the_proletariat",
+        "searched": false
+    },
+    {
+        "id": 288,
+        "parent": 1,
+        "href": "/wiki/Geographical",
+        "searched": false
+    },
+    {
+        "id": 289,
+        "parent": 1,
+        "href": "/wiki/Continent",
+        "searched": false
+    },
+    {
+        "id": 290,
+        "parent": 1,
+        "href": "/wiki/Countries",
+        "searched": false
+    },
+    {
+        "id": 291,
+        "parent": 1,
+        "href": "/wiki/Cities",
+        "searched": false
+    },
+    {
+        "id": 292,
+        "parent": 1,
+        "href": "/wiki/Geography_of_Egypt",
+        "searched": false
+    },
+    {
+        "id": 293,
+        "parent": 1,
+        "href": "/wiki/History_of_Africa",
+        "searched": false
+    },
+    {
+        "id": 294,
+        "parent": 1,
+        "href": "/wiki/History_of_the_Americas",
+        "searched": false
+    },
+    {
+        "id": 295,
+        "parent": 1,
+        "href": "/wiki/History_of_North_America",
+        "searched": false
+    },
+    {
+        "id": 296,
+        "parent": 1,
+        "href": "/wiki/History_of_Central_America",
+        "searched": false
+    },
+    {
+        "id": 297,
+        "parent": 1,
+        "href": "/wiki/History_of_the_Caribbean",
+        "searched": false
+    },
+    {
+        "id": 298,
+        "parent": 1,
+        "href": "/wiki/History_of_South_America",
+        "searched": false
+    },
+    {
+        "id": 299,
+        "parent": 1,
+        "href": "/wiki/History_of_Antarctica",
+        "searched": false
+    },
+    {
+        "id": 300,
+        "parent": 1,
+        "href": "/wiki/History_of_Australia",
+        "searched": false
+    },
+    {
+        "id": 301,
+        "parent": 1,
+        "href": "/wiki/History_of_New_Zealand",
+        "searched": false
+    },
+    {
+        "id": 302,
+        "parent": 1,
+        "href": "/wiki/History_of_the_Pacific_Islands",
+        "searched": false
+    },
+    {
+        "id": 303,
+        "parent": 1,
+        "href": "/wiki/History_of_Eurasia",
+        "searched": false
+    },
+    {
+        "id": 304,
+        "parent": 1,
+        "href": "/wiki/History_of_Europe",
+        "searched": false
+    },
+    {
+        "id": 305,
+        "parent": 1,
+        "href": "/wiki/History_of_Asia",
+        "searched": false
+    },
+    {
+        "id": 306,
+        "parent": 1,
+        "href": "/wiki/History_of_East_Asia",
+        "searched": false
+    },
+    {
+        "id": 307,
+        "parent": 1,
+        "href": "/wiki/History_of_the_Middle_East",
+        "searched": false
+    },
+    {
+        "id": 308,
+        "parent": 1,
+        "href": "/wiki/History_of_South_Asia",
+        "searched": false
+    },
+    {
+        "id": 309,
+        "parent": 1,
+        "href": "/wiki/History_of_Southeast_Asia",
+        "searched": false
+    },
+    {
+        "id": 310,
+        "parent": 1,
+        "href": "/wiki/Military_history",
+        "searched": false
+    },
+    {
+        "id": 311,
+        "parent": 1,
+        "href": "/wiki/Religious_history",
+        "searched": false
+    },
+    {
+        "id": 312,
+        "parent": 1,
+        "href": "/wiki/Church_History_(periodical)",
+        "searched": false
+    },
+    {
+        "id": 313,
+        "parent": 1,
+        "href": "/wiki/Catholic_Historical_Review",
+        "searched": false
+    },
+    {
+        "id": 314,
+        "parent": 1,
+        "href": "/wiki/History_of_Religions_(journal)",
+        "searched": false
+    },
+    {
+        "id": 315,
+        "parent": 1,
+        "href": "/wiki/Great_man_theory",
+        "searched": false
+    },
+    {
+        "id": 316,
+        "parent": 1,
+        "href": "/wiki/G._M._Trevelyan",
+        "searched": false
+    },
+    {
+        "id": 317,
+        "parent": 1,
+        "href": "/wiki/Demographic_history_(disambiguation)",
+        "searched": false
+    },
+    {
+        "id": 318,
+        "parent": 1,
+        "href": "/wiki/Black_history_(disambiguation)",
+        "searched": false
+    },
+    {
+        "id": 319,
+        "parent": 1,
+        "href": "/wiki/History_of_education",
+        "searched": false
+    },
+    {
+        "id": 320,
+        "parent": 1,
+        "href": "/wiki/Ethnic_history",
+        "searched": false
+    },
+    {
+        "id": 321,
+        "parent": 1,
+        "href": "/wiki/Family_history",
+        "searched": false
+    },
+    {
+        "id": 322,
+        "parent": 1,
+        "href": "/wiki/Labor_history_(discipline)",
+        "searched": false
+    },
+    {
+        "id": 323,
+        "parent": 1,
+        "href": "/wiki/Rural_history",
+        "searched": false
+    },
+    {
+        "id": 324,
+        "parent": 1,
+        "href": "/wiki/Urban_history",
+        "searched": false
+    },
+    {
+        "id": 325,
+        "parent": 1,
+        "href": "/wiki/Art_history",
+        "searched": false
+    },
+    {
+        "id": 326,
+        "parent": 1,
+        "href": "/wiki/Iconography",
+        "searched": false
+    },
+    {
+        "id": 327,
+        "parent": 1,
+        "href": "/wiki/Diplomatic_history",
+        "searched": false
+    },
+    {
+        "id": 328,
+        "parent": 1,
+        "href": "/wiki/International_relations#History",
+        "searched": false
+    },
+    {
+        "id": 329,
+        "parent": 1,
+        "href": "/wiki/Economic_history",
+        "searched": false
+    },
+    {
+        "id": 330,
+        "parent": 1,
+        "href": "/wiki/Business_history",
+        "searched": false
+    },
+    {
+        "id": 331,
+        "parent": 1,
+        "href": "/wiki/Environmental_history",
+        "searched": false
+    },
+    {
+        "id": 332,
+        "parent": 1,
+        "href": "/wiki/World_history",
+        "searched": false
+    },
+    {
+        "id": 333,
+        "parent": 1,
+        "href": "/wiki/Universal_history",
+        "searched": false
+    },
+    {
+        "id": 334,
+        "parent": 1,
+        "href": "/wiki/Oswald_Spengler",
+        "searched": false
+    },
+    {
+        "id": 335,
+        "parent": 1,
+        "href": "/wiki/Arnold_J._Toynbee",
+        "searched": false
+    },
+    {
+        "id": 336,
+        "parent": 1,
+        "href": "/wiki/Populism",
+        "searched": false
+    },
+    {
+        "id": 337,
+        "parent": 1,
+        "href": "/wiki/Disfranchisement",
+        "searched": false
+    },
+    {
+        "id": 338,
+        "parent": 1,
+        "href": "/wiki/Oppression",
+        "searched": false
+    },
+    {
+        "id": 339,
+        "parent": 1,
+        "href": "/wiki/Poverty",
+        "searched": false
+    },
+    {
+        "id": 340,
+        "parent": 1,
+        "href": "/wiki/Nonconformism",
+        "searched": false
+    },
+    {
+        "id": 341,
+        "parent": 1,
+        "href": "/wiki/Historiometry",
+        "searched": false
+    },
+    {
+        "id": 342,
+        "parent": 1,
+        "href": "/wiki/Gender_studies",
+        "searched": false
+    },
+    {
+        "id": 343,
+        "parent": 1,
+        "href": "/wiki/Gender",
+        "searched": false
+    },
+    {
+        "id": 344,
+        "parent": 1,
+        "href": "/wiki/Public_history",
+        "searched": false
+    },
+    {
+        "id": 345,
+        "parent": 1,
+        "href": "/wiki/List_of_historians",
+        "searched": false
+    },
+    {
+        "id": 346,
+        "parent": 1,
+        "href": "/wiki/Legal_judgement",
+        "searched": false
+    },
+    {
+        "id": 347,
+        "parent": 1,
+        "href": "/wiki/Collective_memory",
+        "searched": false
+    },
+    {
+        "id": 348,
+        "parent": 1,
+        "href": "/wiki/Ash_heap_of_history",
+        "searched": false
+    },
+    {
+        "id": 349,
+        "parent": 1,
+        "href": "/wiki/Historical_revisionism_(negationism)",
+        "searched": false
+    },
+    {
+        "id": 350,
+        "parent": 1,
+        "href": "/wiki/Charles_Harding_Firth",
+        "searched": false
+    },
+    {
+        "id": 351,
+        "parent": 1,
+        "href": "/wiki/T.F._Tout",
+        "searched": false
+    },
+    {
+        "id": 352,
+        "parent": 1,
+        "href": "/wiki/Nouvelle_histoire",
+        "searched": false
+    },
+    {
+        "id": 353,
+        "parent": 1,
+        "href": "/wiki/Nanking_Massacre",
+        "searched": false
+    },
+    {
+        "id": 354,
+        "parent": 1,
+        "href": "/wiki/Outline_of_history",
+        "searched": false
+    },
+    {
+        "id": 355,
+        "parent": 1,
+        "href": "/wiki/Glossary_of_history",
+        "searched": false
+    },
+    {
+        "id": 356,
+        "parent": 1,
+        "href": "/wiki/Annals",
+        "searched": false
+    },
+    {
+        "id": 357,
+        "parent": 1,
+        "href": "/wiki/Auxiliary_sciences_of_history",
+        "searched": false
+    },
+    {
+        "id": 358,
+        "parent": 1,
+        "href": "/wiki/Chronicle",
+        "searched": false
+    },
+    {
+        "id": 359,
+        "parent": 1,
+        "href": "/wiki/History_Journal",
+        "searched": false
+    },
+    {
+        "id": 360,
+        "parent": 1,
+        "href": "/wiki/List_of_history_journals",
+        "searched": false
+    },
+    {
+        "id": 361,
+        "parent": 1,
+        "href": "/wiki/Timeline_of_world_history_(disambiguation)",
+        "searched": false
+    },
+    {
+        "id": 362,
+        "parent": 1,
+        "href": "/wiki/International_Standard_Book_Number",
+        "searched": false
+    },
+    {
+        "id": 363,
+        "parent": 1,
+        "href": "/wiki/Oxford_University",
+        "searched": false
+    },
+    {
+        "id": 364,
+        "parent": 1,
+        "href": "/wiki/Jack_Goody",
+        "searched": false
+    },
+    {
+        "id": 365,
+        "parent": 1,
+        "href": "/wiki/Google_Books",
+        "searched": false
+    },
+    {
+        "id": 366,
+        "parent": 1,
+        "href": "/wiki/Princeton_University_Press",
+        "searched": false
+    },
+    {
+        "id": 367,
+        "parent": 1,
+        "href": "/wiki/The_Other_Press",
+        "searched": false
+    },
+    {
+        "id": 368,
+        "parent": 1,
+        "href": "/wiki/Alan_Gewirth",
+        "searched": false
+    },
+    {
+        "id": 369,
+        "parent": 1,
+        "href": "/wiki/Yale_University_Press",
+        "searched": false
+    },
+    {
+        "id": 370,
+        "parent": 1,
+        "href": "/wiki/Ainslie_T._Embree",
+        "searched": false
+    },
+    {
+        "id": 371,
+        "parent": 1,
+        "href": "/wiki/Mary_Beth_Norton",
+        "searched": false
+    },
+    {
+        "id": 372,
+        "parent": 1,
+        "href": "/wiki/Palgrave_Macmillan",
+        "searched": false
+    },
+    {
+        "id": 373,
+        "parent": 1,
+        "href": "/wiki/W._W._Norton",
+        "searched": false
+    },
+    {
+        "id": 374,
+        "parent": 1,
+        "href": "/wiki/Internet_History_Sourcebooks_Project",
+        "searched": false
+    },
+    {
+        "id": 375,
+        "parent": 1,
+        "href": "/wiki/Cultural_anthropology",
+        "searched": false
+    },
+    {
+        "id": 376,
+        "parent": 1,
+        "href": "/wiki/Linguistics",
+        "searched": false
+    },
+    {
+        "id": 377,
+        "parent": 1,
+        "href": "/wiki/Social_anthropology",
+        "searched": false
+    },
+    {
+        "id": 378,
+        "parent": 1,
+        "href": "/wiki/Human_geography",
+        "searched": false
+    },
+    {
+        "id": 379,
+        "parent": 1,
+        "href": "/wiki/Integrated_geography",
+        "searched": false
+    },
+    {
+        "id": 380,
+        "parent": 1,
+        "href": "/wiki/Law",
+        "searched": false
+    },
+    {
+        "id": 381,
+        "parent": 1,
+        "href": "/wiki/Political_science",
+        "searched": false
+    },
+    {
+        "id": 382,
+        "parent": 1,
+        "href": "/wiki/International_relations",
+        "searched": false
+    },
+    {
+        "id": 383,
+        "parent": 1,
+        "href": "/wiki/Public_administration",
+        "searched": false
+    },
+    {
+        "id": 384,
+        "parent": 1,
+        "href": "/wiki/Public_policy",
+        "searched": false
+    },
+    {
+        "id": 385,
+        "parent": 1,
+        "href": "/wiki/Psychology",
+        "searched": false
+    },
+    {
+        "id": 386,
+        "parent": 1,
+        "href": "/wiki/Social_psychology",
+        "searched": false
+    },
+    {
+        "id": 387,
+        "parent": 1,
+        "href": "/wiki/Sociology",
+        "searched": false
+    },
+    {
+        "id": 388,
+        "parent": 1,
+        "href": "/wiki/Criminology",
+        "searched": false
+    },
+    {
+        "id": 389,
+        "parent": 1,
+        "href": "/wiki/Demography",
+        "searched": false
+    },
+    {
+        "id": 390,
+        "parent": 1,
+        "href": "/wiki/Economic_sociology",
+        "searched": false
+    },
+    {
+        "id": 391,
+        "parent": 1,
+        "href": "/wiki/Rural_sociology",
+        "searched": false
+    },
+    {
+        "id": 392,
+        "parent": 1,
+        "href": "/wiki/Urban_sociology",
+        "searched": false
+    },
+    {
+        "id": 393,
+        "parent": 1,
+        "href": "/wiki/Anthrozoology",
+        "searched": false
+    },
+    {
+        "id": 394,
+        "parent": 1,
+        "href": "/wiki/Area_studies",
+        "searched": false
+    },
+    {
+        "id": 395,
+        "parent": 1,
+        "href": "/wiki/Business_studies",
+        "searched": false
+    },
+    {
+        "id": 396,
+        "parent": 1,
+        "href": "/wiki/Cognitive_science",
+        "searched": false
+    },
+    {
+        "id": 397,
+        "parent": 1,
+        "href": "/wiki/Communication_studies",
+        "searched": false
+    },
+    {
+        "id": 398,
+        "parent": 1,
+        "href": "/wiki/Community_studies",
+        "searched": false
+    },
+    {
+        "id": 399,
+        "parent": 1,
+        "href": "/wiki/Cultural_studies",
+        "searched": false
+    },
+    {
+        "id": 400,
+        "parent": 1,
+        "href": "/wiki/Development_studies",
+        "searched": false
+    },
+    {
+        "id": 401,
+        "parent": 1,
+        "href": "/wiki/Education",
+        "searched": false
+    },
+    {
+        "id": 402,
+        "parent": 1,
+        "href": "/wiki/Food_studies",
+        "searched": false
+    },
+    {
+        "id": 403,
+        "parent": 1,
+        "href": "/wiki/Global_studies",
+        "searched": false
+    },
+    {
+        "id": 404,
+        "parent": 1,
+        "href": "/wiki/History_of_technology",
+        "searched": false
+    },
+    {
+        "id": 405,
+        "parent": 1,
+        "href": "/wiki/Human_ecology",
+        "searched": false
+    },
+    {
+        "id": 406,
+        "parent": 1,
+        "href": "/wiki/Information_science",
+        "searched": false
+    },
+    {
+        "id": 407,
+        "parent": 1,
+        "href": "/wiki/International_studies",
+        "searched": false
+    },
+    {
+        "id": 408,
+        "parent": 1,
+        "href": "/wiki/Media_studies",
+        "searched": false
+    },
+    {
+        "id": 409,
+        "parent": 1,
+        "href": "/wiki/Public_health",
+        "searched": false
+    },
+    {
+        "id": 410,
+        "parent": 1,
+        "href": "/wiki/Regional_science",
+        "searched": false
+    },
+    {
+        "id": 411,
+        "parent": 1,
+        "href": "/wiki/Science,_technology_and_society",
+        "searched": false
+    },
+    {
+        "id": 412,
+        "parent": 1,
+        "href": "/wiki/Science_studies",
+        "searched": false
+    },
+    {
+        "id": 413,
+        "parent": 1,
+        "href": "/wiki/Political_ecology",
+        "searched": false
+    },
+    {
+        "id": 414,
+        "parent": 1,
+        "href": "/wiki/Political_economy",
+        "searched": false
+    },
+    {
+        "id": 415,
+        "parent": 1,
+        "href": "/wiki/Social_work",
+        "searched": false
+    },
+    {
+        "id": 416,
+        "parent": 1,
+        "href": "/wiki/Environmental_social_science",
+        "searched": false
+    },
+    {
+        "id": 417,
+        "parent": 1,
+        "href": "/wiki/Environmental_studies",
+        "searched": false
+    },
+    {
+        "id": 418,
+        "parent": 1,
+        "href": "/wiki/Philosophy_of_science",
+        "searched": false
+    },
+    {
+        "id": 419,
+        "parent": 1,
+        "href": "/wiki/Philosophy_and_economics",
+        "searched": false
+    },
+    {
+        "id": 420,
+        "parent": 1,
+        "href": "/wiki/Philosophy_of_psychology",
+        "searched": false
+    },
+    {
+        "id": 421,
+        "parent": 1,
+        "href": "/wiki/Philosophy_of_social_science",
+        "searched": false
+    },
+    {
+        "id": 422,
+        "parent": 1,
+        "href": "/wiki/Planning",
+        "searched": false
+    },
+    {
+        "id": 423,
+        "parent": 1,
+        "href": "/wiki/Land-use_planning",
+        "searched": false
+    },
+    {
+        "id": 424,
+        "parent": 1,
+        "href": "/wiki/Regional_planning",
+        "searched": false
+    },
+    {
+        "id": 425,
+        "parent": 1,
+        "href": "/wiki/Urban_planning",
+        "searched": false
+    },
+    {
+        "id": 426,
+        "parent": 1,
+        "href": "/wiki/Geisteswissenschaft",
+        "searched": false
+    },
+    {
+        "id": 427,
+        "parent": 1,
+        "href": "/wiki/Human_science",
+        "searched": false
+    },
+    {
+        "id": 428,
+        "parent": 1,
+        "href": "/wiki/Index_of_sociology_articles",
+        "searched": false
+    },
+    {
+        "id": 429,
+        "parent": 1,
+        "href": "/wiki/List_of_social_science_journals",
+        "searched": false
+    },
+    {
+        "id": 430,
+        "parent": 1,
+        "href": "/wiki/Outline_of_social_science",
+        "searched": false
+    },
+    {
+        "id": 431,
+        "parent": 1,
+        "href": "/wiki/Literature",
+        "searched": false
+    },
+    {
+        "id": 432,
+        "parent": 1,
+        "href": "/wiki/Performing_arts",
+        "searched": false
+    },
+    {
+        "id": 433,
+        "parent": 1,
+        "href": "/wiki/Politics",
+        "searched": false
+    },
+    {
+        "id": 434,
+        "parent": 1,
+        "href": "/wiki/Religious_studies",
+        "searched": false
+    },
+    {
+        "id": 435,
+        "parent": 1,
+        "href": "/wiki/Visual_arts",
+        "searched": false
+    },
+    {
+        "id": 436,
+        "parent": 1,
+        "href": "/wiki/Time",
+        "searched": false
+    },
+    {
+        "id": 437,
+        "parent": 1,
+        "href": "/wiki/Past",
+        "searched": false
+    },
+    {
+        "id": 438,
+        "parent": 1,
+        "href": "/wiki/Deep_time",
+        "searched": false
+    },
+    {
+        "id": 439,
+        "parent": 1,
+        "href": "/wiki/Present",
+        "searched": false
+    },
+    {
+        "id": 440,
+        "parent": 1,
+        "href": "/wiki/Futures_studies",
+        "searched": false
+    },
+    {
+        "id": 441,
+        "parent": 1,
+        "href": "/wiki/Far_future_in_religion",
+        "searched": false
+    },
+    {
+        "id": 442,
+        "parent": 1,
+        "href": "/wiki/Far_future_in_science_fiction_and_popular_culture",
+        "searched": false
+    },
+    {
+        "id": 443,
+        "parent": 1,
+        "href": "/wiki/Timeline_of_the_far_future",
+        "searched": false
+    },
+    {
+        "id": 444,
+        "parent": 1,
+        "href": "/wiki/Eternity",
+        "searched": false
+    },
+    {
+        "id": 445,
+        "parent": 1,
+        "href": "/wiki/Arguments_for_eternity",
+        "searched": false
+    },
+    {
+        "id": 446,
+        "parent": 1,
+        "href": "/wiki/Eternal_return",
+        "searched": false
+    },
+    {
+        "id": 447,
+        "parent": 1,
+        "href": "/wiki/Immortality",
+        "searched": false
+    },
+    {
+        "id": 448,
+        "parent": 1,
+        "href": "/wiki/Time_standard",
+        "searched": false
+    },
+    {
+        "id": 449,
+        "parent": 1,
+        "href": "/wiki/Chronometry",
+        "searched": false
+    },
+    {
+        "id": 450,
+        "parent": 1,
+        "href": "/wiki/Coordinated_Universal_Time",
+        "searched": false
+    },
+    {
+        "id": 451,
+        "parent": 1,
+        "href": "/wiki/Universal_Time",
+        "searched": false
+    },
+    {
+        "id": 452,
+        "parent": 1,
+        "href": "/wiki/International_Atomic_Time",
+        "searched": false
+    },
+    {
+        "id": 453,
+        "parent": 1,
+        "href": "/wiki/Unit_of_time",
+        "searched": false
+    },
+    {
+        "id": 454,
+        "parent": 1,
+        "href": "/wiki/Planck_time",
+        "searched": false
+    },
+    {
+        "id": 455,
+        "parent": 1,
+        "href": "/wiki/Second",
+        "searched": false
+    },
+    {
+        "id": 456,
+        "parent": 1,
+        "href": "/wiki/Minute",
+        "searched": false
+    },
+    {
+        "id": 457,
+        "parent": 1,
+        "href": "/wiki/Hour",
+        "searched": false
+    },
+    {
+        "id": 458,
+        "parent": 1,
+        "href": "/wiki/Day",
+        "searched": false
+    },
+    {
+        "id": 459,
+        "parent": 1,
+        "href": "/wiki/Week",
+        "searched": false
+    },
+    {
+        "id": 460,
+        "parent": 1,
+        "href": "/wiki/Month",
+        "searched": false
+    },
+    {
+        "id": 461,
+        "parent": 1,
+        "href": "/wiki/Year",
+        "searched": false
+    },
+    {
+        "id": 462,
+        "parent": 1,
+        "href": "/wiki/Century",
+        "searched": false
+    },
+    {
+        "id": 463,
+        "parent": 1,
+        "href": "/wiki/Millennium",
+        "searched": false
+    },
+    {
+        "id": 464,
+        "parent": 1,
+        "href": "/wiki/Tropical_year",
+        "searched": false
+    },
+    {
+        "id": 465,
+        "parent": 1,
+        "href": "/wiki/Solar_year",
+        "searched": false
+    },
+    {
+        "id": 466,
+        "parent": 1,
+        "href": "/wiki/Sidereal_year",
+        "searched": false
+    },
+    {
+        "id": 467,
+        "parent": 1,
+        "href": "/wiki/System_of_measurement",
+        "searched": false
+    },
+    {
+        "id": 468,
+        "parent": 1,
+        "href": "/wiki/Time_zone",
+        "searched": false
+    },
+    {
+        "id": 469,
+        "parent": 1,
+        "href": "/wiki/12-hour_clock",
+        "searched": false
+    },
+    {
+        "id": 470,
+        "parent": 1,
+        "href": "/wiki/24-hour_clock",
+        "searched": false
+    },
+    {
+        "id": 471,
+        "parent": 1,
+        "href": "/wiki/Daylight_saving_time",
+        "searched": false
+    },
+    {
+        "id": 472,
+        "parent": 1,
+        "href": "/wiki/New_Earth_Time",
+        "searched": false
+    },
+    {
+        "id": 473,
+        "parent": 1,
+        "href": "/wiki/Solar_time",
+        "searched": false
+    },
+    {
+        "id": 474,
+        "parent": 1,
+        "href": "/wiki/Sidereal_time",
+        "searched": false
+    },
+    {
+        "id": 475,
+        "parent": 1,
+        "href": "/wiki/Metric_time",
+        "searched": false
+    },
+    {
+        "id": 476,
+        "parent": 1,
+        "href": "/wiki/Decimal_time",
+        "searched": false
+    },
+    {
+        "id": 477,
+        "parent": 1,
+        "href": "/wiki/Hexadecimal_time",
+        "searched": false
+    },
+    {
+        "id": 478,
+        "parent": 1,
+        "href": "/wiki/Calendar",
+        "searched": false
+    },
+    {
+        "id": 479,
+        "parent": 1,
+        "href": "/wiki/Gregorian_calendar",
+        "searched": false
+    },
+    {
+        "id": 480,
+        "parent": 1,
+        "href": "/wiki/Julian_calendar",
+        "searched": false
+    },
+    {
+        "id": 481,
+        "parent": 1,
+        "href": "/wiki/Hebrew_calendar",
+        "searched": false
+    },
+    {
+        "id": 482,
+        "parent": 1,
+        "href": "/wiki/Islamic_calendar",
+        "searched": false
+    },
+    {
+        "id": 483,
+        "parent": 1,
+        "href": "/wiki/Lunar_calendar",
+        "searched": false
+    },
+    {
+        "id": 484,
+        "parent": 1,
+        "href": "/wiki/Solar_Hijri_calendar",
+        "searched": false
+    },
+    {
+        "id": 485,
+        "parent": 1,
+        "href": "/wiki/Maya_calendar",
+        "searched": false
+    },
+    {
+        "id": 486,
+        "parent": 1,
+        "href": "/wiki/Intercalation_(timekeeping)",
+        "searched": false
+    },
+    {
+        "id": 487,
+        "parent": 1,
+        "href": "/wiki/Leap_second",
+        "searched": false
+    },
+    {
+        "id": 488,
+        "parent": 1,
+        "href": "/wiki/Leap_year",
+        "searched": false
+    },
+    {
+        "id": 489,
+        "parent": 1,
+        "href": "/wiki/Clock",
+        "searched": false
+    },
+    {
+        "id": 490,
+        "parent": 1,
+        "href": "/wiki/Horology",
+        "searched": false
+    },
+    {
+        "id": 491,
+        "parent": 1,
+        "href": "/wiki/History_of_timekeeping_devices",
+        "searched": false
+    },
+    {
+        "id": 492,
+        "parent": 1,
+        "href": "/wiki/Clock#Time-measuring_devices",
+        "searched": false
+    },
+    {
+        "id": 493,
+        "parent": 1,
+        "href": "/wiki/Astrarium",
+        "searched": false
+    },
+    {
+        "id": 494,
+        "parent": 1,
+        "href": "/wiki/Atomic_clock",
+        "searched": false
+    },
+    {
+        "id": 495,
+        "parent": 1,
+        "href": "/wiki/Quantum_clock",
+        "searched": false
+    },
+    {
+        "id": 496,
+        "parent": 1,
+        "href": "/wiki/Marine_chronometer",
+        "searched": false
+    },
+    {
+        "id": 497,
+        "parent": 1,
+        "href": "/wiki/Sundial",
+        "searched": false
+    },
+    {
+        "id": 498,
+        "parent": 1,
+        "href": "/wiki/Schema_for_horizontal_dials",
+        "searched": false
+    },
+    {
+        "id": 499,
+        "parent": 1,
+        "href": "/wiki/Watch",
+        "searched": false
+    },
+    {
+        "id": 500,
+        "parent": 1,
+        "href": "/wiki/Water_clock",
+        "searched": false
+    },
+    {
+        "id": 501,
+        "parent": 1,
+        "href": "/wiki/Chronology",
+        "searched": false
+    },
+    {
+        "id": 502,
+        "parent": 1,
+        "href": "/wiki/Astronomical_chronology",
+        "searched": false
+    },
+    {
+        "id": 503,
+        "parent": 1,
+        "href": "/wiki/Regnal_year",
+        "searched": false
+    },
+    {
+        "id": 504,
+        "parent": 1,
+        "href": "/wiki/Timeline",
+        "searched": false
+    },
+    {
+        "id": 505,
+        "parent": 1,
+        "href": "/wiki/Dreamtime",
+        "searched": false
+    },
+    {
+        "id": 506,
+        "parent": 1,
+        "href": "/wiki/K%C4%81la_(time)",
+        "searched": false
+    },
+    {
+        "id": 507,
+        "parent": 1,
+        "href": "/wiki/Kalachakra",
+        "searched": false
+    },
+    {
+        "id": 508,
+        "parent": 1,
+        "href": "/wiki/Prophecy",
+        "searched": false
+    },
+    {
+        "id": 509,
+        "parent": 1,
+        "href": "/wiki/Time_and_fate_deities",
+        "searched": false
+    },
+    {
+        "id": 510,
+        "parent": 1,
+        "href": "/wiki/Wheel_of_time",
+        "searched": false
+    },
+    {
+        "id": 511,
+        "parent": 1,
+        "href": "/wiki/Philosophy_of_space_and_time",
+        "searched": false
+    },
+    {
+        "id": 512,
+        "parent": 1,
+        "href": "/wiki/A-series_and_B-series",
+        "searched": false
+    },
+    {
+        "id": 513,
+        "parent": 1,
+        "href": "/wiki/B-theory_of_time",
+        "searched": false
+    },
+    {
+        "id": 514,
+        "parent": 1,
+        "href": "/wiki/Causality",
+        "searched": false
+    },
+    {
+        "id": 515,
+        "parent": 1,
+        "href": "/wiki/Duration_(philosophy)",
+        "searched": false
+    },
+    {
+        "id": 516,
+        "parent": 1,
+        "href": "/wiki/Endurantism",
+        "searched": false
+    },
+    {
+        "id": 517,
+        "parent": 1,
+        "href": "/wiki/Eternalism_(philosophy_of_time)",
+        "searched": false
+    },
+    {
+        "id": 518,
+        "parent": 1,
+        "href": "/wiki/Event_(philosophy)",
+        "searched": false
+    },
+    {
+        "id": 519,
+        "parent": 1,
+        "href": "/wiki/Perdurantism",
+        "searched": false
+    },
+    {
+        "id": 520,
+        "parent": 1,
+        "href": "/wiki/Presentism_(philosophy_of_time)",
+        "searched": false
+    },
+    {
+        "id": 521,
+        "parent": 1,
+        "href": "/wiki/Temporal_finitism",
+        "searched": false
+    },
+    {
+        "id": 522,
+        "parent": 1,
+        "href": "/wiki/Temporal_parts",
+        "searched": false
+    },
+    {
+        "id": 523,
+        "parent": 1,
+        "href": "/wiki/The_Unreality_of_Time",
+        "searched": false
+    },
+    {
+        "id": 524,
+        "parent": 1,
+        "href": "/wiki/Accounting_period",
+        "searched": false
+    },
+    {
+        "id": 525,
+        "parent": 1,
+        "href": "/wiki/Chronemics",
+        "searched": false
+    },
+    {
+        "id": 526,
+        "parent": 1,
+        "href": "/wiki/Fiscal_year",
+        "searched": false
+    },
+    {
+        "id": 527,
+        "parent": 1,
+        "href": "/wiki/Mental_chronometry",
+        "searched": false
+    },
+    {
+        "id": 528,
+        "parent": 1,
+        "href": "/wiki/Procrastination",
+        "searched": false
+    },
+    {
+        "id": 529,
+        "parent": 1,
+        "href": "/wiki/Punctuality",
+        "searched": false
+    },
+    {
+        "id": 530,
+        "parent": 1,
+        "href": "/wiki/Temporal_database",
+        "searched": false
+    },
+    {
+        "id": 531,
+        "parent": 1,
+        "href": "/wiki/Term_(time)",
+        "searched": false
+    },
+    {
+        "id": 532,
+        "parent": 1,
+        "href": "/wiki/Time_discipline",
+        "searched": false
+    },
+    {
+        "id": 533,
+        "parent": 1,
+        "href": "/wiki/Time_management",
+        "searched": false
+    },
+    {
+        "id": 534,
+        "parent": 1,
+        "href": "/wiki/Time_perception",
+        "searched": false
+    },
+    {
+        "id": 535,
+        "parent": 1,
+        "href": "/wiki/Specious_present",
+        "searched": false
+    },
+    {
+        "id": 536,
+        "parent": 1,
+        "href": "/wiki/Time-tracking_software",
+        "searched": false
+    },
+    {
+        "id": 537,
+        "parent": 1,
+        "href": "/wiki/Time-use_research",
+        "searched": false
+    },
+    {
+        "id": 538,
+        "parent": 1,
+        "href": "/wiki/Time-based_currency",
+        "searched": false
+    },
+    {
+        "id": 539,
+        "parent": 1,
+        "href": "/wiki/Time_value_of_money",
+        "searched": false
+    },
+    {
+        "id": 540,
+        "parent": 1,
+        "href": "/wiki/Time_clock",
+        "searched": false
+    },
+    {
+        "id": 541,
+        "parent": 1,
+        "href": "/wiki/Timesheet",
+        "searched": false
+    },
+    {
+        "id": 542,
+        "parent": 1,
+        "href": "/wiki/Yesterday_(time)",
+        "searched": false
+    },
+    {
+        "id": 543,
+        "parent": 1,
+        "href": "/wiki/Geology",
+        "searched": false
+    },
+    {
+        "id": 544,
+        "parent": 1,
+        "href": "/wiki/Geologic_time_scale",
+        "searched": false
+    },
+    {
+        "id": 545,
+        "parent": 1,
+        "href": "/wiki/Age_(geology)",
+        "searched": false
+    },
+    {
+        "id": 546,
+        "parent": 1,
+        "href": "/wiki/Chronozone",
+        "searched": false
+    },
+    {
+        "id": 547,
+        "parent": 1,
+        "href": "/wiki/Eon_(geology)",
+        "searched": false
+    },
+    {
+        "id": 548,
+        "parent": 1,
+        "href": "/wiki/Epoch_(geology)",
+        "searched": false
+    },
+    {
+        "id": 549,
+        "parent": 1,
+        "href": "/wiki/Era_(geology)",
+        "searched": false
+    },
+    {
+        "id": 550,
+        "parent": 1,
+        "href": "/wiki/Period_(geology)",
+        "searched": false
+    },
+    {
+        "id": 551,
+        "parent": 1,
+        "href": "/wiki/Geochronology",
+        "searched": false
+    },
+    {
+        "id": 552,
+        "parent": 1,
+        "href": "/wiki/Geological_history_of_Earth",
+        "searched": false
+    },
+    {
+        "id": 553,
+        "parent": 1,
+        "href": "/wiki/Time_in_physics",
+        "searched": false
+    },
+    {
+        "id": 554,
+        "parent": 1,
+        "href": "/wiki/Absolute_time_and_space",
+        "searched": false
+    },
+    {
+        "id": 555,
+        "parent": 1,
+        "href": "/wiki/Arrow_of_time",
+        "searched": false
+    },
+    {
+        "id": 556,
+        "parent": 1,
+        "href": "/wiki/Chronon",
+        "searched": false
+    },
+    {
+        "id": 557,
+        "parent": 1,
+        "href": "/wiki/Coordinate_time",
+        "searched": false
+    },
+    {
+        "id": 558,
+        "parent": 1,
+        "href": "/wiki/Imaginary_time",
+        "searched": false
+    },
+    {
+        "id": 559,
+        "parent": 1,
+        "href": "/wiki/Planck_epoch",
+        "searched": false
+    },
+    {
+        "id": 560,
+        "parent": 1,
+        "href": "/wiki/Proper_time",
+        "searched": false
+    },
+    {
+        "id": 561,
+        "parent": 1,
+        "href": "/wiki/Rate_(mathematics)",
+        "searched": false
+    },
+    {
+        "id": 562,
+        "parent": 1,
+        "href": "/wiki/Spacetime",
+        "searched": false
+    },
+    {
+        "id": 563,
+        "parent": 1,
+        "href": "/wiki/Theory_of_relativity",
+        "searched": false
+    },
+    {
+        "id": 564,
+        "parent": 1,
+        "href": "/wiki/Time_dilation",
+        "searched": false
+    },
+    {
+        "id": 565,
+        "parent": 1,
+        "href": "/wiki/Gravitational_time_dilation",
+        "searched": false
+    },
+    {
+        "id": 566,
+        "parent": 1,
+        "href": "/wiki/Time_domain",
+        "searched": false
+    },
+    {
+        "id": 567,
+        "parent": 1,
+        "href": "/wiki/T-symmetry",
+        "searched": false
+    },
+    {
+        "id": 568,
+        "parent": 1,
+        "href": "/wiki/Chronobiology",
+        "searched": false
+    },
+    {
+        "id": 569,
+        "parent": 1,
+        "href": "/wiki/Circadian_rhythm",
+        "searched": false
+    },
+    {
+        "id": 570,
+        "parent": 1,
+        "href": "/wiki/Dating_methodologies_in_archaeology",
+        "searched": false
+    },
+    {
+        "id": 571,
+        "parent": 1,
+        "href": "/wiki/Time_geography",
+        "searched": false
+    },
+    {
+        "id": 572,
+        "parent": 1,
+        "href": "/wiki/Carpe_diem",
+        "searched": false
+    },
+    {
+        "id": 573,
+        "parent": 1,
+        "href": "/wiki/Clock_position",
+        "searched": false
+    },
+    {
+        "id": 574,
+        "parent": 1,
+        "href": "/wiki/Space",
+        "searched": false
+    },
+    {
+        "id": 575,
+        "parent": 1,
+        "href": "/wiki/System_time",
+        "searched": false
+    },
+    {
+        "id": 576,
+        "parent": 1,
+        "href": "/wiki/Tempus_fugit",
+        "searched": false
+    },
+    {
+        "id": 577,
+        "parent": 1,
+        "href": "/wiki/Time_capsule",
+        "searched": false
+    },
+    {
+        "id": 578,
+        "parent": 1,
+        "href": "/wiki/Time_complexity",
+        "searched": false
+    },
+    {
+        "id": 579,
+        "parent": 1,
+        "href": "/wiki/Time_signature",
+        "searched": false
+    },
+    {
+        "id": 580,
+        "parent": 1,
+        "href": "/wiki/Time_travel",
+        "searched": false
+    },
+    {
+        "id": 581,
+        "parent": 1,
+        "href": "/wiki/Astronomy",
+        "searched": false
+    },
+    {
+        "id": 582,
+        "parent": 1,
+        "href": "/wiki/Paleontology",
+        "searched": false
+    },
+    {
+        "id": 583,
+        "parent": 1,
+        "href": "/wiki/Era",
+        "searched": false
+    },
+    {
+        "id": 584,
+        "parent": 1,
+        "href": "/wiki/Epoch_(reference_date)",
+        "searched": false
+    },
+    {
+        "id": 585,
+        "parent": 1,
+        "href": "/wiki/Holocene_calendar",
+        "searched": false
+    },
+    {
+        "id": 586,
+        "parent": 1,
+        "href": "/wiki/Ab_urbe_condita",
+        "searched": false
+    },
+    {
+        "id": 587,
+        "parent": 1,
+        "href": "/wiki/Anno_Domini",
+        "searched": false
+    },
+    {
+        "id": 588,
+        "parent": 1,
+        "href": "/wiki/Common_Era",
+        "searched": false
+    },
+    {
+        "id": 589,
+        "parent": 1,
+        "href": "/wiki/Anno_Mundi",
+        "searched": false
+    },
+    {
+        "id": 590,
+        "parent": 1,
+        "href": "/wiki/Byzantine_calendar",
+        "searched": false
+    },
+    {
+        "id": 591,
+        "parent": 1,
+        "href": "/wiki/Seleucid_era",
+        "searched": false
+    },
+    {
+        "id": 592,
+        "parent": 1,
+        "href": "/wiki/Spanish_era",
+        "searched": false
+    },
+    {
+        "id": 593,
+        "parent": 1,
+        "href": "/wiki/Before_Present",
+        "searched": false
+    },
+    {
+        "id": 594,
+        "parent": 1,
+        "href": "/wiki/Egyptian_chronology",
+        "searched": false
+    },
+    {
+        "id": 595,
+        "parent": 1,
+        "href": "/wiki/Sothic_cycle",
+        "searched": false
+    },
+    {
+        "id": 596,
+        "parent": 1,
+        "href": "/wiki/Hindu_units_of_time",
+        "searched": false
+    },
+    {
+        "id": 597,
+        "parent": 1,
+        "href": "/wiki/Yuga",
+        "searched": false
+    },
+    {
+        "id": 598,
+        "parent": 1,
+        "href": "/wiki/Mesoamerican_calendars",
+        "searched": false
+    },
+    {
+        "id": 599,
+        "parent": 1,
+        "href": "/wiki/Mesoamerican_Long_Count_calendar",
+        "searched": false
+    },
+    {
+        "id": 600,
+        "parent": 1,
+        "href": "/wiki/Maya_calendar#Short_Count",
+        "searched": false
+    },
+    {
+        "id": 601,
+        "parent": 1,
+        "href": "/wiki/Tzolk%27in",
+        "searched": false
+    },
+    {
+        "id": 602,
+        "parent": 1,
+        "href": "/wiki/Haab%27",
+        "searched": false
+    },
+    {
+        "id": 603,
+        "parent": 1,
+        "href": "/wiki/Canon_of_Kings",
+        "searched": false
+    },
+    {
+        "id": 604,
+        "parent": 1,
+        "href": "/wiki/Limmu",
+        "searched": false
+    },
+    {
+        "id": 605,
+        "parent": 1,
+        "href": "/wiki/Era_name",
+        "searched": false
+    },
+    {
+        "id": 606,
+        "parent": 1,
+        "href": "/wiki/Chinese_era_name",
+        "searched": false
+    },
+    {
+        "id": 607,
+        "parent": 1,
+        "href": "/wiki/Japanese_era_name",
+        "searched": false
+    },
+    {
+        "id": 608,
+        "parent": 1,
+        "href": "/wiki/Korean_era_name",
+        "searched": false
+    },
+    {
+        "id": 609,
+        "parent": 1,
+        "href": "/wiki/Vietnamese_era_name",
+        "searched": false
+    },
+    {
+        "id": 610,
+        "parent": 1,
+        "href": "/wiki/Roman_calendar",
+        "searched": false
+    },
+    {
+        "id": 611,
+        "parent": 1,
+        "href": "/wiki/Proleptic_Julian_calendar",
+        "searched": false
+    },
+    {
+        "id": 612,
+        "parent": 1,
+        "href": "/wiki/Revised_Julian_calendar",
+        "searched": false
+    },
+    {
+        "id": 613,
+        "parent": 1,
+        "href": "/wiki/Proleptic_Gregorian_calendar",
+        "searched": false
+    },
+    {
+        "id": 614,
+        "parent": 1,
+        "href": "/wiki/Old_Style_and_New_Style_dates",
+        "searched": false
+    },
+    {
+        "id": 615,
+        "parent": 1,
+        "href": "/wiki/Lunisolar_calendar",
+        "searched": false
+    },
+    {
+        "id": 616,
+        "parent": 1,
+        "href": "/wiki/Solar_calendar",
+        "searched": false
+    },
+    {
+        "id": 617,
+        "parent": 1,
+        "href": "/wiki/Astronomical_year_numbering",
+        "searched": false
+    },
+    {
+        "id": 618,
+        "parent": 1,
+        "href": "/wiki/Sexagenary_cycle",
+        "searched": false
+    },
+    {
+        "id": 619,
+        "parent": 1,
+        "href": "/wiki/Geologic_Calendar",
+        "searched": false
+    },
+    {
+        "id": 620,
+        "parent": 1,
+        "href": "/wiki/Iranian_calendars",
+        "searched": false
+    },
+    {
+        "id": 621,
+        "parent": 1,
+        "href": "/wiki/ISO_week_date",
+        "searched": false
+    },
+    {
+        "id": 622,
+        "parent": 1,
+        "href": "/wiki/Aztec_calendar",
+        "searched": false
+    },
+    {
+        "id": 623,
+        "parent": 1,
+        "href": "/wiki/Winter_count",
+        "searched": false
+    },
+    {
+        "id": 624,
+        "parent": 1,
+        "href": "/wiki/Cosmic_Calendar",
+        "searched": false
+    },
+    {
+        "id": 625,
+        "parent": 1,
+        "href": "/wiki/Ephemeris",
+        "searched": false
+    },
+    {
+        "id": 626,
+        "parent": 1,
+        "href": "/wiki/Galactic_year",
+        "searched": false
+    },
+    {
+        "id": 627,
+        "parent": 1,
+        "href": "/wiki/Metonic_cycle",
+        "searched": false
+    },
+    {
+        "id": 628,
+        "parent": 1,
+        "href": "/wiki/Milankovitch_cycles",
+        "searched": false
+    },
+    {
+        "id": 629,
+        "parent": 1,
+        "href": "/wiki/Geologic_time_scale#Terminology",
+        "searched": false
+    },
+    {
+        "id": 630,
+        "parent": 1,
+        "href": "/wiki/Global_Standard_Stratigraphic_Age",
+        "searched": false
+    },
+    {
+        "id": 631,
+        "parent": 1,
+        "href": "/wiki/Global_Boundary_Stratotype_Section_and_Point",
+        "searched": false
+    },
+    {
+        "id": 632,
+        "parent": 1,
+        "href": "/wiki/Chronostratigraphy",
+        "searched": false
+    },
+    {
+        "id": 633,
+        "parent": 1,
+        "href": "/wiki/Isotope_geochemistry",
+        "searched": false
+    },
+    {
+        "id": 634,
+        "parent": 1,
+        "href": "/wiki/Law_of_superposition",
+        "searched": false
+    },
+    {
+        "id": 635,
+        "parent": 1,
+        "href": "/wiki/Optical_dating",
+        "searched": false
+    },
+    {
+        "id": 636,
+        "parent": 1,
+        "href": "/wiki/Samarium-neodymium_dating",
+        "searched": false
+    },
+    {
+        "id": 637,
+        "parent": 1,
+        "href": "/wiki/Absolute_dating",
+        "searched": false
+    },
+    {
+        "id": 638,
+        "parent": 1,
+        "href": "/wiki/Amino_acid_dating",
+        "searched": false
+    },
+    {
+        "id": 639,
+        "parent": 1,
+        "href": "/wiki/Archaeomagnetic_dating",
+        "searched": false
+    },
+    {
+        "id": 640,
+        "parent": 1,
+        "href": "/wiki/Dendrochronology",
+        "searched": false
+    },
+    {
+        "id": 641,
+        "parent": 1,
+        "href": "/wiki/Ice_core",
+        "searched": false
+    },
+    {
+        "id": 642,
+        "parent": 1,
+        "href": "/wiki/Incremental_dating",
+        "searched": false
+    },
+    {
+        "id": 643,
+        "parent": 1,
+        "href": "/wiki/Lichenometry",
+        "searched": false
+    },
+    {
+        "id": 644,
+        "parent": 1,
+        "href": "/wiki/Paleomagnetism",
+        "searched": false
+    },
+    {
+        "id": 645,
+        "parent": 1,
+        "href": "/wiki/Radiometric_dating",
+        "searched": false
+    },
+    {
+        "id": 646,
+        "parent": 1,
+        "href": "/wiki/Uranium-lead_dating",
+        "searched": false
+    },
+    {
+        "id": 647,
+        "parent": 1,
+        "href": "/wiki/K%E2%80%93Ar_dating",
+        "searched": false
+    },
+    {
+        "id": 648,
+        "parent": 1,
+        "href": "/wiki/Tephrochronology",
+        "searched": false
+    },
+    {
+        "id": 649,
+        "parent": 1,
+        "href": "/wiki/Thermoluminescence_dating",
+        "searched": false
+    },
+    {
+        "id": 650,
+        "parent": 1,
+        "href": "/wiki/Relative_dating",
+        "searched": false
+    },
+    {
+        "id": 651,
+        "parent": 1,
+        "href": "/wiki/Fluorine_absorption_dating",
+        "searched": false
+    },
+    {
+        "id": 652,
+        "parent": 1,
+        "href": "/wiki/Obsidian_hydration_dating",
+        "searched": false
+    },
+    {
+        "id": 653,
+        "parent": 1,
+        "href": "/wiki/Seriation_(archaeology)",
+        "searched": false
+    },
+    {
+        "id": 654,
+        "parent": 1,
+        "href": "/wiki/Stratigraphy_(archaeology)",
+        "searched": false
+    },
+    {
+        "id": 655,
+        "parent": 1,
+        "href": "/wiki/Molecular_clock",
+        "searched": false
+    },
+    {
+        "id": 656,
+        "parent": 1,
+        "href": "/wiki/Glottochronology",
+        "searched": false
+    },
+    {
+        "id": 657,
+        "parent": 1,
+        "href": "/wiki/New_Chronology_(Fomenko)",
+        "searched": false
+    },
+    {
+        "id": 658,
+        "parent": 1,
+        "href": "/wiki/Synchronoptic_view",
+        "searched": false
+    },
+    {
+        "id": 659,
+        "parent": 1,
+        "href": "/wiki/0_(year)",
+        "searched": false
+    },
+    {
+        "id": 660,
+        "parent": 1,
+        "href": "/wiki/Circa",
+        "searched": false
+    },
+    {
+        "id": 661,
+        "parent": 1,
+        "href": "/wiki/Floruit",
+        "searched": false
+    },
+    {
+        "id": 662,
+        "parent": 1,
+        "href": "/wiki/Terminus_post_quem",
+        "searched": false
+    },
+    {
+        "id": 663,
+        "parent": 1,
+        "href": "/wiki/ASPRO_chronology",
+        "searched": false
+    },
+    {
+        "id": 664,
+        "parent": 1,
+        "href": "/wiki/Integrated_Authority_File",
+        "searched": false
+    },
+    {
+        "id": 665,
+        "parent": 1,
+        "href": "/wiki/National_Diet_Library",
+        "searched": false
+    }
+]

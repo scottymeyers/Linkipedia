@@ -8,6 +8,6 @@ block content
                     for search in searches.reverse()
                         li
                             span #{moment(search.created_at).format('MMMM Do, YYYY')}
-                            em &nbsp;-&nbsp;#{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ')}
+                            em &nbsp;-&nbsp;#{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ').replace(/[ ]*\/wiki\/[ ]*|[ ]+/g,' ')}
                     else
                         p get on it!

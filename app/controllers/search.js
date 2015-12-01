@@ -21,6 +21,7 @@ module.exports.get_searches = function(req, res) {
 module.exports.create_search = function(req, res) {
   var start = req.body.start;
   var term = req.body.end;
+  var exact = req.body.exact;
   var urls;
   var id = 2;
   var parentId = 1;
@@ -34,6 +35,7 @@ module.exports.create_search = function(req, res) {
   // initial request to the start term page
   makeRequest('https://en.wikipedia.org/wiki/' + start, init);
 
+  // in case start URL is redirected, such as when /wiki/history -> /wiki/History, etc.
   function init(response) {
     urls = [{ id: 1, parent: 0, href: response.request.uri.path, searched: true }];
     makeRequest(response.request.uri.href, collectUrls);
@@ -71,8 +73,8 @@ module.exports.create_search = function(req, res) {
   function searchForTerm(url, $){
     var nextUrl, searchTerm;
 
-    // i.e. skateboard not 'skateboard'ing
-    if (req.body.exact) {
+    // e.g. skateboard not 'skateboard'ing
+    if (exact === 'true') {
       searchTerm = new RegExp('\\b'+ term +'\\b', 'gi');
     } else {
       searchTerm = new RegExp(term, 'gi');
@@ -136,6 +138,7 @@ module.exports.create_search = function(req, res) {
     }
 
     fs.writeFile('public/data/lineage.json', JSON.stringify(lineage, null, 4));
+    fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
 
     res.send({
       status: 'OK',

@@ -1,4 +1,6 @@
-body { background: #f6f6f6; }
+body {
+  background: #f6f6f6;
+}
 
 .content {
 	margin: 40px 0 0;
@@ -23,32 +25,23 @@ body { background: #f6f6f6; }
   width: 100%;
 }
 
-@-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
-}
-
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-}
-
 hr {
   border-width: 0;
   height: 20px;
   margin-top: 0;
 }
 
-.h1 { margin: 0; }
+.h1 {
+  margin: 20px 0 0;
+}
 
-fieldset, svg { border-color: #258AD8; }
+svg {
+  border-color: #258AD8;
+}
 
 fieldset {
+  border-color: #258AD8;
+  border-top: none;
   margin-top: 50px;
   position: relative;
 
@@ -64,10 +57,19 @@ fieldset {
   }
 }
 
-body.loading .loader { display: inline-block; }
+body.loading .loader {
+  display: inline-block;
+}
 
-input[type="text"] { border-color: #aaa; }
-input[type="checkbox"] { margin-left: 10px; }
+input {
+  &[type="checkbox"] {
+    margin-left: 10px;
+  }
+
+  &[type="text"] {
+    border-color: #aaa;
+  }
+}
 
 .loader {
 	background: url('../img/loading.gif') no-repeat center;
@@ -79,8 +81,7 @@ input[type="checkbox"] { margin-left: 10px; }
 	width: 32px;
 }
 
-.submit i,
-.reset i {
+i {
 	display: inline-block;
 	height: 20px;
 	width: 20px;
@@ -121,3 +122,17 @@ input[type="checkbox"] { margin-left: 10px; }
   }
 }
 
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
