@@ -40,8 +40,6 @@ body { background: #f6f6f6; }
 }
 
 hr {
-  background-image: url('../img/bookshelf.png');
-  background-size: 40px auto;
   border-width: 0;
   height: 20px;
   margin-top: 0;
@@ -49,7 +47,23 @@ hr {
 
 .h1 { margin: 0; }
 
-fieldset, svg { border-color: #a7d7f9; }
+fieldset, svg { border-color: #258AD8; }
+
+fieldset {
+  margin-top: 50px;
+  position: relative;
+}
+
+fieldset::before {
+  background-image: url('../img/bookshelf.png');
+  background-size: 40px auto;
+  content: '';
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: -20px;
+  width: 100%;
+}
 
 body.loading .loader { display: inline-block; }
 

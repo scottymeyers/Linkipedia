@@ -2,20 +2,12 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Skateboard",
+        "href": "/wiki/Surfboard",
         "searched": true,
         "children": [
             {
-                "id": 64,
-                "parent": 1,
-                "href": "/wiki/Skate_shoe",
-                "searched": true,
-                "children": [
-                    {
-                        "href": "purple",
-                        "parent": 64
-                    }
-                ]
+                "href": "skateboard",
+                "parent": 1
             }
         ]
     }
