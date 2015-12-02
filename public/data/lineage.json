@@ -2,12 +2,20 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/History",
+        "href": "/wiki/Bucket",
         "searched": true,
         "children": [
             {
-                "href": "soph",
-                "parent": 1
+                "id": 2,
+                "parent": 1,
+                "href": "/wiki/Bucket_(disambiguation)",
+                "searched": true,
+                "children": [
+                    {
+                        "href": "seat",
+                        "parent": 2
+                    }
+                ]
             }
         ]
     }

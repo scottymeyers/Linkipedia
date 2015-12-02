@@ -1,27 +1,20 @@
+$blue: #258AD8;
+$gray: gray;
+
 body {
   background: #f6f6f6;
+  padding-top: 40px;
 }
 
-.content {
-	margin: 40px 0 0;
+a {
+  color: $gray;
 }
 
 .logo {
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 30000ms;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: spin;
-  -moz-animation-duration: 30000ms;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
-  -ms-animation-name: spin;
-  -ms-animation-duration: 30000ms;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-timing-function: linear;
-  -o-transition: rotate(3600deg);
   position: relative;
   top: 0;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
   width: 100%;
 }
 
@@ -36,11 +29,11 @@ hr {
 }
 
 svg {
-  border-color: #258AD8;
+  border-color: $blue;
 }
 
 fieldset {
-  border-color: #258AD8;
+  border-color: $blue;
   border-top: none;
   margin-top: 50px;
   position: relative;
@@ -57,8 +50,35 @@ fieldset {
   }
 }
 
-body.loading .loader {
-  display: inline-block;
+label {
+  em {
+    color: $blue;
+    font-size: 13px;
+  }
+}
+
+body.loading {
+  cursor: wait;
+
+  .logo {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 30000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 30000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 30000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    -o-transition: rotate(3600deg);
+  }
+
+  .loader {
+    display: inline-block;
+  }
 }
 
 input {
@@ -67,7 +87,7 @@ input {
   }
 
   &[type="text"] {
-    border-color: #aaa;
+    border-color: $gray;
   }
 }
 
@@ -105,8 +125,8 @@ i {
     display: inline-block;
     margin: 0 10px 0 0;
 
-    &.active {
-      text-decoration: underline;
+    &.active a {
+      color: $blue;
     }
   }
 }
@@ -135,4 +155,11 @@ i {
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
+}
+
+
+@media (max-width:768px) {
+  .h1 {
+    margin: 0;
+  }
 }

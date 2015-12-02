@@ -3,8 +3,6 @@ var bodyParser = require('body-parser');
 var database   = require('./config/database');
 var mongoose   = require('mongoose');
 var sass       = require('node-sass-middleware')
-var timeout    = require('connect-timeout');
-
 var express    = require('express');
 var app        = express();
 
@@ -25,7 +23,6 @@ mongoose.connect(database.url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(timeout('3600s'));
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 
@@ -37,11 +34,12 @@ app.use(sass({
 }));
 
 app.use(express.static('public'));
+
 app.listen('8081');
 
 // routes ===============================================
 require('./app/routes')(app);
 
-exports = module.exports = app;
 
+exports = module.exports = app;
 console.log('App is running.');

@@ -14,6 +14,8 @@ module.exports = function(app) {
 
   // move this to an outside service? use ruby/python?
   app.post('/scrape', function(req, res) {
+    // express default of 2 mins
+    req.setTimeout(0);
     searchController.create_search(req, res);
   });
 
