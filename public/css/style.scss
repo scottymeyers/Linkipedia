@@ -10,6 +10,19 @@ a {
   color: $gray;
 }
 
+#urls {
+  background: lightgray;
+
+  .url {
+    background: rgba(82, 154, 188, .5);
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
 .logo {
   position: relative;
   top: 0;
@@ -33,6 +46,7 @@ svg {
 }
 
 fieldset {
+  background: rgba(37, 138, 216, 0.07);
   border-color: $blue;
   border-top: none;
   margin-top: 50px;

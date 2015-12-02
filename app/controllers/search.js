@@ -98,21 +98,21 @@ module.exports.create_search = function(req, res) {
 
   // revisit this function
   function saveAndSaveResponse(url){
-    var lineage = [_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') })];
+    var result = [_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') })];
     var searchStrings = [];
 
     // trace back to parent ID of 0
-    while (lineage[0].parent > 0){
-      var parent = _.findWhere(urls, { id: lineage[0].parent });
+    while (result[0].parent > 0){
+      var parent = _.findWhere(urls, { id: result[0].parent });
       // place start term in beginning of array
-      lineage.unshift(parent);
+      result.unshift(parent);
     }
 
     // include the end term
-    lineage.push({href: term, parent: lineage[lineage.length-1].id });
+    result.push({href: term, parent: result[result.length-1].id });
 
-    for (var i = 0; i < lineage.length; i++){
-      searchStrings.push(lineage[i].href);
+    for (var i = 0; i < result.length; i++){
+      searchStrings.push(result[i].href);
     }
 
     // create search to save to DB
@@ -126,24 +126,26 @@ module.exports.create_search = function(req, res) {
       console.log('Search saved successfully!');
     });
 
-    // return the lineage and total URLs searched
-    var i = lineage.length;
+    // return the result and total URLs searched
+    var i = result.length;
 
     while (i--) {
-      if (lineage[i].parent !== 0) {
-        var parent = _.findWhere(lineage, { id: lineage[i].parent });
-        _.extend(parent, { children: [lineage[i]] });
-        lineage.splice(i, 1);
+      if (result[i].parent !== 0) {
+        var parent = _.findWhere(result, { id: result[i].parent });
+        _.extend(parent, { children: [result[i]] });
+        result.splice(i, 1);
       }
     }
 
-    fs.writeFile('public/data/lineage.json', JSON.stringify(lineage, null, 4));
+    fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
     fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
 
     res.send({
       status: 'OK',
-      url: '/data/lineage.json',
-      count: _.where(urls, { searched: true }).length
+      result: '/data/result.json',
+      urls: '/data/urls.json',
+      count: _.where(urls, { searched: true }).length,
+      depth: searchStrings.length - 2
     });
   }
 };
