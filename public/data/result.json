@@ -2,20 +2,12 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Marijuana",
+        "href": "/wiki/Lime",
         "searched": true,
         "children": [
             {
-                "id": 19,
-                "parent": 1,
-                "href": "/wiki/United_States",
-                "searched": true,
-                "children": [
-                    {
-                        "href": "skateboard",
-                        "parent": 19
-                    }
-                ]
+                "href": "lemon",
+                "parent": 1
             }
         ]
     }

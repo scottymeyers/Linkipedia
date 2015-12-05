@@ -7,19 +7,42 @@ body {
 }
 
 a {
-  color: $gray;
+  color: $blue;
 }
 
 #urls {
   background: lightgray;
 
   .url {
-    background: rgba(82, 154, 188, .5);
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 4px;
-    overflow: hidden;
-    position: relative;
+    background: blue;
+    float: left;
+    min-height: 8px;
+    margin: 5px;
+    text-indent: -9999px;
+    min-width: 8px;
+
+    .url {
+      background: orange;
+      margin: 3px;
+
+      .url {
+        background: violet;
+        margin: 1px;
+
+        .url {
+          background: green;
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.25);
+      transition: all .5s ease;
+    }
+  }
+
+  .url:last-child {
+    background: cornflowerblue !important;
   }
 }
 
@@ -139,9 +162,44 @@ i {
     display: inline-block;
     margin: 0 10px 0 0;
 
-    &.active a {
-      color: $blue;
+    &.active {
+      display: none;
     }
+  }
+}
+
+table {
+  text-transform: capitalize;
+  width: 100%;
+
+  th {
+    cursor: pointer;
+
+      &.sort-header:after {
+        content: '';
+        float: right;
+        margin-top: 7px;
+        border-width: 0 4px 4px;
+        border-style: solid;
+        border-color: #404040 transparent;
+        visibility: hidden;
+      }
+
+      &.sort-up:after,
+      &.sort-down:after,
+      &.sort-down:hover:after {
+        visibility: visible;
+        opacity: 0.4;
+      }
+
+      &.sort-up:after {
+        border-bottom: none;
+        border-width: 4px 4px 0;
+      }
+
+      &.sort-header:hover:after {
+        visibility: visible;
+      }
   }
 }
 

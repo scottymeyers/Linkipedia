@@ -7,6 +7,8 @@ var Schema = mongoose.Schema;
 var searchSchema = new Schema({
   body: String,
   created_at: Date,
+  depth: Number,
+  pages_searched: Number
 });
 
 // the schema is useless so far

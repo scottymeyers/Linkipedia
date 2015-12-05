@@ -2,18 +2,22 @@ extends ./layout.jade
 
 block content
     .row
-        .large-12.columns.history
-            table(role='grid', summary='Search History')
+        .large-12.columns
+            table(id='history', role='grid', summary='Search History')
               thead
                 tr
                   th Date
                   th Sequence
+                  th Depth
+                  th Pages Searched
               tbody
                 if searches
                     for search in searches.reverse()
                         tr
                             td #{moment(search.created_at).format('MMMM Do, YYYY')}
-                            td #{search.body.replace(/[ ]*,[ ]*|[ ]+/g, ' > ').replace(/[ ]*\/wiki\/[ ]*|[ ]+/g,' ')}
+                            td #{search.body.replace(/,+/g, ' > ').replace(/[ ]*\/wiki\/[ ]*|[ ]+/g,' ').replace(/_+/g, ' ')}
+                            td #{search.depth}
+                            td #{search.pages_searched}
                     else
                         tr
                             td Your search history is automatically saved and shown here...

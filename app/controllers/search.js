@@ -101,6 +101,8 @@ module.exports.create_search = function(req, res) {
     var result = [_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') })];
     var searchStrings = [];
 
+    fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
+
     // trace back to parent ID of 0
     while (result[0].parent > 0){
       var parent = _.findWhere(urls, { id: result[0].parent });
@@ -115,17 +117,6 @@ module.exports.create_search = function(req, res) {
       searchStrings.push(result[i].href);
     }
 
-    // create search to save to DB
-    var search = new Search({
-      body: searchStrings
-    });
-
-    // call the built-in save method to save to the database
-    search.save(function(err) {
-      if (err) throw err;
-      console.log('Search saved successfully!');
-    });
-
     // return the result and total URLs searched
     var i = result.length;
 
@@ -138,8 +129,21 @@ module.exports.create_search = function(req, res) {
     }
 
     fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
-    fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
 
+    // create search to save to DB
+    var search = new Search({
+      body: searchStrings,
+      depth: searchStrings.length - 2,
+      pages_searched: _.where(urls, { searched: true }).length
+    });
+
+    // call the built-in save method to save to the database
+    search.save(function(err) {
+      if (err) throw err;
+      console.log('Search saved successfully!');
+    });
+
+    // send response
     res.send({
       status: 'OK',
       result: '/data/result.json',

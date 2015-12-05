@@ -1,5 +1,8 @@
 $(function(){
 
+  // table filtering on history
+  new Tablesort(document.getElementById('history'), {});
+
   // foundation (forms)
 	$(document).foundation();
 
@@ -30,7 +33,6 @@ $(function(){
     .done(function(data) {
       $('body').removeClass('loading');
 
-      console.log(data);
       if (data.error) {
         console.log(data.error);
         $('#results').append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
@@ -44,24 +46,17 @@ $(function(){
 function visualize(json){
   var response, item, items = [];
 
-  /*
   $.get( json.urls, function( data ) {
     var $urls = $('#urls');
 
     for ( var i = 0; i < data.length; i++ ) {
-      if ($('.url').data('id') === data[i].parent) {
-        $('.url[data-id="'+ data[i].parent +'"]').append('<div data-id="'+ data[i].id +'" class="url">'+ data[i].href +'</div>');
+      if ( $('div[data-id="'+ data[i].parent +'"]').length ) {
+        $('div[data-id="'+ data[i].parent +'"]').append('<div data-id="'+ data[i].id +'" class="url"></div>');
       } else {
-        $('#urls').append('<div data-id="'+ data[i].id +'" class="url">'+ data[i].href +'</div>');
+        $urls.append('<div data-id="'+ data[i].id +'" class="url"></div>');
       }
     }
-
-    $('.url').each(function(el){
-      $(this).css('height', $(this).width() );
-    });
-
   });
- */
 
   $.get( json.result, function( data ) {
     response = data[0];
