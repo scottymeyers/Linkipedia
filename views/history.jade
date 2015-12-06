@@ -14,7 +14,7 @@ block content
                 if searches
                     for search in searches.reverse()
                         tr
-                            td #{moment(search.created_at).format('MMMM Do, YYYY')}
+                            td(data-sort="#{moment(search.created_at).format('DD/MM/YYYY')}") #{moment(search.created_at).format('MMMM Do, YYYY')}
                             td #{search.body.replace(/,+/g, ' > ').replace(/[ ]*\/wiki\/[ ]*|[ ]+/g,' ').replace(/_+/g, ' ')}
                             td #{search.depth}
                             td #{search.pages_searched}
