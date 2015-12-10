@@ -1,5 +1,1 @@
 ~ consider live updates, like every 10 or so results, using socket IO?
-~ fallback for no DB, use static files to host history.
-~ check for case sensitivity, mispellings
-~ prepare urls json for d3, remove id, parent & search properties, or maybe
-just id?

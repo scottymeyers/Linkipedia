@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   // history of searches
   app.get('/history', function(req, res) {
-    searchController.get_searches(req, res);
+    // searchController.get_searches(req, res);
   });
 
   // move this to an outside service? use ruby/python?

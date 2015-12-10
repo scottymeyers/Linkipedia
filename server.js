@@ -8,7 +8,7 @@ var app        = express();
 
 // configuration ========================================
 app.locals.moment = require('moment');
-mongoose.connect(database.url);
+// mongoose.connect(database.url);
 
 /*
   1. parse application/x-www-form-urlencoded
