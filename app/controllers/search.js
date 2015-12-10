@@ -3,7 +3,7 @@ var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
 
-// var Search = require('../models/search');
+var Search = require('../models/search');
 
 // list of all performed searches
 module.exports.get_searches = function(req, res) {
@@ -154,7 +154,7 @@ module.exports.create_search = function(req, res) {
     // save to fs
     fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
 
-    // saveToDatabase();
+    saveToDatabase();
 
 
     // - - - - - - - - - - - - - - - - - - - - - -

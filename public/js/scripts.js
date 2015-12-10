@@ -21,7 +21,7 @@ $(function(){
       'exact' : $('input[name="exact"]').is(':checked')
 		};
 
-    $('#results').empty();
+    $('#results').hide().empty();
 
     $('body').addClass('loading');
 
@@ -34,12 +34,12 @@ $(function(){
     })
     .done(function(data) {
       $('body').removeClass('loading');
-
+      $('#results').show();
       if (data.error) {
         console.log(data.error);
-        $('#results').append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
+        $('#results')
+          .append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
       } else {
-        console.log(data);
         visualize(data);
       }
     });

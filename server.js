@@ -8,7 +8,12 @@ var app        = express();
 
 // configuration ========================================
 app.locals.moment = require('moment');
-// mongoose.connect(database.url);
+
+var port = process.env.PORT || 8081;
+
+var db = process.env.MONGOLAB_URI || database.url;
+
+mongoose.connect(db);
 
 /*
   1. parse application/x-www-form-urlencoded
@@ -34,8 +39,6 @@ app.use(sass({
 }));
 
 app.use(express.static('public'));
-
-var port = process.env.PORT || 8081;
 
 app.listen(port);
 
