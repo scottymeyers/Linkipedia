@@ -3,8 +3,7 @@ extends layout.jade
 block content
     .row
         .large-12.columns
-          p We'll start searching for your end term on the start term Article page. If not found, we'll continue looking on all the linked Wikipedia Articles in the content of the current page and continue the search on all of the child page internal content links.
-          p Hold tight, this could take a while...
+          p Start by entering a parent term and the end topic you wish you arrive at. We'll start by scanning the main article page and all linked articles, if not found, it will search all linked articles of all child page internal content links until a connection is reached.
 
           form#search(action='scrape', data-abide='ajax')
             fieldset
@@ -32,6 +31,3 @@ block content
       .row
         .large-12.columns
           #results
-      .row
-        .large-12.columns
-          #urls

@@ -2,18 +2,16 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Foible",
-        "searched": true,
+        "href": "/wiki/Colors",
         "children": [
             {
-                "id": 3,
+                "id": 28,
                 "parent": 1,
-                "href": "/wiki/Footedness",
-                "searched": true,
+                "href": "/wiki/Orange_(colour)",
                 "children": [
                     {
-                        "href": "kite",
-                        "parent": 3
+                        "href": "cheese",
+                        "parent": 28
                     }
                 ]
             }

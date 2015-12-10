@@ -81,7 +81,8 @@ module.exports.create_search = function(req, res) {
     }
 
     if ($('#bodyContent').text().match(searchTerm)) {
-      saveAndSaveResponse(url);
+      // send the url which the term was found on
+      saveAndSendResponse(url);
     } else {
       // otherwise, find first saved unsearched URL
       nextUrl = _.findWhere(urls, {searched: false});
@@ -97,59 +98,107 @@ module.exports.create_search = function(req, res) {
   }
 
   // revisit this function
-  function saveAndSaveResponse(url){
-    var result = [_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') })];
-    var searchStrings = [];
+  function saveAndSendResponse(url){
 
+    // - - - - - - - - - - - - - - - - - - - - - -
+    // remove unsearched urls from urls array,
+    // then remove searched property from each url,
+    // and save.
+    // - - - - - - - - - - - - - - - - - - - - - -
+    var i = urls.length;
+
+    while (i--) {
+      if (urls[i].searched === false) {
+        urls.splice(i, 1);
+      } else {
+        delete urls[i].searched;
+      }
+    }
+
+    // then save all the searched URLs
     fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
 
-    // trace back to parent ID of 0
+
+    // - - - - - - - - - - - - - - - - - - - - - - - -
+    // store the lineage w/ parent/child relationship
+    // - - - - - - - - - - - - - - - - - - - - - - - -
+    var result = [];
+
+    // store the final URL which contained our search term
+    result.push(_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') }));
+
+    // trace back to start term, prepend array with each parent
     while (result[0].parent > 0){
       var parent = _.findWhere(urls, { id: result[0].parent });
-      // place start term in beginning of array
+
+      // place each parent at front of array
       result.unshift(parent);
     }
 
-    // include the end term
-    result.push({href: term, parent: result[result.length-1].id });
+    // then include the end term
+    result.push({href: term, parent: result[result.length - 1].id });
 
-    for (var i = 0; i < result.length; i++){
-      searchStrings.push(result[i].href);
-    }
+    var depth = getTheSearchDepth();
 
-    // return the result and total URLs searched
+    // count items in results
     var i = result.length;
 
+    // remove all items except the first
     while (i--) {
       if (result[i].parent !== 0) {
         var parent = _.findWhere(result, { id: result[i].parent });
+
         _.extend(parent, { children: [result[i]] });
         result.splice(i, 1);
       }
     }
 
+    // save to fs
     fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
 
-    // create search to save to DB
-    var search = new Search({
-      body: searchStrings,
-      depth: searchStrings.length - 2,
-      pages_searched: _.where(urls, { searched: true }).length
-    });
+    // saveToDatabase();
 
-    // call the built-in save method to save to the database
-    search.save(function(err) {
-      if (err) throw err;
-      console.log('Search saved successfully!');
-    });
 
-    // send response
+    // - - - - - - - - - - - - - - - - - - - - - -
+    // send response back to client
+    // - - - - - - - - - - - - - - - - - - - - - -
     res.send({
-      status: 'OK',
+      depth: depth,
+      pages_searched: urls.length,
       result: '/data/result.json',
-      urls: '/data/urls.json',
-      count: _.where(urls, { searched: true }).length,
-      depth: searchStrings.length - 2
+      status: 'OK',
+      urls: '/data/urls.json'
     });
+
+
+    // - - - - - - - - - - - - - - - - - - - - - -
+    // count how many levels we searched
+    // - - - - - - - - - - - - - - - - - - - - - -
+    function getTheSearchDepth() {
+      var searchStrings = [];
+
+      for (var i = 0; i < result.length; i++){
+        searchStrings.push(result[i].href);
+      }
+
+      return searchStrings.length - 2;
+    }
+
+
+    // - - - - - - - - - - - - - - - - - - - - - -
+    // save to mongodb
+    // - - - - - - - - - - - - - - - - - - - - - -
+    function saveToDatabase() {
+      var search = new Search({
+            body: searchStrings,
+            depth: depth,
+            pages_searched: urls.length
+          });
+
+      search.save(function(err) {
+        if (err) throw err;
+        console.log('Search saved successfully!');
+      });
+    }
   }
 };

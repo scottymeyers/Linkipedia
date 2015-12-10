@@ -3,6 +3,8 @@ html
   head
     meta(charset='utf-8')
     title Wikilinked
+    link(rel='shortcut icon', type='image/x-icon', href='/img/favicon.ico')
+    link(rel='icon', href='/img/favicon.ico', type='image/x-icon')
     link(href='/css/foundation.min.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
   body
@@ -15,7 +17,7 @@ html
             h1.h1 Wikilinked
             ul.menu
               li(class = path =='/' ? 'active':undefined)
-                a(href='/') Home
+                a(href='/') Search
               li(class = path =='/history' ? 'active':undefined)
                 a(href='/history') History
     .row
@@ -23,6 +25,8 @@ html
         hr
     block content
 
+    script(src='//d3js.org/d3.v3.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
     script(src='/js/jquery-2.1.4.min.js')
     script(src='/js/tablesort.min.js')
     script(src='/js/foundation/foundation.js')
