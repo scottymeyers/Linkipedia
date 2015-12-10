@@ -35,7 +35,9 @@ app.use(sass({
 
 app.use(express.static('public'));
 
-app.listen('8081');
+var port = process.env.PORT || 8081;
+
+app.listen(port);
 
 // routes ===============================================
 require('./app/routes')(app);
