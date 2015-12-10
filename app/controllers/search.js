@@ -103,7 +103,7 @@ module.exports.create_search = function(req, res) {
     // - - - - - - - - - - - - - - - - - - - - - -
     // remove unsearched urls from urls array,
     // then remove searched property from each url,
-    // and save.
+    // and send to visualization function.
     // - - - - - - - - - - - - - - - - - - - - - -
     var i = urls.length;
 
@@ -115,9 +115,7 @@ module.exports.create_search = function(req, res) {
       }
     }
 
-    // then save all the searched URLs
-    fs.writeFile('public/data/urls.json', JSON.stringify(urls, null, 4));
-
+    sendUrlsForVisualization(urls);
 
     // - - - - - - - - - - - - - - - - - - - - - - - -
     // store the lineage w/ parent/child relationship
@@ -128,7 +126,7 @@ module.exports.create_search = function(req, res) {
     result.push(_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') }));
 
     // trace back to start term, prepend array with each parent
-    while (result[0].parent > 0){
+    while (result[0].parent > 0) {
       var parent = _.findWhere(urls, { id: result[0].parent });
 
       // place each parent at front of array
@@ -138,7 +136,7 @@ module.exports.create_search = function(req, res) {
     // then include the end term
     result.push({href: term, parent: result[result.length - 1].id });
 
-    var depth = getTheSearchDepth();
+    var searchStrings = searchStringsArr();
 
     // count items in results
     var i = result.length;
@@ -156,14 +154,14 @@ module.exports.create_search = function(req, res) {
     // save to fs
     fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
 
-    // saveToDatabase();
+    saveToDatabase();
 
 
     // - - - - - - - - - - - - - - - - - - - - - -
     // send response back to client
     // - - - - - - - - - - - - - - - - - - - - - -
     res.send({
-      depth: depth,
+      depth: searchStrings.length,
       pages_searched: urls.length,
       result: '/data/result.json',
       status: 'OK',
@@ -174,14 +172,14 @@ module.exports.create_search = function(req, res) {
     // - - - - - - - - - - - - - - - - - - - - - -
     // count how many levels we searched
     // - - - - - - - - - - - - - - - - - - - - - -
-    function getTheSearchDepth() {
+    function searchStringsArr() {
       var searchStrings = [];
 
       for (var i = 0; i < result.length; i++){
         searchStrings.push(result[i].href);
       }
 
-      return searchStrings.length - 2;
+      return searchStrings;
     }
 
 
@@ -191,7 +189,7 @@ module.exports.create_search = function(req, res) {
     function saveToDatabase() {
       var search = new Search({
             body: searchStrings,
-            depth: depth,
+            depth: searchStrings.length,
             pages_searched: urls.length
           });
 
@@ -200,5 +198,39 @@ module.exports.create_search = function(req, res) {
         console.log('Search saved successfully!');
       });
     }
+
+
+    // - - - - - - - - - - - - - - - - - - - -
+    // send URLs w/ parent/children hierarchy,
+    // for D3 collapsible tree
+    // - - - - - - - - - - - - - - - - - - - -
+    function sendUrlsForVisualization(arr) {
+      var urlsCopy = arr.slice(0);
+
+      var i = urlsCopy.length;
+
+      // remove all items except the first
+      while (i--) {
+        if (urlsCopy[i].id !== 1) {
+          var parent = _.findWhere(urlsCopy, { id: urlsCopy[i].parent });
+
+          if ( _.has(parent, 'children') ) {
+            parent.children.push(urlsCopy[i]);
+          } else {
+            _.extend(parent, { children: [urlsCopy[i]] });
+          }
+        }
+      }
+
+      // find our URL which contains the end term
+      var finalUrl = _.findWhere(urlsCopy, { href: url.replace('https://en.wikipedia.org', '') });
+
+      // and add our end term as its child
+      _.extend(finalUrl, { children: [{ href: term }] });
+
+      // then save all the searched URLs
+      fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
+    }
+
   }
 };

@@ -40,7 +40,7 @@ $(function(){
         $('#results').append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
       } else {
         console.log(data);
-        // visualize(data);
+        visualize(data);
       }
     });
   });
@@ -117,7 +117,7 @@ function visualize(json){
         .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-        .text(function(d) { return d.href; })
+        .text(function(d) { return d.href.replace(/[ ]*\/wiki\/[ ]*|[ ]+/g,' ').replace(/_+/g, ' '); })
         .style("fill-opacity", 1e-6);
 
     // Transition nodes to their new position.
