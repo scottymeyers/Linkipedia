@@ -1,6 +1,5 @@
 var cheerio = require('cheerio');
 var date    = Date.now();
-var fork   = require('child_process').fork;
 var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
@@ -26,8 +25,8 @@ process.on('message', function(m) {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 process.send({
   initial: true,
-  result: '/data/result-'+ date +'.json',
-  urls: '/data/urls-'+ date +'.json'
+  result: '/data/result.json',
+  urls: '/data/urls.json'
 });
 
 // initial request to the start term page
@@ -149,8 +148,12 @@ function saveAndSendResponse(url){
     }
   }
 
-  // save to fs
-  fs.writeFile('public/data/result-'+ date +'.json', JSON.stringify(result, null, 4));
+  // remove previous result and then save new one
+  fs.unlink('public/data/result.json', function (err) {
+    if (err) throw err;
+
+    fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
+  });
 
   // return results
   process.send({
@@ -201,8 +204,12 @@ function saveAndSendResponse(url){
     // and add our end term as its child
     _.extend(finalUrl, { children: [{ href: term }] });
 
-    // then save all the searched URLs
-    fs.writeFile('public/data/urls-'+ date +'.json', JSON.stringify(urlsCopy, null, 4));
+    // remove old urls and then save all the searched URLs again
+    fs.unlink('public/data/urls.json', function (err) {
+      if (err) throw err;
+
+      fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
+    });
   }
 
 }
