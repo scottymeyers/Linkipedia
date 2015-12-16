@@ -1,5 +1,4 @@
 var cheerio = require('cheerio');
-var date    = Date.now();
 var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
@@ -149,11 +148,8 @@ function saveAndSendResponse(url){
   }
 
   // remove previous result and then save new one
-  fs.unlink('public/data/result.json', function (err) {
-    if (err) throw err;
-
-    fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
-  });
+  fs.unlink('public/data/result.json', function (err) {});
+  fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
 
   // return results
   process.send({
@@ -205,11 +201,8 @@ function saveAndSendResponse(url){
     _.extend(finalUrl, { children: [{ href: term }] });
 
     // remove old urls and then save all the searched URLs again
-    fs.unlink('public/data/urls.json', function (err) {
-      if (err) throw err;
-
-      fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
-    });
+    fs.unlink('public/data/urls.json', function (err) {});
+    fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
   }
 
 }

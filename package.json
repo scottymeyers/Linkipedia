@@ -15,7 +15,6 @@
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
     "request": "latest",
-    "rimraf": "^2.4.4",
     "underscore-node": "^0.1.2"
   }
 }
