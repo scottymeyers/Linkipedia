@@ -2,18 +2,11 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Ten",
+        "href": "/wiki/Test",
         "children": [
             {
-                "id": 3,
-                "parent": 1,
-                "href": "/wiki/Tenth_(disambiguation)",
-                "children": [
-                    {
-                        "href": "eleven",
-                        "parent": 3
-                    }
-                ]
+                "href": "testing",
+                "parent": 1
             }
         ]
     }

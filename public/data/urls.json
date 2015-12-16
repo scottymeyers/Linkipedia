@@ -2,37 +2,10 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Ten",
+        "href": "/wiki/Test",
         "children": [
             {
-                "id": 3,
-                "parent": 1,
-                "href": "/wiki/Tenth_(disambiguation)",
-                "children": [
-                    {
-                        "href": "eleven"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "parent": 1,
-                "href": "/wiki/Ten_(disambiguation)"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "parent": 1,
-        "href": "/wiki/Ten_(disambiguation)"
-    },
-    {
-        "id": 3,
-        "parent": 1,
-        "href": "/wiki/Tenth_(disambiguation)",
-        "children": [
-            {
-                "href": "eleven"
+                "href": "testing"
             }
         ]
     }

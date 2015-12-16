@@ -7,13 +7,14 @@ var express    = require('express');
 var app        = express();
 
 // configuration ========================================
-app.locals.moment = require('moment');
-
 var port = process.env.PORT || 8081;
+var db   = process.env.MONGOLAB_URI || database.url;
 
-var db = process.env.MONGOLAB_URI || database.url;
-
+app.locals.moment = require('moment');
 mongoose.connect(db);
+
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
 
 /*
   1. parse application/x-www-form-urlencoded
