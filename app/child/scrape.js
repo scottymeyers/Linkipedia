@@ -130,7 +130,7 @@ function saveAndSendResponse(url){
   }
 
   // then include the end term
-  result.push({href: term, parent: result[result.length - 1].id });
+  result.push({href: term, parent: result[result.length - 1].id});
 
   var searchStrings = searchStringsArr();
 

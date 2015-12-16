@@ -2,18 +2,11 @@
     {
         "id": 1,
         "parent": 0,
-        "href": "/wiki/Orange",
+        "href": "/wiki/Red",
         "children": [
             {
-                "id": 10,
-                "parent": 1,
-                "href": "/wiki/The_Oranges_(film)",
-                "children": [
-                    {
-                        "href": "christmas",
-                        "parent": 10
-                    }
-                ]
+                "href": "green",
+                "parent": 1
             }
         ]
     }
