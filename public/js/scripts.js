@@ -33,6 +33,7 @@ $(function(){
       encode      : true
     })
     .done(function(data) {
+      console.log(data);
       doPoll(data);
     });
   });
@@ -42,12 +43,12 @@ function doPoll(data){
   var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
   function checkServerForFile() {
+    console.log(data.urls);
+
     $.ajax({
       type: 'GET',
       url: data.urls,
       success: function (result) {
-        console.log(typeof result);
-
         if (typeof(result) === 'object') {
           clearTimeout(timerForLoadingResult);
 

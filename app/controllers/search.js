@@ -1,4 +1,3 @@
-var date    = Date.now();
 var fork   = require('child_process').fork;
 var Search = require('../models/search');
 
@@ -16,7 +15,7 @@ module.exports.get_searches = function(req, res) {
 
 // initialize a search
 module.exports.create_search = function(req, res) {
-  var data = [req.body.start, req.body.end, req.body.exact, date];
+  var data = [req.body.start, req.body.end, req.body.exact];
   var childProcess = fork(appRoot +'/app/child/scrape.js', data);
 
   // send response from child process

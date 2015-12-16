@@ -1,5 +1,6 @@
 var cheerio = require('cheerio');
-var fork    = require('child_process').fork;
+var date    = Date.now();
+var fork   = require('child_process').fork;
 var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
@@ -12,7 +13,6 @@ var parentId = 1;
 var start = process.argv[2];
 var term = process.argv[3];
 var urls;
-var date = process.argv[5];
 
 // make sure the connection persists
 process.on('message', function(m) {
