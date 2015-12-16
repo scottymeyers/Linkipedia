@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/Sky",
+        "children": [
+            {
+                "id": 56,
+                "parent": 1,
+                "href": "/wiki/Green",
+                "children": [
+                    {
+                        "href": "lemon",
+                        "parent": 56
+                    }
+                ]
+            }
+        ]
+    }
+]

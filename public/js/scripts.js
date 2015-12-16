@@ -30,21 +30,44 @@ $(function(){
       url         : '/scrape',
       data        : formData,
       dataType    : 'json',
-      encode          : true
+      encode      : true
     })
     .done(function(data) {
-      $('body').removeClass('loading');
-      $('#results').show();
-      if (data.error) {
-        console.log(data.error);
-        $('#results')
-          .append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
-      } else {
-        visualize(data);
-      }
+      doPoll(data);
+      /*
+     */
     });
   });
 });
+
+function doPoll(data){
+  var timerForLoadingResult = setInterval(checkServerForFile, 5000);
+
+  function checkServerForFile() {
+    $.ajax({
+      datatype: 'JSON',
+      type: 'GET',
+      url: data.urls,
+      success: function (result) {
+        if (typeof(result) === 'object') {
+          clearTimeout(timerForLoadingResult);
+
+          $('body').removeClass('loading');
+
+          $('#results').show();
+
+          if (data.error) {
+            console.log(data.error);
+            $('#results')
+              .append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
+          } else {
+            visualize(data);
+          }
+        }
+      }
+    });
+  }
+}
 
 function visualize(json){
   var response, item, items = [];
@@ -201,7 +224,7 @@ function visualize(json){
       items.push(response.href);
     }
 
-    $('#results').prepend('<p>Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
+    // $('#results').prepend('<p>Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
   });
 }
 

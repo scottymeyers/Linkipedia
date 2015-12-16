@@ -1,4 +1,5 @@
-var fork    = require('child_process').fork;
+var fork   = require('child_process').fork;
+var Search = require('../models/search');
 
 // list of all performed searches
 module.exports.get_searches = function(req, res) {
@@ -15,15 +16,12 @@ module.exports.get_searches = function(req, res) {
 // initialize a search
 module.exports.create_search = function(req, res) {
   var data = [req.body.start, req.body.end, req.body.exact];
-  var childProcess = fork(appRoot +'/app/exec/scrape.js', data);
+  var childProcess = fork(appRoot +'/app/child/scrape.js', data);
 
-  // response from child process
+  // send response from child process
   childProcess.on('message', function(m){
     res.send({
-      depth: m.depth,
-      pages_searched: m.pages_searched,
       result: m.result,
-      status: 'OK',
       urls: m.urls
     });
   });

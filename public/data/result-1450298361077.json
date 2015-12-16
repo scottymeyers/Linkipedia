@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/Skateboard",
+        "children": [
+            {
+                "href": "surf",
+                "parent": 1
+            }
+        ]
+    }
+]

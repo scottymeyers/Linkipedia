@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/Sky",
+        "children": [
+            {
+                "id": 7,
+                "parent": 1,
+                "href": "/wiki/Outer_space",
+                "children": [
+                    {
+                        "href": "monkey"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "parent": 1,
+                "href": "/wiki/Atmosphere_of_Earth"
+            },
+            {
+                "id": 5,
+                "parent": 1,
+                "href": "/wiki/Earth"
+            },
+            {
+                "id": 4,
+                "parent": 1,
+                "href": "/wiki/Cloud"
+            },
+            {
+                "id": 3,
+                "parent": 1,
+                "href": "/wiki/Sky_(disambiguation)"
+            },
+            {
+                "id": 2,
+                "parent": 1,
+                "href": "/wiki/Extraterrestrial_skies"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "parent": 1,
+        "href": "/wiki/Extraterrestrial_skies"
+    },
+    {
+        "id": 3,
+        "parent": 1,
+        "href": "/wiki/Sky_(disambiguation)"
+    },
+    {
+        "id": 4,
+        "parent": 1,
+        "href": "/wiki/Cloud"
+    },
+    {
+        "id": 5,
+        "parent": 1,
+        "href": "/wiki/Earth"
+    },
+    {
+        "id": 6,
+        "parent": 1,
+        "href": "/wiki/Atmosphere_of_Earth"
+    },
+    {
+        "id": 7,
+        "parent": 1,
+        "href": "/wiki/Outer_space",
+        "children": [
+            {
+                "href": "monkey"
+            }
+        ]
+    }
+]

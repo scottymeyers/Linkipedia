@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/Sky",
+        "children": [
+            {
+                "id": 7,
+                "parent": 1,
+                "href": "/wiki/Outer_space",
+                "children": [
+                    {
+                        "href": "monkey",
+                        "parent": 7
+                    }
+                ]
+            }
+        ]
+    }
+]

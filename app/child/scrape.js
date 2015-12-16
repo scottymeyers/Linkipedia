@@ -1,9 +1,11 @@
 var cheerio = require('cheerio');
+var date    = Date.now();
 var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
 
 var Search  = require('../models/search');
+
 
 // globals
 var connectionClosed = false;
@@ -19,6 +21,14 @@ process.on('message', function(m) {
   if (m.connectionClosed) {
     connectionClosed = true;
   }
+});
+
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// send unique file IDs back to client for polling
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+process.send({
+  result: '/data/result-'+ date +'.json',
+  urls: '/data/urls-'+ date +'.json'
 });
 
 // initial request to the start term page
@@ -141,20 +151,9 @@ function saveAndSendResponse(url){
   }
 
   // save to fs
-  fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
+  fs.writeFile('public/data/result-'+ date +'.json', JSON.stringify(result, null, 4));
 
   saveToDatabase();
-
-  // - - - - - - - - - - - - - - - - - - - - - -
-  // send response back to client
-  // - - - - - - - - - - - - - - - - - - - - - -
-  process.send({
-    depth: searchStrings.length,
-    pages_searched: urls.length,
-    result: '/data/result.json',
-    urls: '/data/urls.json'
-  });
-
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // count how many levels we searched
@@ -180,12 +179,13 @@ function saveAndSendResponse(url){
           pages_searched: urls.length
         });
 
+    console.log(search);
     search.save(function(err) {
+      console.log(err);
       if (err) throw err;
       console.log('Search saved successfully!');
     });
   }
-
 
   // - - - - - - - - - - - - - - - - - - - -
   // send URLs w/ parent/children hierarchy,
@@ -216,7 +216,7 @@ function saveAndSendResponse(url){
     _.extend(finalUrl, { children: [{ href: term }] });
 
     // then save all the searched URLs
-    fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
+    fs.writeFile('public/data/urls-'+ date +'.json', JSON.stringify(urlsCopy, null, 4));
   }
 
 }

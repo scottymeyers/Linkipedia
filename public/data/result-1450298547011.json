@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "href": "/wiki/Surf",
+        "children": [
+            {
+                "id": 12,
+                "parent": 1,
+                "href": "/wiki/Surf_music",
+                "children": [
+                    {
+                        "href": "skate",
+                        "parent": 12
+                    }
+                ]
+            }
+        ]
+    }
+]
