@@ -43,12 +43,10 @@ function doPoll(data){
 
   function checkServerForFile() {
     $.ajax({
-      datatype: 'JSON',
       type: 'GET',
       url: data.urls,
       success: function (result) {
         console.log(typeof result);
-        console.log(result);
 
         if (typeof(result) === 'object') {
           clearTimeout(timerForLoadingResult);
