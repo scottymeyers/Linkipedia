@@ -2,6 +2,8 @@ var searchController = require('./controllers/search');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {
+
+  // CORS
   app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -9,6 +11,8 @@ module.exports = function(app) {
     res.header('Access-Control-Allow-Credentials', 'true');
     next();
   });
+
+  // index
   app.get('/', function(req, res) {
     res.render('index', { path: req.path });
   });
