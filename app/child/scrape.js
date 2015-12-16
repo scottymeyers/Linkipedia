@@ -21,8 +21,6 @@ process.on('message', function(m) {
   }
 });
 
-console.log('test');
-
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // send unique file IDs back to client for polling
 // - - - - - - - - - - - - - - - - - - - - - - - - -
