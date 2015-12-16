@@ -1,11 +1,9 @@
 var cheerio = require('cheerio');
 var date    = Date.now();
+var fork   = require('child_process').fork;
 var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
-
-var Search  = require('../models/search');
-
 
 // globals
 var connectionClosed = false;
@@ -27,6 +25,7 @@ process.on('message', function(m) {
 // send unique file IDs back to client for polling
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 process.send({
+  initial: true,
   result: '/data/result-'+ date +'.json',
   urls: '/data/urls-'+ date +'.json'
 });
@@ -153,7 +152,12 @@ function saveAndSendResponse(url){
   // save to fs
   fs.writeFile('public/data/result-'+ date +'.json', JSON.stringify(result, null, 4));
 
-  saveToDatabase();
+  // return results
+  process.send({
+    body: searchStrings,
+    depth: searchStrings.length,
+    pages_searched: urls.length
+  });
 
   // - - - - - - - - - - - - - - - - - - - - - -
   // count how many levels we searched
@@ -168,24 +172,6 @@ function saveAndSendResponse(url){
     return searchStrings;
   }
 
-
-  // - - - - - - - - - - - - - - - - - - - - - -
-  // save to mongodb
-  // - - - - - - - - - - - - - - - - - - - - - -
-  function saveToDatabase() {
-    var search = new Search({
-          body: searchStrings,
-          depth: searchStrings.length,
-          pages_searched: urls.length
-        });
-
-    console.log(search);
-    search.save(function(err) {
-      console.log(err);
-      if (err) throw err;
-      console.log('Search saved successfully!');
-    });
-  }
 
   // - - - - - - - - - - - - - - - - - - - -
   // send URLs w/ parent/children hierarchy,

@@ -20,10 +20,25 @@ module.exports.create_search = function(req, res) {
 
   // send response from child process
   childProcess.on('message', function(m){
-    res.send({
-      result: m.result,
-      urls: m.urls
-    });
+    if (m.initial) {
+      res.send({
+        result: m.result,
+        urls: m.urls
+      });
+
+    } else {
+      // results
+      var search = new Search({
+            body: m.body,
+            depth: m.depth,
+            pages_searched: m.pages_searched
+          });
+
+      search.save(function(err) {
+        if (err) throw err;
+        console.log('Search saved successfully!');
+      });
+    }
   });
 
   // on closed connection, seize search

@@ -34,14 +34,12 @@ $(function(){
     })
     .done(function(data) {
       doPoll(data);
-      /*
-     */
     });
   });
 });
 
 function doPoll(data){
-  var timerForLoadingResult = setInterval(checkServerForFile, 5000);
+  var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
   function checkServerForFile() {
     $.ajax({
