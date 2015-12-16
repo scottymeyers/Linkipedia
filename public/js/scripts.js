@@ -47,6 +47,9 @@ function doPoll(data){
       type: 'GET',
       url: data.urls,
       success: function (result) {
+        console.log(typeof result);
+        console.log(result);
+
         if (typeof(result) === 'object') {
           clearTimeout(timerForLoadingResult);
 
