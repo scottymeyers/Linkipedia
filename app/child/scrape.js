@@ -148,7 +148,6 @@ function saveAndSendResponse(url){
   }
 
   // remove previous result and then save new one
-  fs.unlink('public/data/result.json', function (err) {});
   fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
 
   // return results
@@ -201,7 +200,6 @@ function saveAndSendResponse(url){
     _.extend(finalUrl, { children: [{ href: term }] });
 
     // remove old urls and then save all the searched URLs again
-    fs.unlink('public/data/urls.json', function (err) {});
     fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
   }
 

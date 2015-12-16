@@ -1,3 +1,5 @@
+
+var fs      = require('fs');
 var searchController = require('./controllers/search');
 
 // expose the routes to our app with module.exports
@@ -24,6 +26,9 @@ module.exports = function(app) {
 
   // move this to an outside service? use ruby/python?
   app.post('/scrape', function(req, res) {
+    // delete existing files
+    fs.unlink('public/data/urls.json', function (err) {});
+    fs.unlink('public/data/result.json', function (err) {});
     // express default of 2 mins
     req.setTimeout(0);
     searchController.create_search(req, res);
