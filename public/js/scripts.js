@@ -38,6 +38,13 @@ $(function(){
   });
 });
 
+
+(function(){
+  if ($('.single').length) {
+    visualize(urls);
+  }
+})();
+
 function doPoll(data){
   var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
@@ -49,16 +56,12 @@ function doPoll(data){
         if (result.pending === false) {
           clearTimeout(timerForLoadingResult);
 
-          $('body').removeClass('loading');
-          $('#results').show();
-
           if (result.error) {
             console.log(result.error);
             $('#results')
               .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
           } else {
-            console.log(result);
-            visualize(result);
+            visualize(result.urls);
           }
         }
       }
@@ -75,13 +78,16 @@ function visualize(json){
 
   var i = 0,
       duration = 750,
-      root = json.urls;
+      root = json;
 
   var tree = d3.layout.tree()
       .size([height, width]);
 
   var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.y, d.x]; });
+
+  $('body').removeClass('loading');
+  $('#results').show();
 
   var svg = d3.select("#results").append("svg")
       .attr("width", width + margin.right + margin.left)
@@ -216,7 +222,7 @@ function visualize(json){
       items.push(response.href);
     }
 
-    // $('#results').prepend('<p>Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
+    $('#results').prepend('<p>Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
   });
 }
 

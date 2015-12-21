@@ -41,7 +41,11 @@ module.exports = function(app) {
     searchController.get_searches(req, res);
   });
 
-  // move this to an outside service? use ruby/python?
+  // a single history item:
+  app.get('/history/:search_id', function(req, res) {
+    searchController.get_search(req, res);
+  });
+
   app.post('/scrape', function(req, res) {
     searchController.create_search(req, res);
   });

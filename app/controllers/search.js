@@ -4,7 +4,8 @@ var Search = require('../models/search');
 // list of all performed searches
 module.exports.get_searches = function(req, res) {
   Search.find({}, function(err, searches) {
-    if (err) throw err;
+    if (err)
+      res.send(err);
 
     res.render('history', {
       path: req.path,
@@ -12,6 +13,19 @@ module.exports.get_searches = function(req, res) {
     });
   });
 };
+
+// get a single search
+module.exports.get_search = function(req, res) {
+  Search.findById(req.params.search_id, function(err, search) {
+    if (err)
+      res.redirect('/history');
+
+    res.render('single', {
+      path: req.path,
+      search: search
+    });
+  });
+}
 
 // initialize a search
 module.exports.create_search = function(req, res) {
@@ -38,7 +52,6 @@ module.exports.create_search = function(req, res) {
         // save temp search object in dbs id
         searchId = search.id;
 
-        // pending = true
         res.send({
           id: searchId,
           status: 'Searching'
@@ -46,22 +59,13 @@ module.exports.create_search = function(req, res) {
       });
 
     } else {
-
-      // pending = false
-
       Search.findById(searchId, function(err, search){
-        if (err) throw err;
-
         search.body           = m.body;
         search.depth          = m.depth;
         search.pages_searched = m.pages_searched;
         search.pending        = false;
         search.urls           = m.urls;
-
-        search.save(function(err){
-          if (err) throw err;
-          console.log('updated!');
-        });
+        search.save();
       });
     }
   });
