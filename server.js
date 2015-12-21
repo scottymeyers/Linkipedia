@@ -1,4 +1,5 @@
 // set up ===============================================
+var auth       = require('http-auth');
 var bodyParser = require('body-parser');
 var database   = require('./config/database');
 var mongoose   = require('mongoose');
@@ -7,6 +8,7 @@ var express    = require('express');
 var app        = express();
 
 // configuration ========================================
+
 var port = process.env.PORT || 8081;
 var db   = process.env.MONGOLAB_URI || database.url;
 
@@ -15,6 +17,11 @@ mongoose.connect(db);
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
+
+var basic = auth.basic({
+    realm: "Simon Area.",
+    file: appRoot + "/data/users.htpasswd" // gevorg:gpass, Sarah:testpass ...
+});
 
 /*
   1. parse application/x-www-form-urlencoded
@@ -29,12 +36,13 @@ global.appRoot = path.resolve(__dirname);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(auth.connect(basic));
 app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
+app.set('views', appRoot + '/views');
 
 app.use(sass({
- src: __dirname + '/public',
- dest: __dirname + '/public',
+ src: appRoot + '/public',
+ dest: appRoot + '/public',
  debug: true,
  outputStyle: 'compressed'
 }));
@@ -45,7 +53,6 @@ app.listen(port);
 
 // routes ===============================================
 require('./app/routes')(app);
-
 
 exports = module.exports = app;
 console.log('App is running.');
