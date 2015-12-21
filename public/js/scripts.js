@@ -1,5 +1,4 @@
 $(function(){
-
   // table filtering on history
   if ( $('#history').length ) {
     new Tablesort(document.getElementById('history'), {});
@@ -41,7 +40,7 @@ $(function(){
 
 (function(){
   if ($('.single').length) {
-    visualize(urls);
+    visualize(search);
   }
 })();
 
@@ -61,7 +60,7 @@ function doPoll(data){
             $('#results')
               .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
           } else {
-            visualize(result.urls);
+            visualize(result);
           }
         }
       }
@@ -78,7 +77,7 @@ function visualize(json){
 
   var i = 0,
       duration = 750,
-      root = json;
+      root = json.urls;
 
   var tree = d3.layout.tree()
       .size([height, width]);
@@ -222,7 +221,7 @@ function visualize(json){
       items.push(response.href);
     }
 
-    $('#results').prepend('<p>Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
+    $('#results').prepend('<p class="details">Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
   });
 }
 
