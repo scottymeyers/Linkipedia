@@ -17,32 +17,52 @@ module.exports.get_searches = function(req, res) {
 module.exports.create_search = function(req, res) {
   var data = [req.body.start, req.body.end, req.body.exact];
   var childProcess = fork(appRoot +'/app/child/scrape.js', data);
+  var searchId;
 
   // send response from child process
   childProcess.on('message', function(m){
+
     if (m.initial) {
-      res.send({
-        result: m.result,
-        urls: m.urls
+      // create temp object in db
+      var search = new Search({
+        body: 'null',
+        depth: 0,
+        pages_searched: 0,
+        pending: true,
+        urls: {}
+      });
+
+      search.save(function(err){
+        if (err) throw err;
+
+        // save temp search object in dbs id
+        searchId = search.id;
+
+        // pending = true
+        res.send({
+          id: searchId,
+          status: 'Searching'
+        });
       });
 
     } else {
-      // results
-      var search = new Search({
-            body: m.body,
-            depth: m.depth,
-            pages_searched: m.pages_searched
-          });
 
-      search.save(function(err) {
+      // pending = false
+
+      Search.findById(searchId, function(err, search){
         if (err) throw err;
-        console.log('Search saved successfully!');
+
+        search.body           = m.body;
+        search.depth          = m.depth;
+        search.pages_searched = m.pages_searched;
+        search.pending        = false;
+        search.urls           = m.urls;
+
+        search.save(function(err){
+          if (err) throw err;
+          console.log('updated!');
+        });
       });
     }
-  });
-
-  // on closed connection, seize search
-  req.connection.on('close', function(){
-    childProcess.send({ connectionClosed: true });
   });
 };

@@ -1,5 +1,4 @@
 var cheerio = require('cheerio');
-var fs      = require('fs');
 var request = require('request');
 var _       = require('underscore-node');
 
@@ -12,20 +11,11 @@ var start = process.argv[2];
 var term = process.argv[3];
 var urls;
 
-// make sure the connection persists
-process.on('message', function(m) {
-  if (m.connectionClosed) {
-    connectionClosed = true;
-  }
-});
-
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // send unique file IDs back to client for polling
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 process.send({
-  initial: true,
-  result: '/data/result.json',
-  urls: '/data/urls.json'
+  initial: true
 });
 
 // initial request to the start term page
@@ -38,18 +28,15 @@ function init(response) {
 }
 
 function makeRequest(url, callback) {
-  // continue to check for active connection
-  if (connectionClosed !== true) {
-    request(url, function(error, response, html) {
-      console.log('> ' + url);
+  request(url, function(error, response, html) {
+    console.log('> ' + url);
 
-      if (!error) {
-        callback(response, html, url);
-      } else {
-        res.send({ error: error });
-      }
-    });
-  }
+    if (!error) {
+      callback(response, html, url);
+    } else {
+      res.send({ error: error });
+    }
+  });
 }
 
 function collectUrls(response, html, url) {
@@ -93,7 +80,6 @@ function searchForTerm(url, $){
   }
 }
 
-// revisit this function
 function saveAndSendResponse(url){
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -111,7 +97,7 @@ function saveAndSendResponse(url){
     }
   }
 
-  sendUrlsForVisualization(urls);
+  var updatedUrls = sendUrlsForVisualization(urls);
 
   // - - - - - - - - - - - - - - - - - - - - - - - -
   // store the lineage w/ parent/child relationship
@@ -130,7 +116,7 @@ function saveAndSendResponse(url){
   }
 
   // then include the end term
-  result.push({href: term, parent: result[result.length - 1].id});
+  result.push({href: term, parent: result[result.length - 1].id });
 
   var searchStrings = searchStringsArr();
 
@@ -147,14 +133,12 @@ function saveAndSendResponse(url){
     }
   }
 
-  // remove previous result and then save new one
-  fs.writeFile('public/data/result.json', JSON.stringify(result, null, 4));
-
   // return results
   process.send({
     body: searchStrings,
     depth: searchStrings.length,
-    pages_searched: urls.length
+    pages_searched: urls.length,
+    urls: updatedUrls
   });
 
   // - - - - - - - - - - - - - - - - - - - - - -
@@ -170,15 +154,13 @@ function saveAndSendResponse(url){
     return searchStrings;
   }
 
-
   // - - - - - - - - - - - - - - - - - - - -
   // send URLs w/ parent/children hierarchy,
   // for D3 collapsible tree
   // - - - - - - - - - - - - - - - - - - - -
   function sendUrlsForVisualization(arr) {
-    var urlsCopy = arr.slice(0);
-
-    var i = urlsCopy.length;
+    var urlsCopy = _.map(arr, _.clone),
+        i = urlsCopy.length;
 
     // remove all items except the first
     while (i--) {
@@ -199,8 +181,6 @@ function saveAndSendResponse(url){
     // and add our end term as its child
     _.extend(finalUrl, { children: [{ href: term }] });
 
-    // remove old urls and then save all the searched URLs again
-    fs.writeFile('public/data/urls.json', JSON.stringify(urlsCopy, null, 4));
+    return urlsCopy[0];
   }
-
 }

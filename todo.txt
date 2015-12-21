@@ -1,1 +1,1 @@
-~ consider live updates, like every 10 or so results, using socket IO?
+~ review mongoose errors, send an error response

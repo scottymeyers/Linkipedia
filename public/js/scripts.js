@@ -33,7 +33,6 @@ $(function(){
       encode      : true
     })
     .done(function(data) {
-      console.log(data);
       doPoll(data);
     });
   });
@@ -43,25 +42,23 @@ function doPoll(data){
   var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
   function checkServerForFile() {
-    console.log(data.urls);
-
     $.ajax({
       type: 'GET',
-      url: data.urls,
+      url: '/api/searches/' + data.id,
       success: function (result) {
-        if (typeof(result) === 'object') {
+        if (result.pending === false) {
           clearTimeout(timerForLoadingResult);
 
           $('body').removeClass('loading');
-
           $('#results').show();
 
-          if (data.error) {
-            console.log(data.error);
+          if (result.error) {
+            console.log(result.error);
             $('#results')
-              .append('<span class="error">There was an error, check your terms and try again. ('+ data.error +')</span>');
+              .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
           } else {
-            visualize(data);
+            console.log(result);
+            visualize(result);
           }
         }
       }
@@ -78,7 +75,7 @@ function visualize(json){
 
   var i = 0,
       duration = 750,
-      root;
+      root = json.urls;
 
   var tree = d3.layout.tree()
       .size([height, width]);
@@ -92,24 +89,19 @@ function visualize(json){
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.json(json.urls, function(error, flare) {
-    if (error) throw error;
+  root.x0 = height / 2;
+  root.y0 = 0;
 
-    root = flare[0];
-    root.x0 = height / 2;
-    root.y0 = 0;
-
-    function collapse(d) {
-      if (d.children) {
-        d._children = d.children;
-        d._children.forEach(collapse);
-        d.children = null;
-      }
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
     }
+  }
 
-    root.children.forEach(collapse);
-    update(root);
-  });
+  root.children.forEach(collapse);
+  update(root);
 
   d3.select(self.frameElement).style("height", "800px");
 

@@ -8,7 +8,9 @@ var searchSchema = new Schema({
   body: String,
   created_at: Date,
   depth: Number,
-  pages_searched: Number
+  pages_searched: Number,
+  pending: Boolean,
+  urls: Object
 });
 
 // the schema is useless so far

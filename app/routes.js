@@ -1,6 +1,5 @@
-
-var fs      = require('fs');
 var searchController = require('./controllers/search');
+var Search = require('./models/search');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {
@@ -19,6 +18,24 @@ module.exports = function(app) {
     res.render('index', { path: req.path });
   });
 
+  // get all searches
+  app.get('/api/searches', function(req, res) {
+    Search.find(function(err, searches) {
+      if (err)
+        res.send(err);
+      res.json(searches);
+    });
+  });
+
+  // get a particular search
+  app.get('/api/searches/:search_id', function(req, res) {
+    Search.findById(req.params.search_id, function(err, search) {
+      if (err)
+        res.send(err);
+      res.json(search);
+    });
+  });
+
   // history of searches
   app.get('/history', function(req, res) {
     searchController.get_searches(req, res);
@@ -26,8 +43,6 @@ module.exports = function(app) {
 
   // move this to an outside service? use ruby/python?
   app.post('/scrape', function(req, res) {
-    // express default of 2 mins
-    req.setTimeout(0);
     searchController.create_search(req, res);
   });
 
