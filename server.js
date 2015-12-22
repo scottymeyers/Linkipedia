@@ -3,25 +3,28 @@ var auth       = require('http-auth');
 var bodyParser = require('body-parser');
 var database   = require('./config/database');
 var mongoose   = require('mongoose');
+var path       = require('path');
 var sass       = require('node-sass-middleware')
 var express    = require('express');
 var app        = express();
 
 // configuration ========================================
-
 var port = process.env.PORT || 8081;
 var db   = process.env.MONGOLAB_URI || database.url;
 
 app.locals.moment = require('moment');
 mongoose.connect(db);
-
-var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
-var basic = auth.basic({
-    realm: "Simon Area.",
-    file: appRoot + "/data/users.htpasswd" // gevorg:gpass, Sarah:testpass ...
-});
+// protect on production for now
+if ('production' == app.get('env')) {
+  var basic = auth.basic({
+      realm: "Private",
+      file: appRoot + "/data/users.htpasswd"
+  });
+
+  app.use(auth.connect(basic));
+}
 
 /*
   1. parse application/x-www-form-urlencoded
@@ -36,7 +39,6 @@ var basic = auth.basic({
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(auth.connect(basic));
 app.set('view engine', 'jade');
 app.set('views', appRoot + '/views');
 

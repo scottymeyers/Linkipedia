@@ -14,7 +14,7 @@ module.exports.get_searches = function(req, res) {
   });
 };
 
-// get a single search
+// get a single search, or redirect to all searches
 module.exports.get_search = function(req, res) {
   Search.findById(req.params.search_id, function(err, search) {
     if (err)

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Find connections in wikipedia",
   "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "author": "romeo",
   "dependencies": {
     "body-parser": "^1.14.1",
@@ -17,5 +20,10 @@
     "node-sass-middleware": "^0.9.7",
     "request": "latest",
     "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "mocha": "^2.3.4"
   }
 }
