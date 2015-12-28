@@ -52,6 +52,6 @@ module.exports = function(app) {
 
   // fallback
   app.get('*', function(req, res) {
-    res.render('index');
+    res.redirect('/');
   });
 };
