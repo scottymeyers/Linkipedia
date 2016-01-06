@@ -141,11 +141,3 @@ function createRecord(done) {
       done();
     });
 }
-
-// NOTES
-/*
-
-
-.get('/').auth('', '')
-
-*/

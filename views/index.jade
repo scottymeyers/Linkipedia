@@ -3,7 +3,10 @@ extends layout.jade
 block content
     .row
         .large-12.columns
-          p Start by entering a parent term and the end topic you wish you arrive at. We'll scan the main article page and all linked articles, if not found, it will search all linked articles of all child page internal content links until a connection is reached.
+          p The goal is to find a connection between two terms in Wikipedia.
+          p Begin by supplying two terms, we'll initiate the search on the article page for your #[b start] term, if it exists.
+          p We'll then scan that article page for your #[b end] term. If not found, we'll then scan all of the linked articles, and so on until a connection is finally reached.
+          p This could take some time...
 
           form#search(action='scrape', data-abide='ajax')
             fieldset
@@ -30,4 +33,4 @@ block content
                     i
       .row
         .large-12.columns
-          #results
+          #results.results

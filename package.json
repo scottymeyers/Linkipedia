@@ -16,8 +16,6 @@
     "jade": "^1.11.0",
     "moment": "^2.10.6",
     "mongoose": "^4.2.6",
-    "node-sass": "^3.4.2",
-    "node-sass-middleware": "^0.9.7",
     "request": "latest",
     "underscore-node": "^0.1.2"
   },

@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var config     = require('./app/config');
 var mongoose   = require('mongoose');
 var path       = require('path');
-var sass       = require('node-sass-middleware')
 var express    = require('express');
 var app        = express();
 
@@ -38,7 +37,6 @@ if ('production' == app.get('env')) {
   3. 1 hour timeout
   4. use jade
   5. set /views for views
-  6. use sass middleware
   7. set /public for assets
   8. listen
 */
@@ -47,13 +45,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('view engine', 'jade');
 app.set('views', appRoot + '/views');
-
-app.use(sass({
- src: appRoot + '/public',
- dest: appRoot + '/public',
- debug: true,
- outputStyle: 'compressed'
-}));
 
 app.use(express.static('public'));
 

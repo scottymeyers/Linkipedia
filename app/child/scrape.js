@@ -2,7 +2,6 @@ var cheerio = require('cheerio');
 var request = require('request');
 var _       = require('underscore-node');
 
-// globals
 var start    = process.argv[2];
 var term     = process.argv[3];
 var exact    = process.argv[4];
@@ -11,29 +10,28 @@ var parentId = 1;
 var urls     = [];
 
 
-// initial request to the start term page
-// dont setup on tests, find a better way...
+// make first request, dont include on tests...
 if ('test' !== process.env.NODE_ENV) {
-  var url = 'https://en.wikipedia.org/wiki/' + start;
-  makeRequest(url, init);
+  makeRequest('https://en.wikipedia.org/wiki/' + start, init);
 }
 
 
-// in case start URL is redirected, such as when /wiki/history -> /wiki/History, etc.
-function init(response){
-  urls = [{ id: 1, parent: 0, href: response.request.uri.path, searched: true }];
-  makeRequest(response.request.uri.href, collectUrls);
+// we use res.request.uri.path in case of redirect, blue > Blue.
+function init(res){
+  urls = [{ id: 1, parent: 0, href: res.request.uri.path, searched: true }];
+
+  makeRequest(res.request.uri.href, collectUrls);
 
   if (process)
     process.send({ initial: true });
 }
 
 
-// make request and supply a callback
+// make request, then fire suplied callback on response.
 function makeRequest(url, callback){
-  request(url, function(error, res, html){
-    console.log('> ' + url);
+  console.log('> ' + url);
 
+  request(url, function(error, res, html){
     if (error)
       res.send({ error: error });
 
@@ -42,11 +40,11 @@ function makeRequest(url, callback){
 }
 
 
-// accepts a requests response and grab all internal links
+// takes a HTTP response and grab all internal links
 function collectUrls(response, html, url){
   var $ = cheerio.load(html);
 
-  // all internal article urls
+  // select all internal article urls
   $('#bodyContent a[href^="/wiki/"]').each(function(){
       // not already added to urls arr & exclude media files
       if (_.where(urls, { href: $(this).attr('href') }).length <= 0 && $(this).attr('href').indexOf(':') === -1) {
@@ -58,7 +56,7 @@ function collectUrls(response, html, url){
   // increment the parent ID
   parentId++;
 
-  // lookup our search term
+  // then look for our search term
   searchForTerm(url, $);
 }
 
