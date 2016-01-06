@@ -3,55 +3,65 @@ var request = require('request');
 var _       = require('underscore-node');
 
 // globals
-var connectionClosed = false;
-var exact = process.argv[4];
-var id = 2;
+var start    = process.argv[2];
+var term     = process.argv[3];
+var exact    = process.argv[4];
+var id       = 2;
 var parentId = 1;
-var start = process.argv[2];
-var term = process.argv[3];
-var urls;
+var urls     = [];
 
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-// send unique file IDs back to client for polling
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-process.send({
-  initial: true
-});
 
 // initial request to the start term page
-makeRequest('https://en.wikipedia.org/wiki/' + start, init);
-
-// in case start URL is redirected, such as when /wiki/history -> /wiki/History, etc.
-function init(response) {
-  urls = [{ id: 1, parent: 0, href: response.request.uri.path, searched: true }];
-  makeRequest(response.request.uri.href, collectUrls);
+// dont setup on tests, find a better way...
+if ('test' !== process.env.NODE_ENV) {
+  var url = 'https://en.wikipedia.org/wiki/' + start;
+  makeRequest(url, init);
 }
 
-function makeRequest(url, callback) {
-  request(url, function(error, response, html) {
+
+// in case start URL is redirected, such as when /wiki/history -> /wiki/History, etc.
+function init(response){
+  urls = [{ id: 1, parent: 0, href: response.request.uri.path, searched: true }];
+  makeRequest(response.request.uri.href, collectUrls);
+
+  if (process)
+    process.send({ initial: true });
+}
+
+
+// make request and supply a callback
+function makeRequest(url, callback){
+  request(url, function(error, res, html){
     console.log('> ' + url);
 
-    if (!error) {
-      callback(response, html, url);
-    } else {
+    if (error)
       res.send({ error: error });
-    }
+
+    callback(res, html, url);
   });
 }
 
-function collectUrls(response, html, url) {
+
+// accepts a requests response and grab all internal links
+function collectUrls(response, html, url){
   var $ = cheerio.load(html);
 
-  // include only if not already added to list, and are not media files
+  // all internal article urls
   $('#bodyContent a[href^="/wiki/"]').each(function(){
+      // not already added to urls arr & exclude media files
       if (_.where(urls, { href: $(this).attr('href') }).length <= 0 && $(this).attr('href').indexOf(':') === -1) {
+        // save to urls arr
         urls.push({'id': id++, 'parent': parentId, 'href': $(this).attr('href'), 'searched': false });
       }
   });
 
+  // increment the parent ID
   parentId++;
+
+  // lookup our search term
   searchForTerm(url, $);
 }
+
 
 function searchForTerm(url, $){
   var nextUrl, searchTerm;
@@ -80,13 +90,11 @@ function searchForTerm(url, $){
   }
 }
 
-function saveAndSendResponse(url){
 
-  // - - - - - - - - - - - - - - - - - - - - - -
-  // remove unsearched urls from urls array,
-  // then remove searched property from each url,
-  // and send to visualization function.
-  // - - - - - - - - - - - - - - - - - - - - - -
+// remove unsearched urls from urls array,
+// then remove searched property from each url,
+// and send to visualization function.
+function saveAndSendResponse(url){
   var i = urls.length;
 
   while (i--) {
@@ -133,6 +141,7 @@ function saveAndSendResponse(url){
     }
   }
 
+
   // return results
   process.send({
     body: searchStrings,
@@ -144,7 +153,7 @@ function saveAndSendResponse(url){
   // - - - - - - - - - - - - - - - - - - - - - -
   // count how many levels we searched
   // - - - - - - - - - - - - - - - - - - - - - -
-  function searchStringsArr() {
+  function searchStringsArr(){
     var searchStrings = [];
 
     for (var i = 0; i < result.length; i++){
@@ -158,7 +167,7 @@ function saveAndSendResponse(url){
   // send URLs w/ parent/children hierarchy,
   // for D3 collapsible tree
   // - - - - - - - - - - - - - - - - - - - -
-  function sendUrlsForVisualization(arr) {
+  function sendUrlsForVisualization(arr){
     var urlsCopy = _.map(arr, _.clone),
         i = urlsCopy.length;
 
@@ -183,4 +192,12 @@ function saveAndSendResponse(url){
 
     return urlsCopy[0];
   }
+}
+
+module.exports = {
+  init: init,
+  makeRequest: makeRequest,
+  collectUrls: collectUrls,
+  searchForTerm: searchForTerm,
+  saveAndSendResponse: saveAndSendResponse
 }

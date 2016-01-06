@@ -1,5 +1,6 @@
-var fork   = require('child_process').fork;
-var Search = require('../models/search');
+var fork    = require('child_process').fork;
+var Search  = require('../models/search');
+
 
 // list of all performed searches
 module.exports.get_searches = function(req, res) {
@@ -14,6 +15,7 @@ module.exports.get_searches = function(req, res) {
   });
 };
 
+
 // get a single search, or redirect to all searches
 module.exports.get_search = function(req, res) {
   Search.findById(req.params.search_id, function(err, search) {
@@ -26,6 +28,7 @@ module.exports.get_search = function(req, res) {
     });
   });
 }
+
 
 // initialize a search
 module.exports.create_search = function(req, res) {

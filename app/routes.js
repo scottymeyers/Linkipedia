@@ -46,6 +46,7 @@ module.exports = function(app) {
     searchController.get_search(req, res);
   });
 
+  // create a search
   app.post('/scrape', function(req, res) {
     searchController.create_search(req, res);
   });
