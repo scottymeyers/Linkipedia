@@ -2,8 +2,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var _       = require('underscore-node');
 
-const START = process.argv[2];
-const TERM  = process.argv[3];
+var start = process.argv[2];
+var term = process.argv[3];
 
 var id       = 2;
 var parentId = 1;
@@ -11,7 +11,7 @@ var urls     = [];
 
 // make first request, dont include on tests...
 if ('test' !== process.env.NODE_ENV) {
-  makeRequest('https://en.wikipedia.org/wiki/' + START, init);
+  makeRequest('https://en.wikipedia.org/wiki/' + start, init);
 }
 
 
@@ -61,13 +61,13 @@ function collectUrls(res, html, url){
 
 
 function searchForTerm(url, $){
-  const EXACT = process.argv[4];
+  var exact = process.argv[4];
   var nextUrl;
   var searchTerm;
 
   // e.g. skateboard not 'skateboard'ing
-  if (EXACT === 'true') {
-    searchTerm = new RegExp('\\b'+ TERM +'\\b', 'gi');
+  if (exact === 'true') {
+    searchTerm = new RegExp('\\b'+ term +'\\b', 'gi');
   } else {
     searchTerm = new RegExp(TERM, 'gi');
   }
@@ -121,7 +121,7 @@ function saveAndSendResponse(url){
   }
 
   // then include the end term
-  result.push({href: TERM, parent: result[result.length - 1].id });
+  result.push({href: term, parent: result[result.length - 1].id });
 
   var searchStrings = searchStringsArr();
 
@@ -179,7 +179,7 @@ function saveAndSendResponse(url){
     var finalUrl = _.findWhere(urlsCopy, { href: url.replace('https://en.wikipedia.org', '') });
 
     // and add our end term as its child
-    _.extend(finalUrl, { children: [{ href: TERM }] });
+    _.extend(finalUrl, { children: [{ href: term }] });
 
     return urlsCopy[0];
   }
