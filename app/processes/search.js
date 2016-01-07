@@ -2,17 +2,17 @@ var cheerio = require('cheerio');
 var request = require('request');
 var _       = require('underscore-node');
 
-var start    = process.argv[2];
-var term     = process.argv[3];
-var exact    = process.argv[4];
+const START = process.argv[2];
+const TERM  = process.argv[3];
+const EXACT = process.argv[4];
+
 var id       = 2;
 var parentId = 1;
 var urls     = [];
 
-
 // make first request, dont include on tests...
 if ('test' !== process.env.NODE_ENV) {
-  makeRequest('https://en.wikipedia.org/wiki/' + start, init);
+  makeRequest('https://en.wikipedia.org/wiki/' + START, init);
 }
 
 
@@ -62,13 +62,14 @@ function collectUrls(response, html, url){
 
 
 function searchForTerm(url, $){
-  var nextUrl, searchTerm;
+  var nextUrl;
+  var searchTerm;
 
   // e.g. skateboard not 'skateboard'ing
-  if (exact === 'true') {
-    searchTerm = new RegExp('\\b'+ term +'\\b', 'gi');
+  if (EXACT === 'true') {
+    searchTerm = new RegExp('\\b'+ TERM +'\\b', 'gi');
   } else {
-    searchTerm = new RegExp(term, 'gi');
+    searchTerm = new RegExp(TERM, 'gi');
   }
 
   if ($('#bodyContent').text().match(searchTerm)) {
@@ -105,9 +106,7 @@ function saveAndSendResponse(url){
 
   var updatedUrls = sendUrlsForVisualization(urls);
 
-  // - - - - - - - - - - - - - - - - - - - - - - - -
   // store the lineage w/ parent/child relationship
-  // - - - - - - - - - - - - - - - - - - - - - - - -
   var result = [];
 
   // store the final URL which contained our search term
@@ -122,7 +121,7 @@ function saveAndSendResponse(url){
   }
 
   // then include the end term
-  result.push({href: term, parent: result[result.length - 1].id });
+  result.push({href: TERM, parent: result[result.length - 1].id });
 
   var searchStrings = searchStringsArr();
 
@@ -139,7 +138,6 @@ function saveAndSendResponse(url){
     }
   }
 
-
   // return results
   process.send({
     body: searchStrings,
@@ -148,9 +146,7 @@ function saveAndSendResponse(url){
     urls: updatedUrls
   });
 
-  // - - - - - - - - - - - - - - - - - - - - - -
   // count how many levels we searched
-  // - - - - - - - - - - - - - - - - - - - - - -
   function searchStringsArr(){
     var searchStrings = [];
 
@@ -161,13 +157,10 @@ function saveAndSendResponse(url){
     return searchStrings;
   }
 
-  // - - - - - - - - - - - - - - - - - - - -
-  // send URLs w/ parent/children hierarchy,
-  // for D3 collapsible tree
-  // - - - - - - - - - - - - - - - - - - - -
+  // send URLs w/ parent/children hierarchy > D3 Tree
   function sendUrlsForVisualization(arr){
-    var urlsCopy = _.map(arr, _.clone),
-        i = urlsCopy.length;
+    var urlsCopy = _.map(arr, _.clone);
+    var i = urlsCopy.length;
 
     // remove all items except the first
     while (i--) {
@@ -186,12 +179,13 @@ function saveAndSendResponse(url){
     var finalUrl = _.findWhere(urlsCopy, { href: url.replace('https://en.wikipedia.org', '') });
 
     // and add our end term as its child
-    _.extend(finalUrl, { children: [{ href: term }] });
+    _.extend(finalUrl, { children: [{ href: TERM }] });
 
     return urlsCopy[0];
   }
 }
 
+// export for testing
 module.exports = {
   init: init,
   makeRequest: makeRequest,

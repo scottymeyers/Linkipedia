@@ -1,4 +1,0 @@
-~ review mongoose errors, send an error response
-~ change history to searches
-~ open up multiple child processes
-~ kill child processes on request close

@@ -20,7 +20,7 @@ $(function(){
       'exact' : $('input[name="exact"]').is(':checked')
 		};
 
-    $('#results').hide().empty();
+    $('.results').hide().empty();
 
     $('body').addClass('loading');
 
@@ -57,7 +57,7 @@ function doPoll(data){
 
           if (result.error) {
             console.log(result.error);
-            $('#results')
+            $('.results')
               .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
           } else {
             visualize(result);
@@ -86,9 +86,9 @@ function visualize(json){
       .projection(function(d) { return [d.y, d.x]; });
 
   $('body').removeClass('loading');
-  $('#results').show();
+  $('.results').show();
 
-  var svg = d3.select("#results").append("svg")
+  var svg = d3.select(".results").append("svg")
       .attr("width", width + margin.right + margin.left)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -221,7 +221,7 @@ function visualize(json){
       items.push(response.href);
     }
 
-    $('#results').prepend('<p class="details">Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
+    $('.results').prepend('<p class="details">Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
   });
 }
 

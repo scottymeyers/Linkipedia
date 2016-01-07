@@ -2,6 +2,7 @@
 var auth       = require('http-auth');
 var bodyParser = require('body-parser');
 var config     = require('./app/config');
+var jade       = require('jade');
 var mongoose   = require('mongoose');
 var path       = require('path');
 var express    = require('express');
