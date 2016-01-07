@@ -1,5 +1,5 @@
 {
-  "name": "node-wiki-scrape",
+  "name": "node-linkipedia",
   "version": "0.0.1",
   "description": "Find connections in wikipedia",
   "main": "server.js",
