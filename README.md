@@ -9,7 +9,7 @@ mkdir linkipedia && cd linkipedia
 
 Clone the repo and install the dependencies
 ```
-clone git@github.com:Scottmey/linkipedia.git && npm install
+git clone git@github.com:Scottmey/linkipedia.git . && npm install
 ```
 
 Start node
