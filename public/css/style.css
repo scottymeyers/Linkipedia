@@ -118,6 +118,10 @@ fieldset::before {
     width: 100%;
 }
 
+label {
+  display: inline;
+}
+
 label em {
     color: #258AD8;
     font-size: 13px;

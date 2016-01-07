@@ -33,13 +33,13 @@ if ('production' == app.get('env')) {
 }
 
 /*
-  1. parse application/x-www-form-urlencoded
-  2. parse application/json
-  3. 1 hour timeout
-  4. use jade
-  5. set /views for views
-  7. set /public for assets
-  8. listen
+  ~ parse application/x-www-form-urlencoded
+  ~ parse application/json
+  ~ 1 hour timeout
+  ~ use jade
+  ~ set /views for views
+  ~ set /public for assets
+  ~ listen
 */
 
 app.use(bodyParser.urlencoded({ extended: true }));

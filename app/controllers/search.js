@@ -2,7 +2,8 @@ var fork   = require('child_process').fork;
 var Search = require('../models/search');
 
 // return all searches
-module.exports.get_searches = function(req, res) {
+module.exports.getSearches = function(req, res) {
+
   // grab all records
   Search.find({}, function(err, searches) {
     if (err)
@@ -17,7 +18,7 @@ module.exports.get_searches = function(req, res) {
 };
 
 // return a single search
-module.exports.get_search = function(req, res) {
+module.exports.getSearch = function(req, res) {
   // grab record by ID
   Search.findById(req.params.search_id, function(err, search) {
     // return to all searches if record doesnt exist
@@ -33,7 +34,7 @@ module.exports.get_search = function(req, res) {
 }
 
 // initialize a search
-module.exports.create_search = function(req, res) {
+module.exports.createSearch = function(req, res) {
   var data = [req.body.start, req.body.end, req.body.exact];
   var childProcess = fork(appRoot +'/app/processes/search.js', data);
   var searchId;

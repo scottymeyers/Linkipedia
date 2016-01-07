@@ -37,17 +37,17 @@ module.exports = function(app) {
 
   // history of searches
   app.get('/history', function(req, res) {
-    searchController.get_searches(req, res);
+    searchController.getSearches(req, res);
   });
 
   // a single history item:
   app.get('/history/:search_id', function(req, res) {
-    searchController.get_search(req, res);
+    searchController.getSearch(req, res);
   });
 
   // create a search
   app.post('/scrape', function(req, res) {
-    searchController.create_search(req, res);
+    searchController.createSearch(req, res);
   });
 
   // fallback

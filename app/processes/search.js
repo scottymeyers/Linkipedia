@@ -4,7 +4,6 @@ var _       = require('underscore-node');
 
 const START = process.argv[2];
 const TERM  = process.argv[3];
-const EXACT = process.argv[4];
 
 var id       = 2;
 var parentId = 1;
@@ -41,7 +40,7 @@ function makeRequest(url, callback){
 
 
 // takes a HTTP response and grab all internal links
-function collectUrls(response, html, url){
+function collectUrls(res, html, url){
   var $ = cheerio.load(html);
 
   // select all internal article urls
@@ -62,6 +61,7 @@ function collectUrls(response, html, url){
 
 
 function searchForTerm(url, $){
+  const EXACT = process.argv[4];
   var nextUrl;
   var searchTerm;
 
