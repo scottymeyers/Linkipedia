@@ -1,10 +1,8 @@
 process.env.NODE_ENV = 'test';
 
-var app      = require('../server');
 var chai     = require('chai');
 var chaiHttp = require('chai-http');
 var scrape   = require('../app/processes/search');
-var Search   = require("../app/models/search");
 var should   = chai.should();
 
 describe('Search Process', function() {

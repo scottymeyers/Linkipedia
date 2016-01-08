@@ -1,7 +1,5 @@
 var config = {};
 
-// using mongolab on heroku for prod
-
 config.mongoURI = {
   development: 'mongodb://localhost/wiki',
   production:  process.env.MONGOLAB_URI,

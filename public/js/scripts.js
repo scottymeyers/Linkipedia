@@ -1,10 +1,13 @@
 $(function(){
-  // table filtering on history
-  if ( $('#history').length ) {
-    new Tablesort(document.getElementById('history'), {});
+
+  // table filtering
+  if ( $('.history').length ) {
+    Tablesort(document.getElementsByClassName('history')[0], {
+      descending: true
+    });
   }
 
-  // foundation (forms)
+  // foundation forms
 	$(document).foundation();
 
   // reset button
@@ -12,7 +15,7 @@ $(function(){
     location.reload();
   });
 
-  // form submit
+  // searrch form submit
 	$('#search').on('valid.fndtn.abide', function() {
 		var formData = {
 		  'start' : $('input[name="start"]').val(),
@@ -20,7 +23,9 @@ $(function(){
       'exact' : $('input[name="exact"]').is(':checked')
 		};
 
-    $('.results').hide().empty();
+    $('.results')
+      .hide()
+      .empty();
 
     $('body').addClass('loading');
 
@@ -35,15 +40,15 @@ $(function(){
       doPoll(data);
     });
   });
-});
 
-
-(function(){
+  // history single view
   if ($('.single').length) {
     visualize(search);
   }
-})();
+});
 
+
+// check db for completed search record
 function doPoll(data){
   var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
@@ -69,7 +74,7 @@ function doPoll(data){
 }
 
 function visualize(json){
-  var response, item, items = [];
+  var response, items = [];
 
   var margin = {top: 20, right: 120, bottom: 20, left: 120},
       width = 960 - margin.right - margin.left,
