@@ -8,6 +8,8 @@ var path       = require('path');
 var express    = require('express');
 var app        = express();
 
+console.log('!' + app.settings.env );
+
 // mongoose =============================================
 mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
   if(err)
