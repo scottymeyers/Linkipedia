@@ -7,15 +7,15 @@ $(function(){
     });
   }
 
-  // foundation forms
+  // use foundation forms
 	$(document).foundation();
 
-  // reset button
+  // form reset button
   $('.reset').on('click', function(){
     location.reload();
   });
 
-  // searrch form submit
+  // search form submit -> foundation abide
 	$('#search').on('valid.fndtn.abide', function() {
 		var formData = {
 		  'start' : $('input[name="start"]').val(),
@@ -23,12 +23,15 @@ $(function(){
       'exact' : $('input[name="exact"]').is(':checked')
 		};
 
+    // clear previous results
     $('.results')
       .hide()
       .empty();
 
+    // loading adjusts cursor, etc.
     $('body').addClass('loading');
 
+    // poll for response
     $.ajax({
       type        : 'POST',
       url         : '/scrape',
@@ -41,14 +44,13 @@ $(function(){
     });
   });
 
-  // history single view
+  // create collapsible tree for previously searched item
   if ($('.single').length) {
     visualize(search);
   }
 });
 
-
-// check db for completed search record
+// poll until search resource is successfully created
 function doPoll(data){
   var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
@@ -73,6 +75,7 @@ function doPoll(data){
   }
 }
 
+// collapsible tree
 function visualize(json){
   var response, items = [];
 
