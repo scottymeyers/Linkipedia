@@ -86,45 +86,38 @@ function searchForTerm(url, $){
   }
 }
 
-// 1. remove unsearched urls from urls array,
-// 2. then remove searched property from each url,
-// 3. and send to visualization function.
 function saveAndSendResponse(url){
-  var i = urls.length;
 
-  while (i--) {
-    if (urls[i].searched === false) {
-      urls.splice(i, 1);
-    } else {
-      delete urls[i].searched;
-    }
-  }
+  // remove unsearched urls
+  var searchedUrls = urls.filter(function(url){
+    return url.searched === true;
+  });
 
-  var updatedUrls = sendUrlsForVisualization(urls);
+  // visualize
+  var updatedUrls = sendUrlsForVisualization(searchedUrls);
 
-  // store the lineage w/ parent/child relationship
+  // create array for visualization
   var result = [];
 
   // store the final URL which contained our search term
-  result.push(_.findWhere(urls, { href: url.replace('https://en.wikipedia.org', '') }));
+  result.push(_.findWhere(searchedUrls, { href: url.replace('https://en.wikipedia.org', '') }));
 
   // trace back to start term, prepend array with each parent
   while (result[0].parent > 0) {
-    var parent = _.findWhere(urls, { id: result[0].parent });
+    var parent = _.findWhere(searchedUrls, { id: result[0].parent });
 
-    // place each parent at front of array
     result.unshift(parent);
   }
 
-  // then include the end term
+  // the search term
   result.push({href: TERM, parent: result[result.length - 1].id });
 
-  var searchStrings = searchStringsArr();
-
-  // count items in results
-  var i = result.length;
+  // saves titles for sequence
+  var titles = titleArray();
 
   // remove all items except the first
+  var i = result.length;
+
   while (i--) {
     if (result[i].parent !== 0) {
       var parent = _.findWhere(result, { id: result[i].parent });
@@ -136,21 +129,19 @@ function saveAndSendResponse(url){
 
   // return results
   process.send({
-    body: searchStrings,
-    depth: searchStrings.length,
-    pages_searched: urls.length,
+    body: titles,
+    depth: titles.length,
+    pages_searched: searchedUrls.length,
     urls: updatedUrls
   });
 
-  // count how many levels we searched
-  function searchStringsArr(){
-    var searchStrings = [];
+  // preserve searched article titles/permalinks
+  function titleArray(){
+    var titles = result.map(function(item) {
+      return item.href;
+    });
 
-    for (var i = 0; i < result.length; i++){
-      searchStrings.push(result[i].href);
-    }
-
-    return searchStrings;
+    return titles;
   }
 
   // send URLs w/ parent/children hierarchy > D3 Tree
