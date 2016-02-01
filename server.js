@@ -1,5 +1,4 @@
 // set up ===============================================
-var auth       = require('http-auth');
 var bodyParser = require('body-parser');
 var config     = require('./app/config');
 var jade       = require('jade');
@@ -21,16 +20,6 @@ app.locals.moment = require('moment');
 
 // globals ==============================================
 global.appRoot = path.resolve(__dirname);
-
-// protect on production ================================
-if ('production' == app.get('env')) {
-  var basic = auth.basic({
-      realm: "Private",
-      file: appRoot + "/data/users.htpasswd"
-  });
-
-  app.use(auth.connect(basic));
-}
 
 /*
   ~ parse application/x-www-form-urlencoded
