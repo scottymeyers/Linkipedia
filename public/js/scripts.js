@@ -1,79 +1,77 @@
 $(function(){
+    // table filtering
+    if ( $('.history').length ) {
+        Tablesort(document.getElementsByClassName('history')[0], {
+            descending: true
+        });
+    }
 
-  // table filtering
-  if ( $('.history').length ) {
-    Tablesort(document.getElementsByClassName('history')[0], {
-      descending: true
-    });
-  }
-
-  // use foundation forms
+    // use foundation forms
 	$(document).foundation();
 
-  // form reset button
-  $('.reset').on('click', function(){
-    location.reload();
-  });
-
-  // search form submit -> foundation abide
-	$('#search').on('valid.fndtn.abide', function() {
-		var formData = {
-		  'start' : $('input[name="start"]').val(),
-			'end'   : $('input[name="end"]').val(),
-      'exact' : $('input[name="exact"]').is(':checked')
-		};
-
-    // clear previous results
-    $('.results')
-      .hide()
-      .empty();
-
-    // loading adjusts cursor, etc.
-    $('body').addClass('loading');
-
-    // poll for response
-    $.ajax({
-      type        : 'POST',
-      url         : '/scrape',
-      data        : formData,
-      dataType    : 'json',
-      encode      : true
-    })
-    .done(function(data) {
-      doPoll(data);
+    // form reset button
+    $('.reset').on('click', function(){
+        location.reload();
     });
-  });
 
-  // create collapsible tree for previously searched item
-  if ($('.single').length) {
-    visualize(search);
-  }
+    // search form submit -> foundation abide
+	$('#search').on('valid.fndtn.abide', function() {
+	    var formData = {
+		    'start' : $('input[name="start"]').val(),
+		    'end'   : $('input[name="end"]').val(),
+            'exact' : $('input[name="exact"]').is(':checked')
+	    };
+
+        // clear previous results
+        $('.results').hide().empty();
+
+        // loading adjusts cursor, etc.
+        $('body').addClass('loading');
+
+        // poll for response
+        $.ajax({
+            type        : 'POST',
+            url         : '/scrape',
+            data        : formData,
+            dataType    : 'json',
+            encode      : true
+        })
+        .done(function(data) {
+            doPoll(data);
+        });
+    });
+
+    // create collapsible tree for previously searched item
+    if ($('.single').length) {
+        visualize(search);
+    }
 });
 
 // poll until search resource is successfully created
 function doPoll(data){
-  var timerForLoadingResult = setInterval(checkServerForFile, 2500);
+    var timerForLoadingResult = setInterval(checkServerForFile, 2500);
 
-  function checkServerForFile() {
-    $.ajax({
-      type: 'GET',
-      url: '/api/searches/' + data.id,
-      success: function (result) {
-        if (result.pending === false) {
-          clearTimeout(timerForLoadingResult);
+    function checkServerForFile() {
+        $.ajax({
+            type: 'GET',
+            url: '/api/searches/' + data.id,
+            success: function (result) {
+                if (result.pending === false) {
+                    clearTimeout(timerForLoadingResult);
 
-          if (result.error) {
-            console.log(result.error);
-            $('.results')
-              .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
-          } else {
-            visualize(result);
-          }
-        }
-      }
-    });
-  }
+                    if (result.error) {
+                        console.log(result.error);
+                        $('.results')
+                            .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
+                    } else {
+                        visualize(result);
+                    }
+                }
+            }
+        });
+    }
 }
+
 
 // collapsible tree
 function visualize(json){
@@ -233,54 +231,55 @@ function visualize(json){
   });
 }
 
+
 // tablesort.number.js
 (function(){
-  var cleanNumber = function(i) {
-    return i.replace(/[^\-?0-9.]/g, '');
-  },
+    var cleanNumber = function(i) {
+        return i.replace(/[^\-?0-9.]/g, '');
+    },
+    compareNumber = function(a, b) {
+        a = parseFloat(a);
+        b = parseFloat(b);
 
-  compareNumber = function(a, b) {
-    a = parseFloat(a);
-    b = parseFloat(b);
+        a = isNaN(a) ? 0 : a;
+        b = isNaN(b) ? 0 : b;
 
-    a = isNaN(a) ? 0 : a;
-    b = isNaN(b) ? 0 : b;
+        return a - b;
+    };
 
-    return a - b;
-  };
+    Tablesort.extend('number', function(item) {
+        return item.match(/^-?[£\x24Û¢´€]?\d+\s*([,\.]\d{0,2})/) || // Prefixed currency
+            item.match(/^-?\d+\s*([,\.]\d{0,2})?[£\x24Û¢´€]/) || // Suffixed currency
+            item.match(/^-?(\d)*-?([,\.]){0,1}-?(\d)+([E,e][\-+][\d]+)?%?$/); // Number
+    }, function(a, b) {
+        a = cleanNumber(a);
+        b = cleanNumber(b);
 
-  Tablesort.extend('number', function(item) {
-    return item.match(/^-?[£\x24Û¢´€]?\d+\s*([,\.]\d{0,2})/) || // Prefixed currency
-      item.match(/^-?\d+\s*([,\.]\d{0,2})?[£\x24Û¢´€]/) || // Suffixed currency
-      item.match(/^-?(\d)*-?([,\.]){0,1}-?(\d)+([E,e][\-+][\d]+)?%?$/); // Number
-  }, function(a, b) {
-    a = cleanNumber(a);
-    b = cleanNumber(b);
-
-    return compareNumber(b, a);
-  });
+        return compareNumber(b, a);
+    });
 }());
+
 
 // Basic dates in dd/mm/yy or dd-mm-yy format.
 // Years can be 4 digits. Days and Months can be 1 or 2 digits.
 (function(){
-  var parseDate = function(date) {
-    date = date.replace(/\-/g, '/');
-    date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
+    var parseDate = function(date) {
+        date = date.replace(/\-/g, '/');
+        date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
 
-    return new Date(date).getTime() || -1;
-  };
+        return new Date(date).getTime() || -1;
+    };
 
-  Tablesort.extend('date', function(item) {
-    return (
-      item.search(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*/i) !== -1 ||
-      item.search(/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/) !== -1 ||
-      item.search(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i) !== -1
-    ) && !isNaN(parseDate(item));
-  }, function(a, b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
+    Tablesort.extend('date', function(item) {
+        return (
+            item.search(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*/i) !== -1 ||
+            item.search(/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/) !== -1 ||
+            item.search(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i) !== -1
+        ) && !isNaN(parseDate(item));
+    }, function(a, b) {
+        a = a.toLowerCase();
+        b = b.toLowerCase();
 
-    return parseDate(b) - parseDate(a);
+        return parseDate(b) - parseDate(a);
   });
 }());
