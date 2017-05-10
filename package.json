@@ -1,14 +1,18 @@
 {
-  "name": "node-linkipedia",
-  "version": "0.0.1",
-  "description": "Find connections in wikipedia",
-  "main": "server.js",
+  "name": "linkipedia",
+  "version": "1.0.0",
+  "description": "Find connections between wikipedia items",
+  "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
-  "author": "romeo",
+  "keywords": [],
+  "author": "Scott Meyers",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.17.1",
     "cheerio": "latest",
     "connect-timeout": "^1.7.0",
     "express": "latest",
