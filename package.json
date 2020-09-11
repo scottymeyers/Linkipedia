@@ -19,7 +19,7 @@
     "http-auth": "^2.2.8",
     "jade": "^1.11.0",
     "moment": "^2.10.6",
-    "mongoose": "^5.7.7",
+    "mongoose": ">=5.7.5"
     "request": "latest",
     "underscore-node": "^0.1.2"
   },
