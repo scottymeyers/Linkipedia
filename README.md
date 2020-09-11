@@ -6,17 +6,17 @@ You'll need node and mongoDB setup locally.
 ### SETUP:
 
 
-Clone the repo and install the dependencies
+Clone the repo and install the dependencies:
 ```
 git clone git@github.com:Scottmey/linkipedia.git && cd linkipedia && npm install
 ```
 
-Start Mongo in a new terminal tab.
+Start Mongo:
 ```
 mongod
 ```
 
-Start node
+Start node:
 ```
 node server.js
 ```
