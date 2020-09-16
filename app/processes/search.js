@@ -5,9 +5,9 @@ const _ = require('underscore-node');
 const START = process.argv[2];
 const TERM  = process.argv[3];
 
-let id       = 2;
+let id = 2;
 let parentId = 1;
-let urls     = [];
+let urls = [];
 
 // make request, then fire suplied callback on response.
 const makeRequest = (url, callback) => {
@@ -102,16 +102,13 @@ const saveAndSendResponse = (url) => {
     const finalUrl = _.findWhere(urlsCopy, { href: url.replace('https://en.wikipedia.org', '') });
     // and add our end term as its child
     _.extend(finalUrl, { children: [{ href: TERM }] });
-
     return urlsCopy[0];
   };
 
   // visualize
   const updatedUrls = sendUrlsForVisualization(searchedUrls);
-
   // create array for visualization
   let result = [];
-
   // store the final URL which contained our search term
   result.push(_.findWhere(searchedUrls, { href: url.replace('https://en.wikipedia.org', '') }));
 
@@ -123,11 +120,9 @@ const saveAndSendResponse = (url) => {
 
   // the search term
   result.push({href: TERM, parent: result[result.length - 1].id });
-
   // preserve searched article titles/permalinks
   // saves titles for sequence
   const titles = result.map((item) => item.href);
-
   // remove all items except the first
   let i = result.length;
 
