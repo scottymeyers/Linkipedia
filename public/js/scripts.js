@@ -1,81 +1,74 @@
-$(function(){
-    // table filtering
-    if ( $('.history').length ) {
-        Tablesort(document.getElementsByClassName('history')[0], {
-            descending: true
-        });
-    }
+$(function() {
+  // table filtering
+  if ( $('.history').length ) {
+    Tablesort(document.getElementsByClassName('history')[0], {
+      descending: true
+    });
+  }
 
-    // use foundation forms
+  // use foundation forms
 	$(document).foundation();
 
-    // form reset button
-    $('.reset').on('click', function(){
-        location.reload();
-    });
+  // form reset button
+  $('.reset').on('click', function() {
+    location.reload();
+  });
 
-    // search form submit -> foundation abide
+  // search form submit -> foundation abide
 	$('#search').on('valid.fndtn.abide', function() {
-	    var formData = {
-		    'start' : $('input[name="start"]').val(),
-		    'end'   : $('input[name="end"]').val(),
-            'exact' : $('input[name="exact"]').is(':checked')
-	    };
+    const formData = {
+      'start': $('input[name="start"]').val(),
+      'end': $('input[name="end"]').val(),
+      'exact': $('input[name="exact"]').is(':checked')
+    };
+    // clear previous results
+    $('.results').hide().empty();
+    // loading adjusts cursor, etc.
+    $('body').addClass('loading');
 
-        // clear previous results
-        $('.results').hide().empty();
-
-        // loading adjusts cursor, etc.
-        $('body').addClass('loading');
-
-        // poll for response
-        $.ajax({
-            type        : 'POST',
-            url         : '/scrape',
-            data        : formData,
-            dataType    : 'json',
-            encode      : true
-        })
-        .done(function(data) {
-            console.log('?');
-            doPoll(data);
-        });
+    // poll for response
+    $.ajax({
+      type: 'POST',
+      url: '/scrape',
+      data: formData,
+      dataType: 'json',
+      encode: true
+    })
+    .done(function(data) {
+      doPoll(data);
     });
-
-    // create collapsible tree for previously searched item
-    if ($('.single').length) {
-        visualize(search);
-    }
+  });
+  // create collapsible tree for previously searched item
+  if ($('.single').length) {
+    visualize(search);
+  }
 });
 
 // poll until search resource is successfully created
-function doPoll(data){
-    var timerForLoadingResult = setInterval(checkServerForFile, 2500);
-
-    function checkServerForFile() {
-        $.ajax({
-            type: 'GET',
-            url: '/api/searches/' + data.id,
-            success: function (result) {
-                if (result.pending === false) {
-                    clearTimeout(timerForLoadingResult);
-
-                    if (result.error) {
-                        console.log(result.error);
-                        $('.results')
-                            .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
-                    } else {
-                        visualize(result);
-                    }
-                }
-            }
-        });
-    }
+function doPoll(data) {
+  var timerForLoadingResult = setInterval(checkServerForFile, 2500);
+  function checkServerForFile() {
+    $.ajax({
+      type: 'GET',
+      url: '/api/searches/' + data.id,
+      success: function (result) {
+        if (result.pending === false) {
+          clearTimeout(timerForLoadingResult);
+          if (result.error) {
+            console.log(result.error);
+            $('.results')
+                .append('<span class="error">There was an error, check your terms and try again. ('+ result.error +')</span>');
+          } else {
+            visualize(result);
+          }
+        }
+      }
+    });
+  }
 }
 
-
 // collapsible tree
-function visualize(json){
+function visualize(json) {
     var response, items = [];
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
@@ -96,20 +89,20 @@ function visualize(json){
     $('.results').show();
 
     var svg = d3.select(".results").append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("width", width + margin.right + margin.left)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     root.x0 = height / 2;
     root.y0 = 0;
 
     function collapse(d) {
-        if (d.children) {
-            d._children = d.children;
-            d._children.forEach(collapse);
-            d.children = null;
-        }
+      if (d.children) {
+        d._children = d.children;
+        d._children.forEach(collapse);
+        d.children = null;
+      }
     }
 
     root.children.forEach(collapse);
@@ -203,84 +196,77 @@ function visualize(json){
         });
     }
 
-    // Toggle children on click.
-    function click(d) {
-        if (d.children) {
-            d._children = d.children;
-            d.children = null;
-        } else {
-            d.children = d._children;
-            d._children = null;
-        }
+  // Toggle children on click.
+  function click(d) {
+    if (d.children) {
+      d._children = d.children;
+      d.children = null;
+    } else {
+      d.children = d._children;
+      d._children = null;
+    }
+    update(d);
+  }
 
-        update(d);
+  $.get( json.result, function( data ) {
+    response = data[0];
+
+    while (response.hasOwnProperty('children')) {
+      items.push(response.href);
+      response = response.children[0];
     }
 
-    $.get( json.result, function( data ) {
-        response = data[0];
+    if (response.href) {
+      items.push(response.href);
+    }
 
-        while (response.hasOwnProperty('children')){
-            items.push(response.href);
-            response = response.children[0];
-        }
-
-        if (response.href) {
-            items.push(response.href);
-        }
-
-        $('.results').prepend('<p class="details">Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
-    });
+    $('.results')
+      .prepend('<p class="details">Pages Searched: <em>'+ json.pages_searched +'</em> | Depth: <em>'+ json.depth +'</em></p><ul></ul>');
+  });
 }
 
-
 // tablesort.number.js
-(function(){
-    var cleanNumber = function(i) {
-        return i.replace(/[^\-?0-9.]/g, '');
-    },
-    compareNumber = function(a, b) {
-        a = parseFloat(a);
-        b = parseFloat(b);
+(function() {
+  var cleanNumber = function(i) {
+    return i.replace(/[^\-?0-9.]/g, '');
+  },
+  compareNumber = function(a, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
+    a = isNaN(a) ? 0 : a;
+    b = isNaN(b) ? 0 : b;
+    return a - b;
+  };
 
-        a = isNaN(a) ? 0 : a;
-        b = isNaN(b) ? 0 : b;
-
-        return a - b;
-    };
-
-    Tablesort.extend('number', function(item) {
-        return item.match(/^-?[£\x24Û¢´€]?\d+\s*([,\.]\d{0,2})/) || // Prefixed currency
-            item.match(/^-?\d+\s*([,\.]\d{0,2})?[£\x24Û¢´€]/) || // Suffixed currency
-            item.match(/^-?(\d)*-?([,\.]){0,1}-?(\d)+([E,e][\-+][\d]+)?%?$/); // Number
-    }, function(a, b) {
-        a = cleanNumber(a);
-        b = cleanNumber(b);
-
-        return compareNumber(b, a);
-    });
+  Tablesort.extend('number', function(item) {
+    return item.match(/^-?[£\x24Û¢´€]?\d+\s*([,\.]\d{0,2})/) || // Prefixed currency
+      item.match(/^-?\d+\s*([,\.]\d{0,2})?[£\x24Û¢´€]/) || // Suffixed currency
+      item.match(/^-?(\d)*-?([,\.]){0,1}-?(\d)+([E,e][\-+][\d]+)?%?$/); // Number
+  }, function(a, b) {
+    a = cleanNumber(a);
+    b = cleanNumber(b);
+    return compareNumber(b, a);
+  });
 }());
-
 
 // Basic dates in dd/mm/yy or dd-mm-yy format.
 // Years can be 4 digits. Days and Months can be 1 or 2 digits.
-(function(){
-    var parseDate = function(date) {
-        date = date.replace(/\-/g, '/');
-        date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
+(function() {
+  var parseDate = function(date) {
+    date = date.replace(/\-/g, '/');
+    date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/, '$1/$2/$3'); // format before getTime
+    return new Date(date).getTime() || -1;
+  };
 
-        return new Date(date).getTime() || -1;
-    };
-
-    Tablesort.extend('date', function(item) {
-        return (
-            item.search(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*/i) !== -1 ||
-            item.search(/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/) !== -1 ||
-            item.search(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i) !== -1
-        ) && !isNaN(parseDate(item));
-    }, function(a, b) {
-        a = a.toLowerCase();
-        b = b.toLowerCase();
-
-        return parseDate(b) - parseDate(a);
+  Tablesort.extend('date', function(item) {
+    return (
+      item.search(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*/i) !== -1 ||
+      item.search(/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/) !== -1 ||
+      item.search(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i) !== -1
+    ) && !isNaN(parseDate(item));
+  }, function(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return parseDate(b) - parseDate(a);
   });
 }());

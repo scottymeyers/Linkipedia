@@ -1,79 +1,17 @@
-var fork   = require('child_process').fork;
-var Search = require('../models/search');
+const fork = require('child_process').fork;
 
-// return all searches
-module.exports.getSearches = function(req, res) {
+module.exports.createSearch = (req) => {
+  const data = [req.body.start, req.body.end, req.body.exact];
+  const childProcess = fork('app/processes/search.js', data);
 
-    // grab all records
-    Search.find({}, function(err, searches) {
-        if (err)
-            res.send(err);
-
-        // render the history view
-        res.render('history', {
-            path: req.path,
-            searches: searches
-        });
-    });
-};
-
-// return a single search
-module.exports.getSearch = function(req, res) {
-    // grab record by ID
-    Search.findById(req.params.search_id, function(err, search) {
-        // return to all searches if record doesnt exist
-        if (err)
-            res.redirect('/history');
-
-        // render the single view
-        res.render('single', {
-            path: req.path,
-            search: search
-        });
-    });
-}
-
-// initialize a search
-module.exports.createSearch = function(req, res) {
-    var data = [req.body.start, req.body.end, req.body.exact];
-    var childProcess = fork('app/processes/search.js', data);
-    var searchId;
-
-    // send response from child process
-    childProcess.on('message', function(m){
-
-        // create a temp object
-        if (m.initial) {
-            // create temp object in db
-            var search = new Search({
-                body: 'null',
-                depth: 0,
-                pages_searched: 0,
-                pending: true,
-                urls: {}
-            });
-
-            // save temp object to DB
-            search.save(function(err){
-                if (err) throw err;
-
-                // save temp search object in dbs id
-                searchId = search.id;
-
-                res.send({
-                    id: searchId,
-                    status: 'Searching'
-                });
-            });
-        } else {
-            Search.findById(searchId, function(err, search){
-                search.body           = m.body;
-                search.depth          = m.depth;
-                search.pages_searched = m.pages_searched;
-                search.pending        = false;
-                search.urls           = m.urls;
-                search.save();
-            });
-        }
-    });
+  // send response from child process
+  childProcess.on('message', (m) => {
+    if (!m.initial) {
+      console.log( 'body', m.body,
+        'depth', m.depth,
+        'pages_searched', m.pages_searched,
+        'urls', m.urls,
+      );
+    }
+  });
 };
