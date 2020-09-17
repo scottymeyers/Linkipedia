@@ -1,14 +1,15 @@
 # linkipedia
 Find connections between two terms in Wikipedia.
 
-### Setup:
 
-Clone the repo and install the dependencies
+### SETUP:
+
+Clone the repo and install the dependencies:
 ```
-git clone git@github.com:Scottmey/linkipedia.git . && npm install
+git clone git@github.com:Scottmey/linkipedia.git && cd linkipedia && npm install
 ```
 
-Start node
+Start node:
 ```
 node server.js
 ```
