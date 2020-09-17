@@ -17,21 +17,23 @@ const handleForm = (event) => {
     end: document.querySelector('[name="end"]').value,
     exact: document.querySelector('[name="exact"]').checked
   };
+
   console.log(formData);
+
   document.querySelector('.results').style.display = 'none';
   document.querySelector('body').classList.add('loading');
 
-  // poll for response
-  $.ajax({
-    type: 'POST',
-    url: '/scrape',
-    data: formData,
-    dataType: 'json',
-    encode: true
-  })
-  .done(function(data) {
-    console.log(data);
+  fetch('/scrape', {
+    body: JSON.stringify(formData),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+  }).then(res => {
+    console.log('Request complete! response:', res);
   });
+
 };
 
 searchForm.addEventListener('submit', handleForm);
