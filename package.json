@@ -20,7 +20,6 @@
     "connect-timeout": "^1.7.0",
     "express": "latest",
     "http-auth": "^2.2.8",
-    "jade": "^1.11.0",
     "moment": "^2.10.6",
     "request": "latest",
     "socket.io": "^2.3.0",
