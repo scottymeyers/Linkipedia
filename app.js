@@ -11,12 +11,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+app.set('socketio', io);
+
 io.sockets.on('connection', (socket) => {
   console.log('Someone connected to me, hooray!');
   socket.emit('status', { message: "EHLO OK Connected" });
 
   // sending a message back to the client
-  socket.emit('connected', { message: 'Thanks for connecting!' });
+  socket.emit('connected', { message: 'Connected to Linkipedia' });
 
   // listening for messages from the client
   socket.on('message', (message) => {
@@ -24,6 +26,6 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
-require('./app/routes')(app);
+require('./app/routes')(app, io);
 
 server.listen(process.env.PORT || 3000);

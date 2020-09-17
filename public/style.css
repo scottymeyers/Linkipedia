@@ -42,30 +42,41 @@ main {
   width: 100%;
 }
 
-.results {
-  background: #E4F0FD;
+td, th {
   border: 1px solid #258AD8;
+  text-align: left;
+  background: white;
+}
+
+tr {
+  width: 100%;
+}
+
+tr td:nth-child(1),
+tr td:nth-child(2) {
+  width: 10%;
+}
+
+tr td:nth-child(3) {
+  width: 80%;
+}
+
+table {
+  background: #E4F0FD;
+  border-collapse: collapse;
   display: none;
   margin-bottom: 50px;
-  font-size: 14px;
-  line-height: 28px;
-  text-align: center;
+  width: 100%;
+}
+
+tr td:fist-child {
+  width: 10%;
 }
 
 header a {
   display: block;
   transition: all .5s ease;
   width: 160px;
-}
-
-hr {
-  border-width: 0;
-  height: 20px;
-  margin-top: 0;
-}
-
-.h1 {
-  margin: 20px 0 0;
 }
 
 svg {
@@ -127,12 +138,12 @@ button {
 }
 
 button[type='reset'] {
-  background: url('../img/search-reset.png') no-repeat center;
+  background: white url('../img/search-reset.png') no-repeat center;
   background-size: 80%;
 }
 
 button[type='submit'] {
-  background: url('../img/search.png') no-repeat center;
+  background: white url('../img/search.png') no-repeat center;
   background-size: 80%;
 }
 
