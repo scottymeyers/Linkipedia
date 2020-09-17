@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "eslint app/",
     "start": "node app.js",
-    "start:dev": "nodemon app.js",
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "start:dev": "nodemon app.js"
   },
   "keywords": [],
   "license": "ISC",
