@@ -1,0 +1,162 @@
+body {
+  background: #F2F7FF;
+  font-family: monospace;
+  padding-top: 40px;
+}
+
+body.loading {
+  cursor: wait;
+}
+
+body.loading .logo {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 30000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 30000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 30000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-transition: rotate(3600deg);
+}
+
+body.loading .loader {
+  display: inline-block;
+}
+
+body.loading button.submit {
+  display: none;
+}
+
+a {
+  color: #258AD8;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #258AD8;
+  text-align: left;
+  background: white;
+}
+
+tr {
+  width: 100%;
+}
+
+tr td:nth-child(1),
+tr td:nth-child(2) {
+  width: 10%;
+}
+
+tr td:nth-child(3) {
+  width: 80%;
+}
+
+table {
+  background: #E4F0FD;
+  border-collapse: collapse;
+  display: none;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+tr td:fist-child {
+  width: 10%;
+}
+
+header a {
+  display: block;
+  transition: all .5s ease;
+  width: 160px;
+}
+
+svg {
+  border-color: #258AD8;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  margin: 1.125rem 0;
+  padding: 1.25rem;
+  background: rgba(37, 138, 216, 0.07);
+  border-color: #258AD8;
+  border-top: none;
+  margin-top: 50px;
+  position: relative;
+}
+
+fieldset::before {
+  background-image: url('../img/bookshelf.png');
+  background-size: 40px auto;
+  content: '';
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: -20px;
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+label em {
+  color: #258AD8;
+}
+
+input[type='checkbox'] {
+  margin-left: 10px;
+}
+
+input[type='text'] {
+  border: 1px solid;
+  height: 30px;
+  width: 100%;
+}
+
+.loader {
+  background: url('../img/loading.gif') no-repeat center;
+  display: none;
+  height: 30px;
+  width: 30px;
+}
+
+button {
+  border: 1px solid;
+  height: 30px;
+  text-indent: -9999px;
+  width: 30px;
+}
+
+button[type='reset'] {
+  background: white url('../img/search-reset.png') no-repeat center;
+  background-size: 80%;
+}
+
+button[type='submit'] {
+  background: white url('../img/search.png') no-repeat center;
+  background-size: 80%;
+}
+
+.flex {
+  align-items: flex-start;
+  display: flex;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

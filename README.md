@@ -1,19 +1,12 @@
 # linkipedia
 Find connections between two terms in Wikipedia.
 
-You'll need node and mongoDB setup locally.
 
 ### SETUP:
-
 
 Clone the repo and install the dependencies:
 ```
 git clone git@github.com:Scottmey/linkipedia.git && cd linkipedia && npm install
-```
-
-Start Mongo:
-```
-mongod
 ```
 
 Start node:

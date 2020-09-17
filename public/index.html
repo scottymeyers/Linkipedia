@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Linkipedia</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="/" title="Linkipedia">
+          <img src="/img/logo.png" alt="Wikipedia Lineage" class="logo" width="160" />
+        </a>
+        <h1>Linkipedia</h1>
+      </header>
+      <div>
+        <div>
+          <p>
+            The goal is to find a connection between two terms in
+            <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>.
+          </p>
+          <p>
+            Begin by supplying two terms, we'll initiate the search on the article
+            page for your <b>start</b> term, if it exists.
+          </p>
+          <p>
+            We'll then scan that article page for your <b>end</b> term. If not
+            found, we'll then scan all of the linked articles, and so on until a
+            connection is finally reached.
+          </p>
+          <p>This could take some time...</p>
+          <form id="search">
+            <fieldset>
+              <div class="flex" style="justify-content: space-between">
+                <div style="width: 45%">
+                  <label for="start">Start</label>
+                  <input name="start" type="text" required pattern="[a-zA-Z]+" />
+                </div>
+                <div style="width: 45%">
+                  <label for="end">End</label>
+                  <input name="end" type="text" required pattern="[a-zA-Z]+" />
+                </div>
+              </div>
+              <div>
+                <label>
+                  Exact Word
+                  <em>('skate' vs 'skate'board)</em>
+                  <input name="exact" type="checkbox" value="true" checked />
+                </label>
+                <div class="flex" style="margin-top: 30px;">
+                  <span class="loader" style="margin-right: 10px;"></span>
+                  <button type="reset" style="margin-right: 10px;">reset</button>
+                  <button type="submit">submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <table class="results">
+        <tr>
+          <th>id</th>
+          <th>parentId</th>
+          <th>url</th>
+        </tr>
+      </table>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

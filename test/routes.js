@@ -1,18 +1,18 @@
 process.env.NODE_ENV = 'test';
 
-var app      = require('../server');
-var chai     = require('chai');
-var chaiHttp = require('chai-http');
-var expect   = require('chai').expect;
-var Search   = require("../app/models/search");
-var should   = chai.should();
+const app = require('../app');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const expect = require('chai').expect;
+const Search = require("../app/models/search");
+const should = chai.should();
 
 // id of newely created search
 var searchId = '';
 
 chai.use(chaiHttp);
 
-describe('Routes', function() {
+describe('Routes', () => {
 
   describe('Home', function() {
     it('should render and show html', function(done){

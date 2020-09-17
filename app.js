@@ -1,29 +1,31 @@
 const bodyParser = require('body-parser');
-const config     = require('./app/config');
-const jade       = require('jade');
-const mongoose   = require('mongoose');
-const path       = require('path');
-const express    = require('express');
+const express = require('express');
 
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
 
-// mongoose =============================================
-mongoose.Promise = global.Promise;
-mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
-    if(err)
-        console.log('Error connecting to the database. ' + err);
-});
-
-// configuration ========================================
 app.locals.moment = require('moment');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'jade');
-app.set('views', './app/views');
 app.use(express.static('public'));
 
-// routes ===============================================
-require('./app/routes')(app);
+app.set('socketio', io);
 
-exports = module.exports = app;
+io.sockets.on('connection', (socket) => {
+  console.log('Someone connected to me, hooray!');
+  socket.emit('status', { message: "EHLO OK Connected" });
+
+  // sending a message back to the client
+  socket.emit('connected', { message: 'Connected to Linkipedia' });
+
+  // listening for messages from the client
+  socket.on('message', (message) => {
+    console.log(message);
+  });
+});
+
+require('./app/routes')(app, io);
+
+server.listen(process.env.PORT || 3000);
