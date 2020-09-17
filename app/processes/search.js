@@ -25,10 +25,7 @@ const init = (res) => {
   process.send({ initial: true });
 };
 
-// make first request, dont include on tests...
-if ('test' !== process.env.NODE_ENV) {
-  makeRequest('https://en.wikipedia.org/wiki/' + START, init);
-}
+makeRequest('https://en.wikipedia.org/wiki/' + START, init);
 
 // takes a HTTP response and grab all internal links
 const collectUrls = (res, html, url) => {
