@@ -11,7 +11,7 @@ git clone git@github.com:Scottmey/linkipedia.git && cd linkipedia && npm install
 
 Start node:
 ```
-node server.js
+node app.js
 ```
 
 ## Screenshots:

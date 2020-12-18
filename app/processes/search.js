@@ -12,7 +12,7 @@ let urls = [];
 // make request, then fire suplied callback on response.
 const makeRequest = (url, callback) => {
   console.log('> ' + url);
-  request(url, function(error, res, html){
+  request(url, (error, res, html) => {
     if (error) res.send({ error: error });
     callback(res, html, url);
   });
@@ -32,15 +32,13 @@ const collectUrls = (res, html, url) => {
   const $ = cheerio.load(html);
   // select all internal article urls
   $('#bodyContent a[href^="/wiki/"]').each(function(){
-    // not already added to urls arr & exclude media files
+    // hat haven't already been added (exclude media files)
     if (_.where(urls, { href: $(this).attr('href') }).length <= 0 && $(this).attr('href').indexOf(':') === -1) {
       // save to urls arr
       urls.push({'id': id++, 'parent': parentId, 'href': $(this).attr('href'), 'searched': false });
     }
   });
-  // increment the parent ID
   parentId++;
-  // then look for our search term
   searchForTerm(url, $, res);
 };
 
@@ -57,7 +55,6 @@ const searchForTerm = (url, $, res) => {
   }
 
   if ($('#bodyContent').text().match(searchTerm)) {
-    // send the url which the term was found on
     saveAndSendResponse(url);
   } else {
     // otherwise, find first saved unsearched URL
@@ -72,78 +69,40 @@ const searchForTerm = (url, $, res) => {
   }
 };
 
+/** url: the url which the term was found on */
 const saveAndSendResponse = (url) => {
-  // remove unsearched urls
   const searchedUrls = urls.filter((url) => url.searched === true);
 
-  // send URLs w/ parent/children hierarchy > D3 Tree
-  const sendUrlsForVisualization = (arr) => {
-    const urlsCopy = _.map(arr, _.clone);
-    let i = urlsCopy.length;
+  let results = [];
+  results.push(_.findWhere(searchedUrls, { href: url.replace('https://en.wikipedia.org', '') }));
 
-    console.log('!', urlsCopy);
-
-    // remove all items except the first
-    while (i--) {
-      if (urlsCopy[i].id !== 1) {
-        var parent = _.findWhere(urlsCopy, { id: urlsCopy[i].parent });
-        if ( _.has(parent, 'children') ) {
-          parent.children.push(urlsCopy[i]);
-        } else {
-          _.extend(parent, { children: [urlsCopy[i]] });
-        }
-      }
-    }
-
-    // find our URL which contains the end term
-    const finalUrl = _.findWhere(urlsCopy, { href: url.replace('https://en.wikipedia.org', '') });
-    // and add our end term as its child
-    _.extend(finalUrl, { children: [{ href: TERM }] });
-    return urlsCopy[0];
-  };
-
-  // visualize
-  const updatedUrls = sendUrlsForVisualization(searchedUrls);
-  // create array for visualization
-  let result = [];
-  // store the final URL which contained our search term
-  result.push(_.findWhere(searchedUrls, { href: url.replace('https://en.wikipedia.org', '') }));
-
-  // trace back to start term, prepend array with each parent
-  while (result[0].parent > 0) {
-    let parent = _.findWhere(searchedUrls, { id: result[0].parent });
-    result.unshift(parent);
+  while (results[0].parent > 0) {
+    let parent = _.findWhere(searchedUrls, { id: results[0].parent });
+    results.unshift(parent);
   }
 
-  // the search term
-  result.push({href: TERM, parent: result[result.length - 1].id });
-  // preserve searched article titles/permalinks
-  // saves titles for sequence
-  const titles = result.map((item) => item.href);
-  // remove all items except the first
-  let i = result.length;
+  results.push({ href: TERM, parent: results[results.length - 1].id });
+  const titles = results.map((item) => item.href);
+  let i = results.length;
 
   while (i--) {
-    if (result[i].parent !== 0) {
-      const parent = _.findWhere(result, { id: result[i].parent });
-      _.extend(parent, { children: [result[i]] });
-      result.splice(i, 1);
+    if (results[i].parent !== 0) {
+      const parent = _.findWhere(results, { id: results[i].parent });
+      _.extend(parent, { children: [results[i]] });
+      results.splice(i, 1);
     }
   }
 
-  // return results
   process.send({
     body: titles,
     depth: titles.length,
     pages_searched: searchedUrls.length,
-    urls: updatedUrls
+    urls: searchedUrls,
   });
 };
 
 module.exports = {
-  init: init,
-  makeRequest,
   collectUrls,
-  searchForTerm,
+  makeRequest,
   saveAndSendResponse,
 };

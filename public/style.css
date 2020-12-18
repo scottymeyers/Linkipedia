@@ -61,10 +61,13 @@ tr td:nth-child(3) {
   width: 80%;
 }
 
+.results {
+  display: none;
+}
+
 table {
   background: #E4F0FD;
   border-collapse: collapse;
-  display: none;
   margin-bottom: 50px;
   width: 100%;
 }
