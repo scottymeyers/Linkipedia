@@ -7,14 +7,13 @@
   "description": "Find connections between wikipedia items",
   "main": "app.js",
   "scripts": {
-    "lint": "eslint app/",
     "start": "node app.js",
     "start:dev": "nodemon app.js"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.19.0",
     "cheerio": "latest",
     "connect-timeout": "^1.7.0",
     "express": "latest",
@@ -28,9 +27,9 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-http": "^4.3.0",
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-prettier": "3.1.4",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "mocha": "^8.2.1",
     "prettier": "2.1.2"
   },
