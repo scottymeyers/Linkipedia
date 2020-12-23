@@ -1,108 +1,54 @@
 const cheerio = require('cheerio');
-const request = require('request');
-const _ = require('underscore-node');
+const { default: PQueue } = require('p-queue');
+const fetch = require('node-fetch');
 
 const START = process.argv[2];
 const TERM  = process.argv[3];
+const EXACT = process.argv[4];
 
-let id = 2;
-let parentId = 1;
-let urls = [];
+let id = 0;
+const urls = [];
 
-// make request, then fire suplied callback on response.
-const makeRequest = (url, callback) => {
-  console.log('> ' + url);
-  request(url, (error, res, html) => {
-    if (error) res.send({ error: error });
-    callback(res, html, url);
+const queue = new PQueue({ concurrency: 1 });
+
+const addToQueue = async (url, parentId) => {
+	await queue.add(() => {
+    fetch(url)
+    .then(res => res.text())
+    .then(html => {
+      if (!html) return;
+      console.log(`searching: ${url}`);
+      const $ = cheerio.load(html);
+      const term = EXACT ? new RegExp('\\b'+ TERM +'\\b', 'gi') : new RegExp(TERM, 'gi');
+      const found = $('#bodyContent').text().match(term);
+
+      urls.push({
+        id: id++,
+        parent: parentId,
+        href: url,
+      });
+
+      if (found) {
+        saveAndSendResponse(url);
+      } else {
+        $('#bodyContent a').each((_, value) => {
+          const href = $(value).attr('href');
+          if (href && href.startsWith('/wiki/')) {
+            addToQueue(`https://en.wikipedia.org${href}`, parentId + 1);
+          }
+        });
+      }
+    })
+    .catch((e) => console.log('error', e));
   });
 };
 
-// uses res.request.uri.path in case of redirect, blue > Blue.
-const init = (res) => {
-  urls = [{ id: 1, parent: 0, href: res.request.uri.path, searched: true }];
-  makeRequest(res.request.uri.href, collectUrls);
-  process.send({ initial: true });
-};
+addToQueue(`https://en.wikipedia.org/wiki/${START}`, 0);
 
-makeRequest('https://en.wikipedia.org/wiki/' + START, init);
+queue.onEmpty(() => console.log('EMPTY!'));
 
-// takes a HTTP response and grab all internal links
-const collectUrls = (res, html, url) => {
-  const $ = cheerio.load(html);
-  // select all internal article urls
-  $('#bodyContent a[href^="/wiki/"]').each(function(){
-    // hat haven't already been added (exclude media files)
-    if (_.where(urls, { href: $(this).attr('href') }).length <= 0 && $(this).attr('href').indexOf(':') === -1) {
-      // save to urls arr
-      urls.push({'id': id++, 'parent': parentId, 'href': $(this).attr('href'), 'searched': false });
-    }
-  });
-  parentId++;
-  searchForTerm(url, $, res);
-};
-
-const searchForTerm = (url, $, res) => {
-  const exact = process.argv[4];
-  let nextUrl;
-  let searchTerm;
-
-  // e.g. skateboard not 'skateboard'ing
-  if (exact === 'true') {
-    searchTerm = new RegExp('\\b'+ TERM +'\\b', 'gi');
-  } else {
-    searchTerm = new RegExp(TERM, 'gi');
-  }
-
-  if ($('#bodyContent').text().match(searchTerm)) {
-    saveAndSendResponse(url);
-  } else {
-    // otherwise, find first saved unsearched URL
-    nextUrl = _.findWhere(urls, {searched: false});
-    // if all URLs have been searched
-    if (urls.length <= 1 || !nextUrl) {
-      res.send({ error: 'No remaining URLs.' });
-    } else {
-      nextUrl.searched = true;
-      makeRequest('https://en.wikipedia.org' + nextUrl.href, collectUrls);
-    }
-  }
-};
-
-/** url: the url which the term was found on */
 const saveAndSendResponse = (url) => {
-  const searchedUrls = urls.filter((url) => url.searched === true);
-
-  let results = [];
-  results.push(_.findWhere(searchedUrls, { href: url.replace('https://en.wikipedia.org', '') }));
-
-  while (results[0].parent > 0) {
-    let parent = _.findWhere(searchedUrls, { id: results[0].parent });
-    results.unshift(parent);
-  }
-
-  results.push({ href: TERM, parent: results[results.length - 1].id });
-  const titles = results.map((item) => item.href);
-  let i = results.length;
-
-  while (i--) {
-    if (results[i].parent !== 0) {
-      const parent = _.findWhere(results, { id: results[i].parent });
-      _.extend(parent, { children: [results[i]] });
-      results.splice(i, 1);
-    }
-  }
-
-  process.send({
-    body: titles,
-    depth: titles.length,
-    pages_searched: searchedUrls.length,
-    urls: searchedUrls,
-  });
-};
-
-module.exports = {
-  collectUrls,
-  makeRequest,
-  saveAndSendResponse,
+  console.log('FOUND!', url);
+  const u = [...urls];
+  process.send({ urls: u });
 };

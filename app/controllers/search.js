@@ -6,18 +6,25 @@ module.exports.createSearch = (req, res) => {
   const childProcess = fork('app/processes/search.js', data);
 
   childProcess.on('message', (m) => {
-    if (!m.initial) {
-      socketio.emit('results', {
+    if (m.error) {
+      return socketio.emit('error', {
         results: {
-          body: m.body,
-          depth: m.depth,
-          pages_searched: m.pages_searched,
-          urls: m.urls,
-        }
+          error: m.error,
+        },
       });
-    } else {
-      // send a response immediately communicating that search has begun and update UI accordingly
-      res.json({ status: 'searching' });
+    }
+
+    if (m.urls) {
+      childProcess.kill();
+      return socketio.emit('results', {
+        results: {
+          urls: m.urls,
+        },
+      });
+    }
+
+    if (m.initial) {
+      return res.json({ status: 'searching' });
     }
   });
 };

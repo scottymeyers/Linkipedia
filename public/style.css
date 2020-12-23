@@ -65,6 +65,10 @@ tr td:nth-child(3) {
   display: none;
 }
 
+.error {
+  color: red;
+}
+
 table {
   background: #E4F0FD;
   border-collapse: collapse;
