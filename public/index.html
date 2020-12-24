@@ -15,22 +15,18 @@
         </a>
         <h1>Linkipedia</h1>
       </header>
-      <div>
+      <section>
         <div>
           <p>
-            The goal is to find a connection between two terms in
+            Find a connection between two terms in
             <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>.
           </p>
           <p>
-            Begin by supplying two terms, we'll initiate the search on the article
-            page for your <b>start</b> term, if it exists.
-          </p>
-          <p>
-            We'll then scan that article page for your <b>end</b> term. If not
-            found, we'll then scan all of the linked articles, and so on until a
-            connection is finally reached.
+            Supply two terms, we'll start searching for the <b>end</b> term on the <b>start</b> terms page, and if not found, continue searching through internal pages it links to. 
           </p>
           <p>This could take some time...</p>
+          <p class="errors"></p>
+          <p class="messages"></p>
           <form id="search">
             <fieldset>
               <div class="flex" style="justify-content: space-between">
@@ -58,8 +54,8 @@
             </fieldset>
           </form>
         </div>
-      </div>
-      <div class="results">
+      </section>
+      <section class="results">
         <table>
           <tr>
             <th>id</th>
@@ -67,7 +63,7 @@
             <th>url</th>
           </tr>
         </table>
-      </div>
+      </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="scripts.js"></script>

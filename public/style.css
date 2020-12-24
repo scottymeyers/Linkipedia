@@ -65,6 +65,17 @@ tr td:nth-child(3) {
   display: none;
 }
 
+.error {
+  border: 1px solid red;
+  color: red;
+  padding: 10px;
+}
+
+.messages {
+  border: 1px solid black;
+  padding: 10px;
+}
+
 table {
   background: #E4F0FD;
   border-collapse: collapse;

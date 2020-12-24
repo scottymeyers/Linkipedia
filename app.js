@@ -14,16 +14,8 @@ app.use(express.static('public'));
 app.set('socketio', io);
 
 io.sockets.on('connection', (socket) => {
-  console.log('Someone connected to me, hooray!');
-  socket.emit('status', { message: "EHLO OK Connected" });
-
-  // sending a message back to the client
-  socket.emit('connected', { message: 'Connected to Linkipedia' });
-
-  // listening for messages from the client
-  socket.on('message', (message) => {
-    console.log(message);
-  });
+  socket.emit('message', { message: 'Connected' });
+  socket.on('message', (message) => console.log(message));
 });
 
 require('./app/routes')(app, io);
