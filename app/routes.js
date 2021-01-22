@@ -1,4 +1,4 @@
-const fork = require('child_process').fork;
+const { fork } = require('child_process');
 
 const initializeCrawl = (req) => {
   const socketio = req.app.get('socketio');
@@ -15,15 +15,15 @@ const initializeCrawl = (req) => {
     }
     if (m.message) {
       return socketio.emit('message', {
-        message: m.message
+        message: m.message,
       });
     }
     if (m.urls) {
       childProcess.kill();
       return socketio.emit('results', {
         results: {
-          urls: m.urls
-        }
+          urls: m.urls,
+        },
       });
     }
     return null;
