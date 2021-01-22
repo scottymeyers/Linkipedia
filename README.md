@@ -6,7 +6,7 @@ Find connections between two terms in Wikipedia.
 
 Clone the repo and install the dependencies:
 ```
-git clone git@github.com:Scottmey/linkipedia.git && cd linkipedia && yarn && yarn start
+git clone git@github.com:scottymeyers/Linkipedia.git && cd linkipedia && yarn && yarn start
 ```
 
 ## Screenshots:
