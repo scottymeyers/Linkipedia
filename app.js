@@ -16,7 +16,7 @@ app.set('socketio', io);
 
 io.sockets.on('connection', (socket) => {
   socket.emit('message', { message: 'Connected' });
-  socket.on('message', (message) => console.log(message));
+  // socket.on('message', (message) => console.log(message));
 });
 
 require('./app/routes')(app, io);

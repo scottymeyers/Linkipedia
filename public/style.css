@@ -9,19 +9,7 @@ body.loading {
 }
 
 body.loading .logo {
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 30000ms;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: spin;
-  -moz-animation-duration: 30000ms;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
-  -ms-animation-name: spin;
-  -ms-animation-duration: 30000ms;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-timing-function: linear;
-  -o-transition: rotate(3600deg);
+  animation: spin 30000ms linear infinite;
 }
 
 body.loading .loader {
@@ -61,14 +49,14 @@ tr td:nth-child(3) {
   width: 80%;
 }
 
-.results {
-  display: none;
-}
-
 .error {
   border: 1px solid red;
   color: red;
   padding: 10px;
+}
+
+.loader {
+  margin-right: 10px;
 }
 
 .messages {
@@ -154,6 +142,7 @@ button {
 button[type='reset'] {
   background: white url('../img/search-reset.png') no-repeat center;
   background-size: 80%;
+  margin-right: 10px;
 }
 
 button[type='submit'] {

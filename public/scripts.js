@@ -1,7 +1,14 @@
+/* eslint-disable no-console, no-undef */
 const documentBody = document.querySelector('body');
-const resultsEl = document.querySelector('.results');
 const searchForm = document.getElementById('search');
+
 const table = document.querySelector('table');
+const tbody = document.querySelector('table tbody');
+
+const applyStyles = (loading) => {
+  documentBody.classList.toggle('loading', loading);
+  table.parentNode.style.display = loading ? 'none' : 'block';
+};
 
 const setError = (error) => {
   const errorsEl = document.querySelector('.errors');
@@ -19,15 +26,16 @@ const setMessage = (message) => {
   }
 };
 
-const setResults = (data) => {
-  resultsEl.style.display = 'block';
-  const { urls } = data.results;
-  urls.forEach((url) => {
-    if (!url) return;
+const setResults = (results) => {
+  table.parentNode.style.display = 'block';
+  const { urls } = results;
+  urls.map((url) => {
+    if (!url) return null;
     const newRow = table.insertRow();
     newRow.insertCell(0).innerHTML = url.id;
     newRow.insertCell(1).innerHTML = url.parentId !== 0 ? url.parentId : '';
     newRow.insertCell(2).innerHTML = `<a href='${url.href}' target="_blank">${url.href.replace('https://en.wikipedia.org', '')}</a>`;
+    return newRow;
   });
 };
 
@@ -38,8 +46,13 @@ const handleForm = (event) => {
     end: document.querySelector('[name="end"]').value,
     exact: document.querySelector('[name="exact"]').checked,
   };
-  resultsEl.style.display = 'none';
-  documentBody.classList.add('loading');
+  applyStyles(true);
+
+  // clears table
+  while (tbody.children.length > 1) {
+    tbody.removeChild(tbody.lastChild);
+  }
+
   setError(null);
   setMessage(null);
   fetch('/crawl', {
@@ -58,7 +71,9 @@ searchForm.addEventListener('submit', handleForm);
   socket.on('error', (data) => setError(data.results.error));
   socket.on('message', (data) => setMessage(data.message));
   socket.on('results', (data) => {
-    documentBody.classList.remove('loading');
-    setResults(data);
+    const { message, results } = data;
+    applyStyles(false);
+    setMessage(message);
+    setResults(results);
   });
 })();

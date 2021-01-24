@@ -9,7 +9,7 @@ const EXACT = process.argv[4];
 let id = 1;
 const urls = [];
 
-const queue = new PQueue({ concurrency: 1 });
+const queue = new PQueue({ concurrency: 1, timeout: 5000 });
 
 const addToQueue = async (url, parentId) => {
 	await queue.add(() => {
@@ -17,11 +17,9 @@ const addToQueue = async (url, parentId) => {
     .then(res => res.text())
     .then(html => {
       if (!html) return;
-      process.send({ message: `searching: ${url}` });
       const $ = cheerio.load(html);
       const term = EXACT ? new RegExp('\\b'+ TERM +'\\b', 'gi') : new RegExp(TERM, 'gi');
       const found = $('#bodyContent').text().match(term);
-
       const urlId = id++;
 
       urls.push({
@@ -31,12 +29,20 @@ const addToQueue = async (url, parentId) => {
       });
 
       if (found) {
-        process.send({ message: `found in: ${url}` });
-        process.send({ urls });
+        process.send({
+          message: `Found in: ${url}`,
+          urls,
+          type: 'results',
+        });
+        process.kill();
       } else {
+        process.send({
+          message: `Searching: ${url}`,
+          type: 'message'
+        });
         $('#bodyContent a').each((_, value) => {
           const href = $(value).attr('href');
-          if (href && href.startsWith('/wiki/')) {
+          if (href && href.startsWith('/wiki/') && !href.includes('(identifier)')) {
             addToQueue(`https://en.wikipedia.org${href}`, urlId);
           }
         });

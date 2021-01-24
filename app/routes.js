@@ -6,28 +6,28 @@ const initializeCrawl = (req) => {
   const childProcess = fork('app/crawl.js', data);
 
   childProcess.on('message', ((m) => {
-    if (m.error) {
-      return socketio.emit('error', {
-        results: {
-          error: m.error,
-        },
-      });
+    switch (m.type) {
+      case 'message':
+        return socketio.emit('message', {
+          message: m.message,
+        });
+      case 'results':
+        childProcess.kill();
+        return socketio.emit('results', {
+          message: m.message,
+          results: {
+            urls: m.urls,
+          },
+        });
+      default:
+        // childProcess.kill();
+        return null;
     }
-    if (m.message) {
-      return socketio.emit('message', {
-        message: m.message,
-      });
-    }
-    if (m.urls) {
-      childProcess.kill();
-      return socketio.emit('results', {
-        results: {
-          urls: m.urls,
-        },
-      });
-    }
-    return null;
   }));
+
+  // childProcess.on('disconnect', (() => console.log('disconnect')));
+  // childProcess.on('error', ((m) => console.log('error', m)));
+  // childProcess.on('exit', ((m) => console.log('exit', m)));
 };
 
 module.exports = (app) => {
@@ -39,6 +39,6 @@ module.exports = (app) => {
     next();
   });
   app.get('/', (req, res) => res.render('index', { path: req.path }));
-  app.post('/crawl', (req, res) => initializeCrawl(req, res));
-  app.get('*', (req, res) => res.redirect('/'));
+  app.post('/crawl', (req) => initializeCrawl(req));
+  app.get('*', (_, res) => res.redirect('/'));
 };
