@@ -1,13 +1,20 @@
-/* eslint-disable no-console, no-undef */
+/* eslint-disable no-console */
 const documentBody = document.querySelector('body');
 const searchForm = document.getElementById('search');
 
 const table = document.querySelector('table');
 const tbody = document.querySelector('table tbody');
 
-const applyStyles = (loading) => {
+const setLoadingStyles = (loading) => {
   documentBody.classList.toggle('loading', loading);
   table.parentNode.style.display = loading ? 'none' : 'block';
+
+  // clear table
+  if (loading) {
+    while (tbody.children.length > 1) {
+      tbody.removeChild(tbody.lastChild);
+    }
+  }
 };
 
 const setError = (error) => {
@@ -39,40 +46,35 @@ const setResults = (results) => {
   });
 };
 
-const handleForm = (event) => {
+const getInputValue = (name) => document.querySelector(`[name="${name}"]`).value;
+
+searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = {
-    start: document.querySelector('[name="start"]').value,
-    end: document.querySelector('[name="end"]').value,
-    exact: document.querySelector('[name="exact"]').checked,
+    start: getInputValue('start'),
+    end: getInputValue('end'),
+    exact: getInputValue('exact') === 'true',
   };
-  applyStyles(true);
-
-  // clears table
-  while (tbody.children.length > 1) {
-    tbody.removeChild(tbody.lastChild);
-  }
-
+  setLoadingStyles(true);
   setError(null);
   setMessage(null);
   fetch('/crawl', {
     body: JSON.stringify(formData),
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     method: 'POST',
   }).catch((e) => console.log(`error: ${e}`));
-};
-
-searchForm.addEventListener('submit', handleForm);
+});
 
 (() => {
+  // eslint-disable-next-line no-undef
   const socket = io.connect('http://localhost:3000');
   socket.on('error', (data) => setError(data.results.error));
   socket.on('message', (data) => setMessage(data.message));
   socket.on('results', (data) => {
     const { message, results } = data;
-    applyStyles(false);
+    setLoadingStyles(false);
     setMessage(message);
     setResults(results);
   });
