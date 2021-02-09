@@ -67,7 +67,7 @@ tr td:nth-child(3) {
 table {
   background: #E4F0FD;
   border-collapse: collapse;
-  margin-bottom: 50px;
+  margin: 1.125rem 0;
   width: 100%;
 }
 
@@ -162,4 +162,9 @@ button[type='submit'] {
   to {
     transform: rotate(360deg);
   }
+}
+
+.graph {
+  background: rgba(37, 138, 216, 0.07);
+  border: 1px solid #258AD8;
 }

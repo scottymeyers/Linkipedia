@@ -15,19 +15,17 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cheerio": "latest",
-    "connect-timeout": "^1.7.0",
     "express": "latest",
     "moment": "^2.10.6",
     "node-fetch": "^2.6.1",
     "p-queue": "^6.6.2",
     "socket.io": ">=2.4.0",
-    "socket.io-client": "^2.3.0",
-    "underscore-node": "^0.1.2"
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "eslint": "^7.16.0",
-    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7",
     "prettier": "2.1.2"
   },
   "env": {
