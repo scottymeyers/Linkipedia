@@ -17,7 +17,7 @@
     "cheerio": "latest",
     "express": "latest",
     "moment": "^2.10.6",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "p-queue": "^6.6.2",
     "socket.io": ">=2.4.0",
     "socket.io-client": "^2.3.0"
