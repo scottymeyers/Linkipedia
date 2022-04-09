@@ -16,7 +16,7 @@
     "body-parser": "^1.19.0",
     "cheerio": "latest",
     "express": "latest",
-    "moment": "^2.10.6",
+    "moment": "^2.29.2",
     "node-fetch": "^2.6.1",
     "p-queue": "^6.6.2",
     "socket.io": ">=2.4.0",
